@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lolobot.ru - не будь ботом! Создай свой билд!</title>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="i-ys_rCCr7ub-eZJO84Q4JPbChPLbZ2zXb3lmEo3TEI" />
+    <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
+    <link rel="stylesheet" href="css/my.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/characters.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/masteries.js"></script>
+    <script src="js/runes.js"></script>
+    <script src="js/spells.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/init-action.js"></script>
+    <script src="js/easyTooltip.js"></script>
+    <script src="js/tooltip-items.js"></script>
+    <script src="js/tooltip-masteries.js"></script>
+    <script src="js/tooltip-skills.js"></script>
+    <script src="js/tooltip-spells.js"></script>
+    <script src="js/tooltip-runes.js"></script>
+    <script src="js/bind.js"></script>
+</head>
+<body>
+<script>
+/* Инициализация табов */
+    $(function() {
+        $("#tabs").tabs();
+    });
+</script>
+<div class="container">
+    <div class="row top">
+        <div class="span4">
+            <h1>Lolobot.ru</h1>
+            <small>не будь ботом!</small>
+        </div>
+        <div class="span4">
+            <h1 class="center">League of Legends</h1>
+        </div>
+        <div class="span3">
+            <p>
+            <audio controls>
+                <source src="lol-dubstep.mp3" type="audio/mpeg">
+                <source src="lol-dubstep.ogg" type="audio/ogg; codecs=vorbis">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+            </p>
+        </div>
+    </div>
+    <div id="tabs">
+        <div class="row menu">
+            <div class="span11">
+                <!--Всплывающее окошко-->
+                <div class="modal" id="myModal" style="display: none;">
+                    <div class="modal-header">
+                    <button class="close" data-dismiss="modal">×</button>
+                    <h3>Очистка локального хранилища</h3>
+                    </div>
+                    <div class="modal-body">
+                    <p>Вы точно хотите сбросить все билды по-умолчанию? Восстановить их не получится.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#" class="btn cancel" data-dismiss="modal">Отмена</a>
+                    <a href="#" class="btn btn-primary" onclick="resetBuilds();">Сбросить</a>
+                    </div>
+                </div>
+                <script>$('#myModal').modal('hide');</script>
+                <h5><a class="icon-trash" data-toggle="modal" href="#myModal"></a> Выберите персонажа:</h5>
+                <ul>
+                    <li><a href="#block" onclick="initAhri();">Ahri</a></li>
+                    <li><a href="#block" onclick="initAkali();">Akali</a></li>
+                    <li><a href="#block" onclick="initAlistar();">Alistar</a></li>
+                    <li><a href="#block" onclick="initAmumu();">Amumu</a></li>
+                    <li><a href="#block" onclick="initAnivia();">Anivia</a></li>
+                    <li><a href="#block" onclick="initAnnie();">Annie</a></li>
+                    <li><a href="#block" onclick="initAshe();">Ashe</a></li>
+                    <li><a href="#block" onclick="initBlitzcrank();">Blitzcrank</a></li>
+                    <li><a href="#block" onclick="initBrand();">Brand</a></li>
+                    <li><a href="#block" onclick="initCaitlyn();">Caitlyn</a></li>
+                    <li><a href="#block" onclick="initCassiopeia();">Cassiopeia</a></li>
+                    <li><a href="#block" onclick="initChogath();">Cho'Gath</a></li>
+                    <li><a href="#block" onclick="initCorki();">Corki</a></li>
+                    <li><a href="#block" onclick="initMundo();">Dr. Mundo</a></li>
+                    <li><a href="#block" onclick="initEvelynn();">Evelynn</a></li>
+                    <li><a href="#block" onclick="initEzreal();">Ezreal</a></li>
+                    <li><a href="#block" onclick="initFiddlesticks();">Fiddlesticks</a></li>
+                    <li><a href="#block" onclick="initFiora();">Fiora</a></li>
+                    <li><a href="#block" onclick="initFizz();">Fizz</a></li>
+                    <li><a href="#block" onclick="initGalio();">Galio</a></li>
+                    <li><a href="#block" onclick="initGangplank();">Gangplank</a></li>
+                    <li><a href="#block" onclick="initGaren();">Garen</a></li>
+                    <li><a href="#block" onclick="initGragas();">Gragas</a></li>
+                    <li><a href="#block" onclick="initGraves();">Graves</a></li>
+                    <li><a href="#block" onclick="initHecarim();">Hecarim</a></li>
+                    <li><a href="#block" onclick="initHeimerdinger();">Heimerdinger</a></li>
+                    <li><a href="#block" onclick="initIrelia();">Irelia</a></li>
+                    <li><a href="#block" onclick="initJanna();">Janna</a></li>
+                    <li><a href="#block" onclick="initJarvan();">Jarvan IV</a></li>
+                    <li><a href="#block" onclick="initJax();">Jax</a></li>
+                    <li><a href="#block" onclick="initKarma();">Karma</a></li>
+                    <li><a href="#block" onclick="initKarthus();">Karthus</a></li>
+                    <li><a href="#block" onclick="initKassadin();">Kassadin</a></li>
+                    <li><a href="#block" onclick="initKatarina();">Katarina</a></li>
+                    <li><a href="#block" onclick="initKayle();">Kayle</a></li>
+                    <li><a href="#block" onclick="initKennen();">Kennen</a></li>
+                    <li><a href="#block" onclick="initKogmaw();">Kog'Maw</a></li>
+                    <li><a href="#block" onclick="initLeblanc();">LeBlanc</a></li>
+                    <li><a href="#block" onclick="initLeesin();">Lee Sin</a></li>
+                    <li><a href="#block" onclick="initLeona();">Leona</a></li>
+                    <li><a href="#block" onclick="initLulu();">Lulu</a></li>
+                    <li><a href="#block" onclick="initLux();">Lux</a></li>
+                    <li><a href="#block" onclick="initMalphite();">Malphite</a></li>
+                    <li><a href="#block" onclick="initMalzahar();">Malzahar</a></li>
+                    <li><a href="#block" onclick="initMaokai();">Maokai</a></li>
+                    <li><a href="#block" onclick="initMasteryi();">Master Yi</a></li>
+                    <li><a href="#block" onclick="initMissfortune();">Miss Fortune</a></li>
+                    <li><a href="#block" onclick="initMordekaiser();">Mordekaiser</a></li>
+                    <li><a href="#block" onclick="initMorgana();">Morgana</a></li>
+                    <li><a href="#block" onclick="initNasus();">Nasus</a></li>
+                    <li><a href="#block" onclick="initNautilus();">Nautilus</a></li>
+                    <li><a href="#block" onclick="initNidalee();">Nidalee</a></li>
+                    <li><a href="#block" onclick="initNocturne();">Nocturne</a></li>
+                    <li><a href="#block" onclick="initNunu();">Nunu</a></li>
+                    <li><a href="#block" onclick="initOlaf();">Olaf</a></li>
+                    <li><a href="#block" onclick="initOrianna();">Oriana</a></li>
+                    <li><a href="#block" onclick="initPantheon();">Pantheon</a></li>
+                    <li><a href="#block" onclick="initPoppy();">Poppy</a></li>
+                    <li><a href="#block" onclick="initRammus();">Rammus</a></li>
+                    <li><a href="#block" onclick="initRenekton();">Renekton</a></li>
+                    <li><a href="#block" onclick="initRiven();">Riven</a></li>
+                    <li><a href="#block" onclick="initRumble();">Rumble</a></li>
+                    <li><a href="#block" onclick="initRyze();">Ryze</a></li>
+                    <li><a href="#block" onclick="initSejuani();">Sejuani</a></li>
+                    <li><a href="#block" onclick="initShaco();">Shaco</a></li>
+                    <li><a href="#block" onclick="initShen();">Shen</a></li>
+                    <li><a href="#block" onclick="initShyvana();">Shyvana</a></li>
+                    <li><a href="#block" onclick="initSinged();">Singed</a></li>
+                    <li><a href="#block" onclick="initSion();">Sion</a></li>
+                    <li><a href="#block" onclick="initSivir();">Sivir</a></li>
+                    <li><a href="#block" onclick="initSkarner();">Skarner</a></li>
+                    <li><a href="#block" onclick="initSona();">Sona</a></li>
+                    <li><a href="#block" onclick="initSoraka();">Soraka</a></li>
+                    <li><a href="#block" onclick="initSwain();">Swain</a></li>
+                    <li><a href="#block" onclick="initTalon();">Talon</a></li>
+                    <li><a href="#block" onclick="initTaric();">Taric</a></li>
+                    <li><a href="#block" onclick="initTeemo();">Teemo</a></li>
+                    <li><a href="#block" onclick="initTristana();">Tristana</a></li>
+                    <li><a href="#block" onclick="initTrundle();">Trundle</a></li>
+                    <li><a href="#block" onclick="initTryndamere();">Tryndamere</a></li>
+                    <li><a href="#block" onclick="initTwistedfate();">Twisted Fate</a></li>
+                    <li><a href="#block" onclick="initTwitch();">Twitch</a></li>
+                    <li><a href="#block" onclick="initUdyr();">Udyr</a></li>
+                    <li><a href="#block" onclick="initUrgot();">Urgot</a></li>
+                    <li><a href="#block" onclick="initVayne();">Vayne</a></li>
+                    <li><a href="#block" onclick="initVeigar();">Veigar</a></li>
+                    <li><a href="#block" onclick="initViktor();">Viktor</a></li>
+                    <li><a href="#block" onclick="initVladimir();">Vladimir</a></li>
+                    <li><a href="#block" onclick="initVolibear();">Volibear</a></li>
+                    <li><a href="#block" onclick="initWarwick();">Warwick</a></li>
+                    <li><a href="#block" onclick="initWukong();">Wukong</a></li>
+                    <li><a href="#block" onclick="initXerath();">Xerath</a></li>
+                    <li><a href="#block" onclick="initXin();">Xin Zhao</a></li>
+                    <li><a href="#block" onclick="initYorick();">Yorick</a></li>
+                    <li><a href="#block" onclick="initZiggs();">Ziggs</a></li>
+                    <li><a href="#block" onclick="initZilean();">Zilean</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row character">
+            <div class="span11">
+                <!--Наш главный блок -->
+                <div id="block"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div>
+            Изначально все билды персонажей из топовых гайдов с mobafire, но вы можете создавать свои билды персонажей! <br>
+            Все данные сохраняются в браузере автоматически. Поддержка IE9+, Chrome, Opera, Firefox, Safari последних версий. <br>
+            Понравился наш сервис? Лайкни -
+            <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+            <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        block = $('#block');
+        $('#tabs .menu a').bind('click', function(){
+            $('.character').effect('slide', 800);
+            initTooltip();
+            initItemsAction();
+            initSpellsAction();
+            initSkillsAction();
+            initRunesAction();
+            initMasterAction();
+            initBinds();
+        });
+
+        initAhri();
+        initItemsAction();
+        initSpellsAction();
+        initSkillsAction();
+        initRunesAction();
+        initMasterAction();
+        initBinds();
+    });
+</script>
+<!-- Изменение для github -->
+</body>
+</html>

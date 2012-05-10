@@ -1,0 +1,320 @@
+/* Import font's */
+@import url(http://fonts.googleapis.com/css?family=Averia+Gruesa+Libre);
+/* import styles */
+@import url("bootstrap.css");
+@import url("jquery-ui-1.8.18.custom.css");
+@import url("jquery.ui.tabs.css");
+@import url("normalize.css");
+
+/* Основные стили */
+body {
+    background: url(../img/lolbg.jpg) no-repeat right top #30273A;
+    background-attachment: fixed;
+    color: #fff;
+    font-family: 'Averia Gruesa Libre', cursive;
+    text-shadow: 1px 1px 3px #fff;
+}
+
+.top {
+    text-align: center;
+    text-shadow: 1px 1px 3px #fff;
+    background-color: rgba(48, 39, 58, 0.5);
+    border-radius: 0px 0px 30px 30px;
+    box-shadow: 0px 0px 5px #30273A;
+    padding: 10px 0px;
+    border-top: none;
+    margin: -10px 0px 20px 3px;
+}
+
+.character img {cursor: pointer;}
+.image img {cursor: default;}
+
+small {margin-left: -30px;}
+
+h1 {margin-bottom: 0px; margin-left: -30px;}
+
+.top h5 {margin: 30px 0px 0px 10px !important;}
+
+.menu .span11{
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px #30273A;
+    padding: 0px;
+    background-color: rgba(48, 39, 58, 0.5);
+    width: 895px;
+    padding: 30px 0px;
+    padding-left: 45px;
+}
+
+
+.character .span11{
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px #30273A;
+    padding: 0px;
+    background-color: rgba(48, 39, 58, 0.5);
+    width: 940px;
+}
+
+.menu li {
+    font-size: 10px;
+    width: 89px;
+    text-align: center !important;
+
+}
+
+/* Табы - Меню */
+
+.ui-tabs .ui-tabs-nav li a {
+    float: none;
+    text-align: center;
+}
+
+.ui-tabs-nav {
+    width: 850px;
+}
+
+#tabs {
+    border: none;
+    background: transparent;
+}
+
+#tabs .menu {
+    margin-bottom: 25px;
+}
+
+#tabs .menu  .ui-widget-header {
+    background: transparent;
+}
+
+.menu li.ui-state-active a {
+    outline: none;
+}
+
+.menu h5 {
+    margin: -15px 0px 10px 345px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-radius: 0px;
+}
+
+.character li {
+    list-style-type: none;
+    font-size: 12px;
+}
+
+/* Статы и персонажи  */
+
+.key {float: left;}
+.value {margin-left: 180px;}
+
+.image img {box-shadow: 0px 0px 15px 0px #fff;}
+
+.character .span11 {padding-bottom: 20px;}
+
+.span3 ul {
+    padding-left: 0px;
+    margin-top: 0px;
+}
+
+.span3 ul li {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+.main h4 {margin: 10px 0px -10px 0px !important; text-align: center;}
+.main .center {text-align: center; margin-bottom: 25px;}
+
+/* Скиллы */
+
+.skills {margin-left: -160px; margin-top: 30px; padding-right: 0px; font-size: 12px;}
+.skills img {margin: 5px 10px 5px 25px; vertical-align: top; border: 1px solid #403A59;}
+.skills span.spells img {margin-left: 3px;}
+.skills span.spells {margin-right: 12px;}
+.skills p {margin-top: 0px;}
+.skills p img {vertical-align: bottom;}
+.skills span {float: right; margin-top: -15px;}
+.skills-inner {
+    padding-right: 10px;
+    background: url(../img/skills-bg.png) no-repeat left top;
+}
+
+
+/* Предметы */
+
+.items {margin-top: -15px;}
+.items img {margin: 5px;}
+.placehold {
+    width: 64px !important;
+    height: 64px !important;
+    display: inline-block;
+    background: url(../img/empty.jpg) no-repeat center center !important;
+}
+
+/* Мастерис */
+
+.offensive td, .defense td, .utility td {padding: 3px;}
+.masteries div {margin-top: 20px;}
+
+table th {padding-bottom: 20px;}
+
+table p {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px;
+    font-size: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    display: inline;
+}
+
+table span.amount {background: none; font-size: 16px; padding-left: 10px;}
+
+p.disabled {
+    width: 54px;
+    height: 54px;
+    background: rgba(0, 0, 0, 0.7);
+
+}
+
+/*p.disabled > * {display: none;}*/
+
+.reset-button {
+    margin: 0px 0px 0px 0px;
+    width: 200px !important;
+}
+
+/* РУны */
+
+.runes {text-align: center;}
+.runes img {margin-left: 20px;}
+
+/*  Tooltip - Всплывающие подсказки */
+#easyTooltip {
+	padding:5px 10px;
+	border:1px solid #195fa4;
+	background:#195fa4 url(../img/bg.gif) repeat-x;
+	color:#fff;
+    width:250px;
+    border-radius: 10px;
+    z-index: 50;
+}
+
+#easyTooltip h4, #easyTooltip p {
+	margin:.25em 0;
+}
+
+audio {width: 230px; margin-top: 10px; outline: none;}
+
+/* Интерактивный блок итемов */
+
+.inner-items {
+    position: absolute;
+    margin-left: -400px;
+    margin-top: -110px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 345px;
+    background-color: #000;
+    z-index: 40;
+    height: auto;
+    display: none;
+    box-shadow: 0px 0px 15px 3px #fff;
+    cursor: move;
+}
+
+.inner-items img {
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.items div {display: inline-block;}
+
+.inner-items h3 {text-align: center; margin: 0px 0px 10px 0px;}
+
+.inner-items span {position: absolute; right: 10px; top: 10px; cursor: pointer;}
+
+/* Интерактивный блок спеллов */
+
+.inner-spells {
+    position: absolute;
+    margin-left: 170px !important;
+    margin-top: -40px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 285px;
+    background-color: #000;
+    z-index: 50;
+    height: auto;
+    display: none;
+    box-shadow: 0px 0px 15px 3px #fff;
+    cursor: move;
+}
+
+.inner-spells img {
+    padding: 0px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.items div {display: inline-block;}
+
+.inner-spells h2 {text-align: center; margin: 0px 0px 10px 0px;}
+
+.inner-spells span {position: absolute; right: 10px; top: 20px; cursor: pointer;}
+
+/*Интерактивный блок рун*/
+.inner-runes {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -210px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 345px;
+    background-color: #000;
+    z-index: 50;
+    height: auto;
+    display: none;
+    box-shadow: 0px 0px 15px 3px #fff;
+    cursor: move;
+}
+
+.inner-runes img {
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.inner-runes h3 {text-align: center; margin: 0px 0px 10px 0px;}
+
+.inner-runes span {position: absolute; right: 10px; top: 10px; cursor: pointer;}
+
+.bot .left-bot {float: left;}
+
+/* Футер */
+.footer {
+    text-align: center;
+    text-shadow: none;
+    background-color: rgba(48, 39, 58, 0.5);
+    border-radius: 30px 30px 0px 0px;
+    box-shadow: 0px 0px 5px #30273A;
+    padding: 15px 40px;
+    border-top: none;
+    margin: 20px 0px 0px 3px;
+}
+
+.yashare-auto-init {display: inline-block;}
+
+.icon-trash {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/*Всплывающее окошко*/
+#myModal,
+a.cancel {
+    color: #000;
+}

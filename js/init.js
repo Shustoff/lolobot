@@ -1,4 +1,4 @@
-/* Инициализация персонажей */
+/* Инициализация всех персонажей */
 
 function initAhri() {
     var out = initMain(Characters.ahri, Images.ahri, Items.sorcerersShoes, Items.rylaisCrystalScepter, Items.willOfTheAncients, Items.rabadonsDeathcap, Items.morellosEvilTome, Items.voidStaff);

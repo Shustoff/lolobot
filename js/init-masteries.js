@@ -1,13 +1,14 @@
 // Реализация логики мастерис
-function initBinds() {
+function initMasteries() {
 
     // Реализация логики для 1й таблицы Offensive
     $("table.offensive img").each(function(){
         $(this).click(function(){
-            var lvl = $(this).siblings('p').find('.arguments');
-            var argument = parseInt($(this).siblings('p').find('.arguments').text());
-            var limit = parseInt($(this).siblings('p').find('.limit').text());
-            var amount1 = parseInt($('table.offensive .amount').text());
+
+            var lvl = $(this).siblings('p').find('.arguments'),
+                argument = parseInt($(this).siblings('p').find('.arguments').text()),
+                limit = parseInt($(this).siblings('p').find('.limit').text()),
+                amount1 = parseInt($('table.offensive .amount').text());
 
             if (limit > argument) {
                 $(lvl).text(argument + 1);
@@ -41,11 +42,13 @@ function initBinds() {
 
     // Реализация логики для 2й таблицы Defense
     $("table.defense img").each(function(){
-        $(this).click(function(){
-            var lvl = $(this).siblings('p').find('.arguments');
-            var argument = parseInt($(this).siblings('p').find('.arguments').text());
-            var limit = parseInt($(this).siblings('p').find('.limit').text());
-            var amount2 = parseInt($('table.defense .amount').text());
+        $(this).click(function() {
+
+            var lvl = $(this).siblings('p').find('.arguments'),
+                argument = parseInt($(this).siblings('p').find('.arguments').text()),
+                limit = parseInt($(this).siblings('p').find('.limit').text()),
+                amount2 = parseInt($('table.defense .amount').text()),
+                $skill = $('p#27');
 
             if (limit > argument) {
                 $(lvl).text(argument += 1);
@@ -72,11 +75,11 @@ function initBinds() {
 
             if ((amount2 < 8))
             {
-                $('p#27').addClass('disabled');
+                $skill.addClass('disabled');
             } else if (parseInt($('#21').text()) < 2) {
-                $('p#27').addClass('disabled');
+                $skill.addClass('disabled');
             } else {
-                $('p#27').removeClass('disabled');
+                $skill.removeClass('disabled');
             }
             parseInt($('#22').text()) < 4 ? $('p#25').addClass('disabled') : $('p#25').removeClass('disabled');
 
@@ -86,10 +89,11 @@ function initBinds() {
     // Реализация логики для 3й таблицы Utility
     $("table.utility img").each(function(){
         $(this).click(function(){
-            var lvl = $(this).siblings('p').find('.arguments');
-            var argument = parseInt($(this).siblings('p').find('.arguments').text());
-            var limit = parseInt($(this).siblings('p').find('.limit').text());
-            var amount3 = parseInt($('table.utility .amount').text());
+
+            var lvl = $(this).siblings('p').find('.arguments'),
+                argument = parseInt($(this).siblings('p').find('.arguments').text()),
+                limit = parseInt($(this).siblings('p').find('.limit').text()),
+                amount3 = parseInt($('table.utility .amount').text());
 
             if (limit > argument) {
                 $(lvl).text(argument += 1);
@@ -127,25 +131,25 @@ function initBinds() {
         });
     });
 
-    // Проверяем количество прокачанных мастерис
+    // Проверяем количество прокачанных мастерис. Если 30, то запрещаем прокачивать.
     $('table img').each(function(){
-            $(this).click(function(){
-                var amount1 = parseInt($('table.offensive .amount').text());
-                var amount2 = parseInt($('table.defense .amount').text());
-                var amount3 = parseInt($('table.utility .amount').text());
-                var amountSum = amount1 + amount2 + amount3;
+        $(this).click(function(){
+            var amount1 = parseInt($('table.offensive .amount').text()),
+                amount2 = parseInt($('table.defense .amount').text()),
+                amount3 = parseInt($('table.utility .amount').text()),
+                amountSum = amount1 + amount2 + amount3;
 
-                if (amountSum === 30) {
-                    $("table p").each(function(){
-                        var value = /0/;
-                        if(!$(this).text().search(value)){
-                            $(this).addClass('disabled');
-                        }
-                    });
+            if (amountSum === 30) {
+                $("table p").each(function(){
+                    var value = /0/;
+                    if(!$(this).text().search(value)){
+                        $(this).addClass('disabled');
+                    }
+                });
 
                 $('table img').unbind('click');
-                }
-            });
+            }
+        });
     });
 
     // Делаем активными мастерис которые прокачаны хотя бы на 1

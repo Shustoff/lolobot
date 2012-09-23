@@ -1,6 +1,6 @@
-/* Import font's */
+/* Подключаем шрифт */
 @import url(http://fonts.googleapis.com/css?family=Averia+Gruesa+Libre);
-/* import styles */
+/* Подключаем bootstrap, jquery ui, normalize */
 @import url("bootstrap.css");
 @import url("jquery-ui-1.8.18.custom.css");
 @import url("jquery.ui.tabs.css");
@@ -38,11 +38,10 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 .menu .span11{
     border-radius: 30px;
     box-shadow: 0px 0px 5px #30273A;
-    padding: 0px;
     background-color: rgba(48, 39, 58, 0.5);
-    width: 895px;
+    width: 890px;
     padding: 30px 0px;
-    padding-left: 45px;
+    padding-left: 50px;
 }
 
 

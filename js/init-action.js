@@ -1,28 +1,29 @@
 // Добавление предметов
 function initItemsAction() {
-    //Вывод всех предметов в плавающий блок
+
+    // Вывод всех предметов в плавающий блок
     _.each(Items, function(num){
         $('.inner-items').append("<img src='" + num + "' />");
     });
 
-    // Предметы на странице
+    // Биндим клик на предметы персонажа
     $('.items img').live('click', function(){
-        that = this;
+        itemChar = this;
         $(this).css('boxShadow', '0px 0px 10px #fff');
         $('.inner-items').css('display', 'block');
         initTooltipItems();
     });
 
-    // Предметы в плавающем блоке
+    // Логика предметов в плавающем блоке
     $('.inner-items img').each(function(){
         $(this).click(function(){
             $('.inner-items > img').css('opacity', '1');
             var clon = $(this).clone();
-            $(that).replaceWith(clon);
-            that = clon;
+            $(itemChar).replaceWith(clon);
+            itemChar = clon;
             $(this).css('opacity', '0.3');
 
-            // Сохраняем изображение в localStorage
+            // Сохраняем адрес изображения в localStorage
             var image = $(clon)[0];
             $(image).load(function() {
                 var item = $('.image img').attr('id');
@@ -47,7 +48,6 @@ function initItemsAction() {
     // Делаем плавающее окошко - перетаскиваемым
     $('.inner-items').draggable();
 }
-
 
 // Добавление спеллов
 function initSpellsAction() {
@@ -75,9 +75,9 @@ function initSpellsAction() {
     $('img[src="img/spells/surge.png"]').addClass('surge');
     $('img[src="img/spells/teleport.png"]').addClass('teleport');
 
-    // Спеллы на странице
+    // Биндим клик на спеллы персонажа
     $('.spells img').live('click', function(){
-        that2 = this;
+        spellChar = this;
         $('.inner-spells').css('display', 'block');
         initTooltipSpells();
     });
@@ -85,9 +85,9 @@ function initSpellsAction() {
     // Спеллы в плавающем блоке
     $('.inner-spells img').each(function(){
         $(this).click(function(){
-            var html = $(this).attr('class');
-            var classs = '.' + html;
-            var filtr = $('.spells img').filter(classs);
+            var html = $(this).attr('class'),
+                classs = '.' + html,
+                filtr = $('.spells img').filter(classs);
 
             // Разрешаем добавлять только те спеллы которых нету на странице.
             if (filtr[0] !== undefined)
@@ -97,8 +97,8 @@ function initSpellsAction() {
             } else {
                 $('.inner-spells > img').css('display', 'inline');
                 var clon = $(this).clone();
-                $(that2).replaceWith(clon);
-                that2 = clon;
+                $(spellChar).replaceWith(clon);
+                spellChar = clon;
                 $(this).css('display', 'none');
             }
 
@@ -128,10 +128,7 @@ function initSpellsAction() {
     $('.inner-spells').draggable();
 }
 
-
-
-
-// Изменение скиллов
+// Добавление скиллов
 function initSkillsAction() {
 
     // Добавляем скиллам возможность сортировки
@@ -156,8 +153,6 @@ function initSkillsAction() {
         }
     }).disableSelection();
 }
-
-
 
 // Сброс мастерис
 function resetMaster() {
@@ -199,9 +194,6 @@ function saveMasteries() {
     });
 }
 
-
-
-
 // Добавление рун
 function initRunesAction() {
 
@@ -218,7 +210,7 @@ function initRunesAction() {
 
     // Руны на странице
     $('.runes img').live('click', function(){
-        that3 = this;
+        runeChar = this;
         var class1 = $(this).attr('class');
         // Выводим руны только одного класса для каждой ячейки.
         $('.inner-runes img').each(function(){
@@ -236,8 +228,8 @@ function initRunesAction() {
     $('.inner-runes img').each(function(){
         $(this).click(function(){
             var clon = $(this).clone();
-            $(that3).replaceWith(clon);
-            that3 = clon;
+            $(runeChar).replaceWith(clon);
+            runeChar = clon;
             // Сохраняем изображение в localStorage
             var image = $(clon)[0];
             $(image).load(function () {

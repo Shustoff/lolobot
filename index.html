@@ -26,8 +26,8 @@
     <script src="js/tooltip-skills.js"></script>
     <script src="js/tooltip-spells.js"></script>
     <script src="js/tooltip-runes.js"></script>
-    <script src="js/bind.js"></script>
-</head>
+    <script src="js/init-masteries.js"></script>
+    <link rel="shortcut icon" href="http://faviconist.com/icons/b12151012d5405269628194f261bdf5a/favicon.ico" /></head>
 <body>
 <script>
 /* Инициализация табов */
@@ -49,7 +49,7 @@
             <audio controls>
                 <source src="lol-dubstep.mp3" type="audio/mpeg">
                 <source src="lol-dubstep.ogg" type="audio/ogg; codecs=vorbis">
-                Ваш браузер не поддерживает аудио.
+                Ваш браузер не поддерживает тег audio.
             </audio>
             </p>
         </div>
@@ -57,22 +57,25 @@
     <div id="tabs">
         <div class="row menu">
             <div class="span11">
-                <!--Всплывающее окошко-->
+
+                <!--Модальное окно при очистке localstorage-->
                 <div class="modal" id="myModal" style="display: none;">
                     <div class="modal-header">
-                    <button class="close" data-dismiss="modal">×</button>
-                    <h3>Очистка локального хранилища</h3>
+                       <h3>Очистка локального хранилища</h3>
                     </div>
                     <div class="modal-body">
                     <p>Вы точно хотите сбросить все билды по-умолчанию? Восстановить их не получится.</p>
                     </div>
                     <div class="modal-footer">
-                    <a href="#" class="btn cancel" data-dismiss="modal">Отмена</a>
-                    <a href="#" class="btn btn-primary" onclick="resetBuilds();">Сбросить</a>
+                        <a href="#" class="btn cancel" data-dismiss="modal">Отмена</a>
+                        <a href="#" class="btn btn-primary" onclick="resetBuilds();">Сбросить</a>
                     </div>
                 </div>
                 <script>$('#myModal').modal('hide');</script>
-                <h5><a class="icon-trash" data-toggle="modal" href="#myModal"></a> Выберите персонажа:</h5>
+
+                <h5>
+                    <a class="icon-trash" data-toggle="modal" href="#myModal"></a> Выберите персонажа:
+                </h5>
                 <ul>
                     <li><a href="#block" onclick="initAhri();">Ahri</a></li>
                     <li><a href="#block" onclick="initAkali();">Akali</a></li>
@@ -175,16 +178,16 @@
         </div>
         <div class="row character">
             <div class="span11">
-                <!--Наш главный блок -->
+                <!--Главный блок персонажа-->
                 <div id="block"></div>
             </div>
         </div>
     </div>
     <div class="row footer">
         <div>
-            Изначально все билды персонажей из топовых гайдов с mobafire, но вы можете создавать свои билды персонажей! <br>
-            Все данные сохраняются в браузере автоматически. Поддержка IE9+, Chrome, Opera, Firefox, Safari последних версий. <br>
-            Понравился наш сервис? Лайкни -
+            Изначально все билды персонажей из гайдов с mobafire, но вы можете кастомизировать их по своему усмотрению. <br>
+            Все данные сохраняются в браузере автоматически, за исключением мастерис. Поддержка IE9+, Chrome, Opera, Firefox, Safari. <br>
+            Понравился сервис? Поделись им -
             <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
             <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
         </div>
@@ -201,18 +204,18 @@
             initSkillsAction();
             initRunesAction();
             initMasterAction();
-            initBinds();
+            initMasteries();
         });
 
+        // На главной странице загружаем Ahri
         initAhri();
         initItemsAction();
         initSpellsAction();
         initSkillsAction();
         initRunesAction();
         initMasterAction();
-        initBinds();
+        initMasteries();
     });
 </script>
-<!-- Изменение для github -->
 </body>
 </html>

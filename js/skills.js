@@ -475,5 +475,17 @@ var Skills = {
     "rampage": "img/skills/hecarim-rampage.png",
     "devastatingCharge": "img/skills/hecarim-devastating-charge.png",
     "onslaughtOfShadows": "img/skills/hecarim-onslaught-of-shadows.png",
-    "spiritOfDread": "img/skills/hecarim-spirit-of-dread.png"
+    "spiritOfDread": "img/skills/hecarim-spirit-of-dread.png",
+    "piersingArrow": "img/skills/varus-piercing-arrow.png",
+    "blightedQuiver": "img/skills/varus-blighted-quiver.png",
+    "hailOfArrows": "img/skills/varus-hail-of-arrows.png",
+    "chainOfCorruption": "img/skills/varus-chain-of-corruption.png",
+    "decimate": "img/skills/darius-decimate.png",
+    "cripplingStrike": "img/skills/darius-crippling-strike.png",
+    "apprehend": "img/skills/darius-apprehend.png",
+    "noxianGuillotine": "img/skills/darius-noxian-guillotine.png",
+    "spinningAxe": "img/skills/draven-spinning-axe.png",
+    "bloodRush": "img/skills/draven-blood-rush.png",
+    "standAside": "img/skills/draven-stand-aside.png",
+    "whirlingDeath": "img/skills/draven-whirling-death.png"
 };

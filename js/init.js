@@ -145,6 +145,28 @@ function initCorki() {
     initTooltipCorki();
 }
 
+function initDarius() {
+    var out = initMain(Characters.darius, Images.darius, Items.mercurysTreads, Items.frozenMallet, Items.randuinsOmen, Items.mawOfMalmortius, Items.guardianAngel, Items.forceOfNature);
+    out += initSkills(Spells.flash, Spells.exhaust, Skills.decimate, Skills.cripplingStrike, Skills.apprehend, Skills.decimate, Skills.decimate, Skills.noxianGuillotine, Skills.decimate, Skills.cripplingStrike, Skills.decimate, Skills.cripplingStrike, Skills.noxianGuillotine, Skills.cripplingStrike, Skills.cripplingStrike, Skills.apprehend, Skills.apprehend, Skills.noxianGuillotine, Skills.apprehend, Skills.apprehend);
+    out += initOffensive(1, 3, 0, 0, 4, 0, 0, 4, 1, 0, 0, 1, 3, 0, 3, 0, 1);
+    out += initDefense(0, 2, 2, 0, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initUtility(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initRunes(Runes.greaterMarkOfStrength, Runes.greaterSealOfResillence, Runes.greaterGlyphOfWarding, Runes.greaterQuintOfStrength);
+    block.html(out);
+    initTooltipDarius();
+}
+
+function initDraven() {
+    var out = initMain(Characters.draven, Images.draven, Items.berserkersGreaves, Items.infinityEdge, Items.trinityForce, Items.theBloodthirster, Items.lastWhisper, Items.guardianAngel);
+    out += initSkills(Spells.flash, Spells.heal, Skills.spinningAxe, Skills.bloodRush, Skills.standAside, Skills.spinningAxe, Skills.spinningAxe, Skills.whirlingDeath, Skills.spinningAxe, Skills.bloodRush, Skills.spinningAxe, Skills.bloodRush, Skills.whirlingDeath, Skills.bloodRush, Skills.bloodRush, Skills.standAside, Skills.standAside, Skills.whirlingDeath, Skills.standAside, Skills.standAside);
+    out += initOffensive(0, 3, 0, 1, 4, 0, 0, 4, 1, 0, 0, 1, 3, 0, 3, 0, 1);
+    out += initDefense(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initUtility(1, 0, 3, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initRunes(Runes.greaterMarkOfStrength, Runes.greaterSealOfResillence, Runes.greaterGlyphOfWarding, Runes.greaterQuintOfStrength);
+    block.html(out);
+    initTooltipDraven();
+}
+
 function initMundo() {
     var out = initMain(Characters.drmundo, Images.drMundo, Items.mercurysTreads, Items.warmogsArmor, Items.forceOfNature, Items.atmasImpaler, Items.warmogsArmor, Items.warmogsArmor);
     out += initSkills(Spells.ghost, Spells.exhaust, Skills.infectedCleaver, Skills.burningAgony, Skills.infectedCleaver, Skills.masochism, Skills.infectedCleaver, Skills.sadism, Skills.infectedCleaver, Skills.masochism, Skills.infectedCleaver, Skills.masochism, Skills.sadism, Skills.masochism, Skills.burningAgony, Skills.masochism, Skills.burningAgony, Skills.sadism, Skills.burningAgony, Skills.burningAgony);
@@ -922,6 +944,17 @@ function initUrgot() {
     out += initRunes(Runes.greaterMarkOfDesolation, Runes.greaterSealOfReplenishment, Runes.greaterGlyphOfWarding, Runes.greaterQuintOfDesolation);
     block.html(out);
     initTooltipUrgot();
+}
+
+function initVarus() {
+    var out = initMain(Characters.varus, Images.varus, Items.berserkersGreaves, Items.infinityEdge, Items.phantomDancer, Items.theBloodthirster, Items.bansheesVeil, Items.lastWhisper);
+    out += initSkills(Spells.flash, Spells.heal, Skills.piersingArrow, Skills.blightedQuiver, Skills.hailOfArrows, Skills.piersingArrow, Skills.piersingArrow, Skills.chainOfCorruption, Skills.piersingArrow, Skills.blightedQuiver, Skills.piersingArrow, Skills.blightedQuiver, Skills.chainOfCorruption, Skills.blightedQuiver, Skills.blightedQuiver, Skills.hailOfArrows, Skills.hailOfArrows, Skills.chainOfCorruption, Skills.hailOfArrows, Skills.hailOfArrows);
+    out += initOffensive(0, 3, 0, 1, 4, 0, 0, 4, 1, 0, 0, 1, 3, 0, 3, 0, 1);
+    out += initDefense(1, 0, 3, 0, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initUtility(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    out += initRunes(Runes.greaterMarkOfDesolation, Runes.greaterSealOfResillence, Runes.greaterGlyphOfShielding, Runes.greaterQuintOfStrength);
+    block.html(out);
+    initTooltipVarus();
 }
 
 function initVayne() {

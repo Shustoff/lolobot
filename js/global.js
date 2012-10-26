@@ -297,7 +297,7 @@ function initUtility(summonersInsight, goodHands, expandedMind, improvedRecall, 
             </div>\
              \
             <div class="span3 offset3"><button class="btn btn-success" onclick="saveMasteries();">Сохранить мастерис</button></div> \
-            <div class="span3"><button class="reset-button btn btn-danger" onclick="resetMaster();initBinds();">Сбросить мастерис</button></div> \
+            <div class="span3"><button class="reset-button btn btn-danger" onclick="resetMaster();initMasteries();">Сбросить мастерис</button></div> \
             </div>';
     return utility;
 }

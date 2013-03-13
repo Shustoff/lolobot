@@ -1,10 +1,9 @@
 /* Подключаем шрифт */
 @import url(http://fonts.googleapis.com/css?family=Averia+Gruesa+Libre);
-/* Подключаем bootstrap, jquery ui, normalize */
+/* Подключаем bootstrap, jquery ui */
 @import url("bootstrap.css");
 @import url("jquery-ui-1.8.18.custom.css");
 @import url("jquery.ui.tabs.css");
-@import url("normalize.css");
 
 /* Основные стили */
 body {
@@ -12,7 +11,6 @@ body {
     background-attachment: fixed;
     color: #fff;
     font-family: 'Averia Gruesa Libre', cursive;
-    /* text-shadow: 1px 1px 3px #fff; */
 }
 
 .top {
@@ -27,6 +25,9 @@ body {
 }
 
 .character img {cursor: pointer;}
+.image {
+    margin-left: 45px;
+}
 .image img {cursor: default;}
 
 small {margin-left: -30px;}
@@ -34,6 +35,10 @@ small {margin-left: -30px;}
 h1 {margin-bottom: 0px; margin-left: -30px;}
 
 .top h5 {margin: 30px 0px 0px 10px !important;}
+
+.top .center {
+    margin-top: 10px;
+}
 
 .menu .span11{
     border-radius: 30px;
@@ -61,7 +66,6 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 }
 
 /* Табы - Меню */
-
 .ui-tabs .ui-tabs-nav li a {
     float: none;
     text-align: center;
@@ -102,9 +106,8 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 }
 
 /* Статы и персонажи  */
-
 .key {float: left;}
-.value {margin-left: 180px;}
+.value {margin-left: 150px;}
 
 .image img {box-shadow: 0px 0px 15px 0px #fff;}
 
@@ -120,16 +123,18 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
     padding-bottom: 15px;
 }
 
-.main h4 {margin: 10px 0px -10px 0px !important; text-align: center;}
+.main h4 {margin: 10px 0px 0px 0px !important; text-align: center;}
 .main .center {text-align: center; margin-bottom: 25px;}
+.main .span3 li {
+    font-size: 14px;
+}
 
 /* Скиллы */
-
-.skills {margin-left: -160px; margin-top: 30px; padding-right: 0px; font-size: 12px;}
+.skills {margin-left: -160px; margin-top: 50px; padding-right: 0px; font-size: 12px;}
 .skills img {margin: 5px 10px 5px 25px; vertical-align: top; border: 1px solid #403A59;}
 .skills span.spells img {margin-left: 3px;}
 .skills span.spells {margin-right: 12px;}
-.skills p {margin-top: 0px;}
+.skills p {margin-top: 0px; margin-bottom: 20px;}
 .skills p img {vertical-align: bottom;}
 .skills span {float: right; margin-top: -15px;}
 .skills-inner {
@@ -139,7 +144,6 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 
 
 /* Предметы */
-
 .items {margin-top: -15px;}
 .items img {margin: 5px;}
 .placehold {
@@ -150,7 +154,6 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 }
 
 /* Мастерис */
-
 .offensive td, .defense td, .utility td {padding: 3px;}
 .masteries div {margin-top: 20px;}
 
@@ -175,15 +178,12 @@ p.disabled {
 
 }
 
-/*p.disabled > * {display: none;}*/
-
 .reset-button {
     margin: 0px 0px 0px 0px;
     width: 200px !important;
 }
 
 /* РУны */
-
 .runes {text-align: center;}
 .runes img {margin-left: 20px;}
 
@@ -205,7 +205,6 @@ p.disabled {
 audio {width: 230px; margin-top: 10px; outline: none;}
 
 /* Интерактивный блок итемов */
-
 .inner-items {
     position: absolute;
     margin-left: -400px;
@@ -235,7 +234,6 @@ audio {width: 230px; margin-top: 10px; outline: none;}
 .inner-items span {position: absolute; right: 10px; top: 10px; cursor: pointer;}
 
 /* Интерактивный блок спеллов */
-
 .inner-spells {
     position: absolute;
     margin-left: 170px !important;

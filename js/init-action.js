@@ -7,7 +7,7 @@ function initItemsAction() {
     });
 
     // Биндим клик на предметы персонажа
-    $('.items img').live('click', function(){
+    $('.items').on('click', 'img', function(){
         itemChar = this;
         $(this).css('boxShadow', '0px 0px 10px #fff');
         $('.inner-items').css('display', 'block');
@@ -76,7 +76,7 @@ function initSpellsAction() {
     $('img[src="img/spells/teleport.png"]').addClass('teleport');
 
     // Биндим клик на спеллы персонажа
-    $('.spells img').live('click', function(){
+    $('.spells').on('click', 'img', function(){
         spellChar = this;
         $('.inner-spells').css('display', 'block');
         initTooltipSpells();
@@ -209,7 +209,7 @@ function initRunesAction() {
     $('img[src*="QO"]').addClass('quint');
 
     // Руны на странице
-    $('.runes img').live('click', function(){
+    $('.runes').on('click', 'img', function(){
         runeChar = this;
         var class1 = $(this).attr('class');
         // Выводим руны только одного класса для каждой ячейки.

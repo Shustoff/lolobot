@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="lol">
 <head>
-    <title>Lolobot.ru - не будь ботом! Создай свой билд!</title>
+    <title>Создай свой билд League of legends!</title>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="i-ys_rCCr7ub-eZJO84Q4JPbChPLbZ2zXb3lmEo3TEI" />
     <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
     <link rel="stylesheet" href="css/my.css" />
-    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/characters.js"></script>
-    <script src="js/skills.js"></script>
-    <script src="js/masteries.js"></script>
-    <script src="js/runes.js"></script>
-    <script src="js/spells.js"></script>
-    <script src="js/items.js"></script>
-    <script src="js/images.js"></script>
-    <script src="js/global.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/init-action.js"></script>
-    <script src="js/easyTooltip.js"></script>
-    <script src="js/tooltip-items.js"></script>
-    <script src="js/tooltip-masteries.js"></script>
-    <script src="js/tooltip-skills.js"></script>
-    <script src="js/tooltip-spells.js"></script>
-    <script src="js/tooltip-runes.js"></script>
-    <script src="js/init-masteries.js"></script>
+
+    <!-- Libs -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="js/libs/bootstrap-modal.js"></script>
+    <script src="js/libs/underscore.js"></script>
+    <script src="js/libs/easyTooltip.js"></script>
+
+    <!-- Data -->
+    <script src="js/data/characters.js"></script>
+    <script src="js/data/skills.js"></script>
+    <script src="js/data/masteries.js"></script>
+    <script src="js/data/runes.js"></script>
+    <script src="js/data/spells.js"></script>
+    <script src="js/data/items.js"></script>
+    <script src="js/data/images.js"></script>
+    <script src="js/data/tooltip-items.js"></script>
+    <script src="js/data/tooltip-masteries.js"></script>
+    <script src="js/data/tooltip-skills.js"></script>
+    <script src="js/data/tooltip-spells.js"></script>
+    <script src="js/data/tooltip-runes.js"></script>
+
+    <!-- App Files -->
+    <script src="js/helpers.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filters.js"></script>
+
     <link rel="shortcut icon" href="http://faviconist.com/icons/b12151012d5405269628194f261bdf5a/favicon.ico" /></head>
 <body>
-<script>
-/* Инициализация табов */
-    $(function() {
-        $("#tabs").tabs();
-    });
-</script>
 <div class="container">
     <div class="row top">
         <div class="span4">
-            <h1>Lolobot.ru</h1>
-            <small>не будь ботом!</small>
+            <h1>LoL</h1>
+            <small>создай свой билд!</small>
         </div>
         <div class="span4">
             <h1 class="center">League of Legends</h1>
@@ -57,168 +59,329 @@
     <div id="tabs">
         <div class="row menu">
             <div class="span11">
-
                 <!--Модальное окно при очистке localstorage-->
-                <div class="modal" id="myModal" style="display: none;">
+                <div class="modal" id="myModal" ng-show="lol.visibleModal">
                     <div class="modal-header">
                        <h3>Очистка локального хранилища</h3>
                     </div>
                     <div class="modal-body">
-                    <p>Вы точно хотите сбросить все билды по-умолчанию? Восстановить их не получится.</p>
+                        <p>Вы точно хотите сбросить все билды по-умолчанию? Восстановить их не получится.</p>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn cancel" data-dismiss="modal">Отмена</a>
-                        <a href="#" class="btn btn-primary" onclick="resetBuilds();">Сбросить</a>
+                        <a href="#" class="btn btn-primary" ng-click="Helpers.resetBuilds()">Сбросить</a>
                     </div>
                 </div>
-                <script>$('#myModal').modal('hide');</script>
 
                 <h5>
                     <a class="icon-trash" data-toggle="modal" href="#myModal"></a> Выберите персонажа:
                 </h5>
+
                 <ul>
-                    <li><a href="#block" onclick="initAhri();">Ahri</a></li>
-                    <li><a href="#block" onclick="initAkali();">Akali</a></li>
-                    <li><a href="#block" onclick="initAlistar();">Alistar</a></li>
-                    <li><a href="#block" onclick="initAmumu();">Amumu</a></li>
-                    <li><a href="#block" onclick="initAnivia();">Anivia</a></li>
-                    <li><a href="#block" onclick="initAnnie();">Annie</a></li>
-                    <li><a href="#block" onclick="initAshe();">Ashe</a></li>
-                    <li><a href="#block" onclick="initBlitzcrank();">Blitzcrank</a></li>
-                    <li><a href="#block" onclick="initBrand();">Brand</a></li>
-                    <li><a href="#block" onclick="initCaitlyn();">Caitlyn</a></li>
-                    <li><a href="#block" onclick="initCassiopeia();">Cassiopeia</a></li>
-                    <li><a href="#block" onclick="initChogath();">Cho'Gath</a></li>
-                    <li><a href="#block" onclick="initCorki();">Corki</a></li>
-                    <li><a href="#block" onclick="initDarius();">Darius</a></li>
-                    <li><a href="#block" onclick="initDraven();">Draven</a></li>
-                    <li><a href="#block" onclick="initMundo();">Dr. Mundo</a></li>
-                    <li><a href="#block" onclick="initEvelynn();">Evelynn</a></li>
-                    <li><a href="#block" onclick="initEzreal();">Ezreal</a></li>
-                    <li><a href="#block" onclick="initFiddlesticks();">Fiddlesticks</a></li>
-                    <li><a href="#block" onclick="initFiora();">Fiora</a></li>
-                    <li><a href="#block" onclick="initFizz();">Fizz</a></li>
-                    <li><a href="#block" onclick="initGalio();">Galio</a></li>
-                    <li><a href="#block" onclick="initGangplank();">Gangplank</a></li>
-                    <li><a href="#block" onclick="initGaren();">Garen</a></li>
-                    <li><a href="#block" onclick="initGragas();">Gragas</a></li>
-                    <li><a href="#block" onclick="initGraves();">Graves</a></li>
-                    <li><a href="#block" onclick="initHecarim();">Hecarim</a></li>
-                    <li><a href="#block" onclick="initHeimerdinger();">Heimerdinger</a></li>
-                    <li><a href="#block" onclick="initIrelia();">Irelia</a></li>
-                    <li><a href="#block" onclick="initJanna();">Janna</a></li>
-                    <li><a href="#block" onclick="initJarvan();">Jarvan IV</a></li>
-                    <li><a href="#block" onclick="initJax();">Jax</a></li>
-                    <li><a href="#block" onclick="initKarma();">Karma</a></li>
-                    <li><a href="#block" onclick="initKarthus();">Karthus</a></li>
-                    <li><a href="#block" onclick="initKassadin();">Kassadin</a></li>
-                    <li><a href="#block" onclick="initKatarina();">Katarina</a></li>
-                    <li><a href="#block" onclick="initKayle();">Kayle</a></li>
-                    <li><a href="#block" onclick="initKennen();">Kennen</a></li>
-                    <li><a href="#block" onclick="initKogmaw();">Kog'Maw</a></li>
-                    <li><a href="#block" onclick="initLeblanc();">LeBlanc</a></li>
-                    <li><a href="#block" onclick="initLeesin();">Lee Sin</a></li>
-                    <li><a href="#block" onclick="initLeona();">Leona</a></li>
-                    <li><a href="#block" onclick="initLulu();">Lulu</a></li>
-                    <li><a href="#block" onclick="initLux();">Lux</a></li>
-                    <li><a href="#block" onclick="initMalphite();">Malphite</a></li>
-                    <li><a href="#block" onclick="initMalzahar();">Malzahar</a></li>
-                    <li><a href="#block" onclick="initMaokai();">Maokai</a></li>
-                    <li><a href="#block" onclick="initMasteryi();">Master Yi</a></li>
-                    <li><a href="#block" onclick="initMissfortune();">Miss Fortune</a></li>
-                    <li><a href="#block" onclick="initMordekaiser();">Mordekaiser</a></li>
-                    <li><a href="#block" onclick="initMorgana();">Morgana</a></li>
-                    <li><a href="#block" onclick="initNasus();">Nasus</a></li>
-                    <li><a href="#block" onclick="initNautilus();">Nautilus</a></li>
-                    <li><a href="#block" onclick="initNidalee();">Nidalee</a></li>
-                    <li><a href="#block" onclick="initNocturne();">Nocturne</a></li>
-                    <li><a href="#block" onclick="initNunu();">Nunu</a></li>
-                    <li><a href="#block" onclick="initOlaf();">Olaf</a></li>
-                    <li><a href="#block" onclick="initOrianna();">Oriana</a></li>
-                    <li><a href="#block" onclick="initPantheon();">Pantheon</a></li>
-                    <li><a href="#block" onclick="initPoppy();">Poppy</a></li>
-                    <li><a href="#block" onclick="initRammus();">Rammus</a></li>
-                    <li><a href="#block" onclick="initRenekton();">Renekton</a></li>
-                    <li><a href="#block" onclick="initRiven();">Riven</a></li>
-                    <li><a href="#block" onclick="initRumble();">Rumble</a></li>
-                    <li><a href="#block" onclick="initRyze();">Ryze</a></li>
-                    <li><a href="#block" onclick="initSejuani();">Sejuani</a></li>
-                    <li><a href="#block" onclick="initShaco();">Shaco</a></li>
-                    <li><a href="#block" onclick="initShen();">Shen</a></li>
-                    <li><a href="#block" onclick="initShyvana();">Shyvana</a></li>
-                    <li><a href="#block" onclick="initSinged();">Singed</a></li>
-                    <li><a href="#block" onclick="initSion();">Sion</a></li>
-                    <li><a href="#block" onclick="initSivir();">Sivir</a></li>
-                    <li><a href="#block" onclick="initSkarner();">Skarner</a></li>
-                    <li><a href="#block" onclick="initSona();">Sona</a></li>
-                    <li><a href="#block" onclick="initSoraka();">Soraka</a></li>
-                    <li><a href="#block" onclick="initSwain();">Swain</a></li>
-                    <li><a href="#block" onclick="initTalon();">Talon</a></li>
-                    <li><a href="#block" onclick="initTaric();">Taric</a></li>
-                    <li><a href="#block" onclick="initTeemo();">Teemo</a></li>
-                    <li><a href="#block" onclick="initTristana();">Tristana</a></li>
-                    <li><a href="#block" onclick="initTrundle();">Trundle</a></li>
-                    <li><a href="#block" onclick="initTryndamere();">Tryndamere</a></li>
-                    <li><a href="#block" onclick="initTwistedfate();">Twisted Fate</a></li>
-                    <li><a href="#block" onclick="initTwitch();">Twitch</a></li>
-                    <li><a href="#block" onclick="initUdyr();">Udyr</a></li>
-                    <li><a href="#block" onclick="initUrgot();">Urgot</a></li>
-                    <li><a href="#block" onclick="initVarus();">Varus</a></li>
-                    <li><a href="#block" onclick="initVayne();">Vayne</a></li>
-                    <li><a href="#block" onclick="initVeigar();">Veigar</a></li>
-                    <li><a href="#block" onclick="initViktor();">Viktor</a></li>
-                    <li><a href="#block" onclick="initVladimir();">Vladimir</a></li>
-                    <li><a href="#block" onclick="initVolibear();">Volibear</a></li>
-                    <li><a href="#block" onclick="initWarwick();">Warwick</a></li>
-                    <li><a href="#block" onclick="initWukong();">Wukong</a></li>
-                    <li><a href="#block" onclick="initXerath();">Xerath</a></li>
-                    <li><a href="#block" onclick="initXin();">Xin Zhao</a></li>
-                    <li><a href="#block" onclick="initYorick();">Yorick</a></li>
-                    <li><a href="#block" onclick="initZiggs();">Ziggs</a></li>
-                    <li><a href="#block" onclick="initZilean();">Zilean</a></li>
+                    <li><a href="#block" ng-click="lol.AhriCtrl()">Ahri</a></li>
+                    <li><a href="#block" ng-click="initAkali();">Akali</a></li>
+                    <li><a href="#block" ng-click="initAlistar();">Alistar</a></li>
+                    <li><a href="#block" ng-click="initAmumu();">Amumu</a></li>
+                    <li><a href="#block" ng-click="initAnivia();">Anivia</a></li>
+                    <li><a href="#block" ng-click="initAnnie();">Annie</a></li>
+                    <li><a href="#block" ng-click="initAshe();">Ashe</a></li>
+                    <li><a href="#block" ng-click="initBlitzcrank();">Blitzcrank</a></li>
+                    <li><a href="#block" ng-click="initBrand();">Brand</a></li>
+                    <li><a href="#block" ng-click="initCaitlyn();">Caitlyn</a></li>
+                    <li><a href="#block" ng-click="initCassiopeia();">Cassiopeia</a></li>
+                    <li><a href="#block" ng-click="initChogath();">Cho'Gath</a></li>
+                    <li><a href="#block" ng-click="initCorki();">Corki</a></li>
+                    <li><a href="#block" ng-click="initDarius();">Darius</a></li>
+                    <li><a href="#block" ng-click="initDraven();">Draven</a></li>
+                    <li><a href="#block" ng-click="initMundo();">Dr. Mundo</a></li>
+                    <li><a href="#block" ng-click="initEvelynn();">Evelynn</a></li>
+                    <li><a href="#block" ng-click="initEzreal();">Ezreal</a></li>
+                    <li><a href="#block" ng-click="initFiddlesticks();">Fiddlesticks</a></li>
+                    <li><a href="#block" ng-click="initFiora();">Fiora</a></li>
+                    <li><a href="#block" ng-click="initFizz();">Fizz</a></li>
+                    <li><a href="#block" ng-click="initGalio();">Galio</a></li>
+                    <li><a href="#block" ng-click="initGangplank();">Gangplank</a></li>
+                    <li><a href="#block" ng-click="initGaren();">Garen</a></li>
+                    <li><a href="#block" ng-click="initGragas();">Gragas</a></li>
+                    <li><a href="#block" ng-click="initGraves();">Graves</a></li>
+                    <li><a href="#block" ng-click="initHecarim();">Hecarim</a></li>
+                    <li><a href="#block" ng-click="initHeimerdinger();">Heimerdinger</a></li>
+                    <li><a href="#block" ng-click="initIrelia();">Irelia</a></li>
+                    <li><a href="#block" ng-click="initJanna();">Janna</a></li>
+                    <li><a href="#block" ng-click="initJarvan();">Jarvan IV</a></li>
+                    <li><a href="#block" ng-click="initJax();">Jax</a></li>
+                    <li><a href="#block" ng-click="initKarma();">Karma</a></li>
+                    <li><a href="#block" ng-click="initKarthus();">Karthus</a></li>
+                    <li><a href="#block" ng-click="initKassadin();">Kassadin</a></li>
+                    <li><a href="#block" ng-click="initKatarina();">Katarina</a></li>
+                    <li><a href="#block" ng-click="initKayle();">Kayle</a></li>
+                    <li><a href="#block" ng-click="initKennen();">Kennen</a></li>
+                    <li><a href="#block" ng-click="initKogmaw();">Kog'Maw</a></li>
+                    <li><a href="#block" ng-click="initLeblanc();">LeBlanc</a></li>
+                    <li><a href="#block" ng-click="initLeesin();">Lee Sin</a></li>
+                    <li><a href="#block" ng-click="initLeona();">Leona</a></li>
+                    <li><a href="#block" ng-click="initLulu();">Lulu</a></li>
+                    <li><a href="#block" ng-click="initLux();">Lux</a></li>
+                    <li><a href="#block" ng-click="initMalphite();">Malphite</a></li>
+                    <li><a href="#block" ng-click="initMalzahar();">Malzahar</a></li>
+                    <li><a href="#block" ng-click="initMaokai();">Maokai</a></li>
+                    <li><a href="#block" ng-click="initMasteryi();">Master Yi</a></li>
+                    <li><a href="#block" ng-click="initMissfortune();">Miss Fortune</a></li>
+                    <li><a href="#block" ng-click="initMordekaiser();">Mordekaiser</a></li>
+                    <li><a href="#block" ng-click="initMorgana();">Morgana</a></li>
+                    <li><a href="#block" ng-click="initNasus();">Nasus</a></li>
+                    <li><a href="#block" ng-click="initNautilus();">Nautilus</a></li>
+                    <li><a href="#block" ng-click="initNidalee();">Nidalee</a></li>
+                    <li><a href="#block" ng-click="initNocturne();">Nocturne</a></li>
+                    <li><a href="#block" ng-click="initNunu();">Nunu</a></li>
+                    <li><a href="#block" ng-click="initOlaf();">Olaf</a></li>
+                    <li><a href="#block" ng-click="initOrianna();">Oriana</a></li>
+                    <li><a href="#block" ng-click="initPantheon();">Pantheon</a></li>
+                    <li><a href="#block" ng-click="initPoppy();">Poppy</a></li>
+                    <li><a href="#block" ng-click="initRammus();">Rammus</a></li>
+                    <li><a href="#block" ng-click="initRenekton();">Renekton</a></li>
+                    <li><a href="#block" ng-click="initRiven();">Riven</a></li>
+                    <li><a href="#block" ng-click="initRumble();">Rumble</a></li>
+                    <li><a href="#block" ng-click="initRyze();">Ryze</a></li>
+                    <li><a href="#block" ng-click="initSejuani();">Sejuani</a></li>
+                    <li><a href="#block" ng-click="initShaco();">Shaco</a></li>
+                    <li><a href="#block" ng-click="initShen();">Shen</a></li>
+                    <li><a href="#block" ng-click="initShyvana();">Shyvana</a></li>
+                    <li><a href="#block" ng-click="initSinged();">Singed</a></li>
+                    <li><a href="#block" ng-click="initSion();">Sion</a></li>
+                    <li><a href="#block" ng-click="initSivir();">Sivir</a></li>
+                    <li><a href="#block" ng-click="initSkarner();">Skarner</a></li>
+                    <li><a href="#block" ng-click="initSona();">Sona</a></li>
+                    <li><a href="#block" ng-click="initSoraka();">Soraka</a></li>
+                    <li><a href="#block" ng-click="initSwain();">Swain</a></li>
+                    <li><a href="#block" ng-click="initTalon();">Talon</a></li>
+                    <li><a href="#block" ng-click="initTaric();">Taric</a></li>
+                    <li><a href="#block" ng-click="initTeemo();">Teemo</a></li>
+                    <li><a href="#block" ng-click="initTristana();">Tristana</a></li>
+                    <li><a href="#block" ng-click="initTrundle();">Trundle</a></li>
+                    <li><a href="#block" ng-click="initTryndamere();">Tryndamere</a></li>
+                    <li><a href="#block" ng-click="initTwistedfate();">Twisted Fate</a></li>
+                    <li><a href="#block" ng-click="initTwitch();">Twitch</a></li>
+                    <li><a href="#block" ng-click="initUdyr();">Udyr</a></li>
+                    <li><a href="#block" ng-click="initUrgot();">Urgot</a></li>
+                    <li><a href="#block" ng-click="initVarus();">Varus</a></li>
+                    <li><a href="#block" ng-click="initVayne();">Vayne</a></li>
+                    <li><a href="#block" ng-click="initVeigar();">Veigar</a></li>
+                    <li><a href="#block" ng-click="initViktor();">Viktor</a></li>
+                    <li><a href="#block" ng-click="initVladimir();">Vladimir</a></li>
+                    <li><a href="#block" ng-click="initVolibear();">Volibear</a></li>
+                    <li><a href="#block" ng-click="initWarwick();">Warwick</a></li>
+                    <li><a href="#block" ng-click="initWukong();">Wukong</a></li>
+                    <li><a href="#block" ng-click="initXerath();">Xerath</a></li>
+                    <li><a href="#block" ng-click="initXin();">Xin Zhao</a></li>
+                    <li><a href="#block" ng-click="initYorick();">Yorick</a></li>
+                    <li><a href="#block" ng-click="initZiggs();">Ziggs</a></li>
+                    <li><a href="#block" ng-click="initZilean();">Zilean</a></li>
                 </ul>
             </div>
         </div>
         <div class="row character">
             <div class="span11">
-                <!--Главный блок персонажа-->
-                <div id="block"></div>
+                <div id="block" ng-controller="AhriCtrl" ng-init="initTooltip(); initTooltipAhri()">
+                    <div class='row main' ng-init="initMain()">
+                        <div class='span3'>
+                            <h4 class='center'>Статы на 18 уровне: </h4>
+                            <p class='center'>(без учета бонусов)</p>
+                            <ul>
+                                <li class='key' ng-repeat="key in stats">{{ key }}</li>
+                                <li class='value' ng-repeat="value in stats">{{ value }}</li>
+                            </ul>
+                        </div>
+                        <div class='span2 image'>{{ image }}</div>
+                        <div class='span6'>
+                            <div class='items'>
+                                <p>Сборка: </p>
+                                <img ng-repeat="item in items" src='{{ item }}'/>
+                            </div>
+                        <div class='inner-items ui-droppable'>
+                            <h3>Предметы:</h3>
+                            <span>X</span>
+                        </div>
+                        <div class='skills' ng-init="initSpells(); initSkills()">
+                            <p>Скиллы (перетаскивайте, для изменения порядка):
+                                <span class='spells'>
+                                    <img ng-repeat="spell in spells" src='{{ spell }}' />
+                                </span>
+                            </p>
+                            <div class='inner-spells'>
+                                <h2>Спеллы:</h2>
+                                <span>X</span>
+                            </div>
+                            <div class='skills-inner'>
+                                <img ng-repeat='skill in skills' src='{{ skill }}' />
+                            </div>
+                        </div>
+                    </div>
+                    <div class='clear'></div>
+                    </div>
+                    <div class="row masteries">
+                        <div class="span4">
+                            <table class="offensive" ng-init="initOffensive()">
+                                <tr>
+                                    <th colspan="4">Offense: <strong class="amount"> {{ offensiveUp }}</strong></th>
+                                </tr>
+                                <tr class="first-off">
+                                    <td><p><span class="arguments" id="1">{{ offensive[0] }}</span> / <span class="limit">1</span></p> {{ Masteries.summonersWrath }}</td>
+                                    <td><p><span class="arguments" id="2">{{ offensive[1] }}</span> / <span class="limit">3</span></p> {{ Masteries.bruteForce }}</td>
+                                    <td><p><span class="arguments" id="3">{{ offensive[2] }}</span> / <span class="limit">4</span></p> {{ Masteries.mentalForce }}</td>
+                                    <td><p><span class="arguments" id="4">{{ offensive[3] }}</span> / <span class="limit">2</span></p> {{ Masteries.butcher }}</td>
+                                </tr>
+                                <tr class="second-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span id="5" class="arguments"> {{ offensive[4] }}</span> / <span class="limit">4</span></p> {{ Masteries.alacrity }}</td>
+                                    <td><p class="disabled"><span id="6" class="arguments"> {{ offensive[5] }}</span> / <span class="limit">4</span></p> {{ Masteries.sorcery }}</td>
+                                    <td><p class="disabled"><span id="7" class="arguments"> {{ offensive[6] }}</span> / <span class="limit">1</span></p> {{ Masteries.demolitionist }}</td>
+                                </tr>
+                                <tr class="third-off">
+                                    <td><p class="disabled"><span class="arguments" id="8"> {{ offensive[7] }}</span> / <span class="limit">4</span></p> {{ Masteries.deadlines }}</td>
+                                    <td><p class="disabled" id="9"><span class="arguments" id="9"> {{ offensive[8] }}</span> / <span class="limit">1</span></p> {{ Masteries.weaponExpertise }}</td>
+                                    <td><p class="disabled" id="10"><span class="arguments" id="10"> {{ offensive[9] }}</span> / <span class="limit">1</span></p> {{ Masteries.arkaneKnowledge }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="11"> {{ offensive[10] }}</span> / <span class="limit">3</span></p> {{ Masteries.havoc }}</td>
+                                </tr>
+                                <tr class="four-off">
+                                    <td><p class="disabled" id="12"><span class="arguments" id="12"> {{ offensive[11] }}</span> / <span class="limit">1</span></p> {{ Masteries.lethality }}</td> 
+                                    <td><p class="disabled"><span class="arguments" id="13"> {{ offensive[12] }}</span> / <span class="limit">3</span></p> {{ Masteries.vampirism }}</td> 
+                                    <td><p class="disabled"><span class="arguments" id="14"> {{ offensive[13] }}</span> / <span class="limit">4</span></p> {{ Masteries.blast }}</td> 
+                                    <td></td>
+                                </tr>
+                                <tr class="five-off">
+                                    <td></td> 
+                                    <td><p class="disabled"><span class="arguments" id="15"> {{ offensive[14] }}</span> / <span class="limit">3</span></p> {{ Masteries.sunder }}</td> 
+                                    <td><p class="disabled"><span class="arguments" id="16"> {{ offensive[15] }}</span> / <span class="limit">4</span></p> {{ Masteries.archmage }}</td> 
+                                    <td></td> 
+                                </tr> 
+                                <tr class="six-off"> 
+                                    <td></td> 
+                                    <td><p class="disabled"><span class="arguments" id="17"> {{ offensive[16] }}</span> / <span class="limit">1</span></p> {{ Masteries.executioner }}</td> 
+                                    <td></td> 
+                                    <td></td> 
+                                </tr> 
+                            </table> 
+                        </div>
+                        <div class="span4"> 
+                            <table class="defense" ng-init="initDefensive()">
+                                <tr>
+                                    <th colspan="4">Defense:  <strong class="amount">{{ defensiveUp }}</strong></th>
+                                </tr>
+                                <tr class="first-off">
+                                    <td><p><span class="arguments" id="18">{{ defensive[0] }}</span> / <span class="limit">1</span></p>{{ Masteries.summonersResolve }}</td>
+                                    <td><p><span class="arguments" id="19">{{ defensive[1] }}</span> / <span class="limit">3</span></p>{{ Masteries.resistance }}</td>
+                                    <td><p><span class="arguments" id="20">{{ defensive[2] }}</span> / <span class="limit">3</span></p>{{ Masteries.hardiness }}</td>
+                                    <td><p><span class="arguments" id="21">{{ defensive[3] }}</span> / <span class="limit">2</span></p>{{ Masteries.toughSkin }}</td>
+                                </tr>
+                                <tr class="second-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="22">{{ defensive[4] }}</span> / <span class="limit">4</span></p>{{ Masteries.durability }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="23">{{ defensive[5] }}</span> / <span class="limit">3</span></p>{{ Masteries.vigor }}</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="third-off">
+                                    <td><p class="disabled"><span class="arguments" id="24">{{ defensive[6] }}</span> / <span class="limit">2</span></p>{{ Masteries.indomitable }}</td>
+                                    <td><p class="disabled" id="25"><span class="arguments" id="25">{{ defensive[7] }}</span> / <span class="limit">1</span></p>{{ Masteries.veteranScars }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="26">{{ defensive[8] }}</span> / <span class="limit">3</span></p>{{ Masteries.evasion }}</td>
+                                    <td><p class="disabled" id="27"><span class="arguments" id="27">{{ defensive[9] }}</span> / <span class="limit">1</span></p>{{ Masteries.bladedArmor }}</td>
+                                </tr>
+                                <tr class="four-off">
+                                    <td><p class="disabled"><span class="arguments" id="28">{{ defensive[10] }}</span> / <span class="limit">1</span></p>{{ Masteries.siegeCommand }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="29">{{ defensive[11] }}</span> / <span class="limit">3</span></p>{{ Masteries.initiator }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="30">{{ defensive[12] }}</span> / <span class="limit">3</span></p>{{ Masteries.enlightenment }}</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="five-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="31">{{ defensive[13] }}</span> / <span class="limit">3</span></p>{{ Masteries.honorGuard }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="32">{{ defensive[14] }}</span> / <span class="limit">3</span></p>{{ Masteries.mercenary }}</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="six-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="33">{{ defensive[15] }}</span> / <span class="limit">1</span></p>{{ Masteries.juggernaut }}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="span3">
+                            <table class="utility" ng-init="initUtility()">
+                                <tr>
+                                    <th colspan="4">Utility:  <strong class="amount">{{ utilityUp }}</strong></th>
+                                </tr>
+                                <tr class="first-off">
+                                    <td><p><span class="arguments" id="34">{{ utility[0] }}</span> / <span class="limit">1</span></p>{{ Masteries.summonersInsight }}</td>
+                                    <td><p><span class="arguments" id="35">{{ utility[1] }}</span> / <span class="limit">3</span></p>{{ Masteries.goodHands }}</td>
+                                    <td><p><span class="arguments" id="36">{{ utility[2] }}</span> / <span class="limit">3</span></p>{{ Masteries.expandedMind }}</td>
+                                    <td><p><span class="arguments" id="37">{{ utility[3] }}</span> / <span class="limit">1</span></p>{{ Masteries.improvedRecall }}</td>
+                                </tr>
+                                <tr class="second-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="38">{{ utility[4] }}</span> / <span class="limit">4</span></p>{{ Masteries.swiftness }}</td>
+                                    <td><p class="disabled" id="39"><span class="arguments" id="39">{{ utility[5] }}</span> / <span class="limit">3</span></p>{{ Masteries.meditation }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="40">{{ utility[6] }}</span> / <span class="limit">1</span></p>{{ Masteries.scout }}</td>
+                                </tr>
+                                <tr class="third-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="41">{{ utility[7] }}</span> / <span class="limit">4</span></p>{{ Masteries.greed }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="42">{{ utility[8] }}</span> / <span class="limit">3</span></p>{{ Masteries.transmutation }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="43">{{ utility[9] }}</span> / <span class="limit">1</span></p>{{ Masteries.runicAffinity }}</td>
+                                </tr>
+                                <tr class="four-off">
+                                    <td></td>
+                                    <td><p class="disabled" id="44"><span class="arguments" id="44">{{ utility[10] }}</span> / <span class="limit">2</span></p>{{ Masteries.wealth }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="45">{{ utility[11] }}</span> / <span class="limit">4</span></p>{{ Masteries.awarenet }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="46">{{ utility[12] }}</span> / <span class="limit">1</span></p>{{ Masteries.sage }}</td>
+                                </tr>
+                                <tr class="five-off">
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="47">{{ utility[13] }}</span> / <span class="limit">3</span></p>{{ Masteries.strengthOfSpirit }}</td>
+                                    <td><p class="disabled"><span class="arguments" id="48">{{ utility[14] }}</span> / <span class="limit">3</span></p>{{ Masteries.intelligence }}</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="six-off">
+                                    <td></td>
+                                    <td></td>
+                                    <td><p class="disabled"><span class="arguments" id="49">{{ utility[15] }}</span> / <span class="limit">1</span></p>{{ Masteries.mastermind }}</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="span3 offset3">
+                            <button class="btn btn-success" ng-click="saveMasteries()">Сохранить мастерис</button>
+                        </div>
+                        <div class="span3">
+                            <button class="reset-button btn btn-danger" ng-click="resetMaster(); initMasteries();">Сбросить мастерис</button>
+                        </div>
+                    </div>
+                    <div class="row runes" ng-init="initRunes()">
+                        <div class="span6 offset3">
+                            <h2>Руны:</h2>
+                            <img src="{{ runes[0] }}" />x9
+                            <img src="{{ runes[1] }}" />x9
+                            <img src="{{ runes[2] }}" />x9
+                            <img src="{{ runes[3] }}" />x3
+                        </div>
+                    </div>
+                    <div class='inner-runes ui-droppable'>
+                        <h3>Руны:</h3>
+                        <span>X</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row footer">
+            <div>
+                Изначально все билды персонажей из гайдов с mobafire, но вы можете кастомизировать их по своему усмотрению. <br>
+                Все данные сохраняются в браузере автоматически, за исключением мастерис. Поддержка IE9+, Chrome, Opera, Firefox, Safari. <br>
+                Понравился сервис? Поделись им -
+                <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
+                <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
             </div>
         </div>
     </div>
-    <div class="row footer">
-        <div>
-            Изначально все билды персонажей из гайдов с mobafire, но вы можете кастомизировать их по своему усмотрению. <br>
-            Все данные сохраняются в браузере автоматически, за исключением мастерис. Поддержка IE9+, Chrome, Opera, Firefox, Safari. <br>
-            Понравился сервис? Поделись им -
-            <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-            <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
-        </div>
-    </div>
 </div>
-<script>
-    $(function(){
-        block = $('#block');
-        $('#tabs .menu a').bind('click', function(){
-            $('.character').effect('slide', 800);
-            initTooltip();
-            initItemsAction();
-            initSpellsAction();
-            initSkillsAction();
-            initRunesAction();
-            initMasterAction();
-            initMasteries();
-        });
-
-        // На главной странице загружаем Ahri
-        initAhri();
-        initItemsAction();
-        initSpellsAction();
-        initSkillsAction();
-        initRunesAction();
-        initMasterAction();
-        initMasteries();
-    });
-</script>
 </body>
 </html>

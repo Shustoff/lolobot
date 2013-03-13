@@ -333,6 +333,7 @@ function initRunes(one, two, three, four) {
 }
 
 // Инициализация подсказок
+/*
 function initTooltip() {
     // Подсказки для итемов
     initTooltipItems();
@@ -350,26 +351,29 @@ function initTooltip() {
         }
     });
 }
+*/
 
 // Короткая запись функций для работы с localstorage
-function lSet(n, m) {
-    return localStorage.setItem(n, m);
-}
-
-function lGet(n) {
-    return localStorage.getItem(n);
-}
-
-function lDel(n) {
-    return localStorage.removeItem(n);
-}
-
-// Очищаем localstorage
-function resetBuilds() {
-    try {
-        localStorage.clear();
-        window.location.reload();
-    } catch (e) {
-        alert("Не удалось очистить локальное хранилище:" + e);
+/*
+    function lSet(n, m) {
+        return localStorage.setItem(n, m);
     }
-}
+
+    function lGet(n) {
+        return localStorage.getItem(n);
+    }
+
+    function lDel(n) {
+        return localStorage.removeItem(n);
+    }
+
+    // Очищаем localstorage
+    function resetBuilds() {
+        try {
+            localStorage.clear();
+            window.location.reload();
+        } catch (e) {
+            alert("Не удалось очистить локальное хранилище:" + e);
+        }
+    }
+*/

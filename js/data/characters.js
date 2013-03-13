@@ -1,16 +1,55 @@
 // Персонажи и статы
 var Characters = {
     "ahri": {
-        "HP": 1820,
-        "HP в 5 сек.": 16.3,
-        "Мана": 1130,
-        "Мана в 5 сек.": 17.05,
-        "Защита": 74,
-        "Магическая защита": 30,
-        "Сила атаки": 104,
-        "Дистанция атаки": 550,
-        "Шанс крита": '0%',
-        "Скорость бега": 305
+        stats: {
+            "HP": 1820,
+            "HP в 5 сек.": 16.3,
+            "Мана": 1130,
+            "Мана в 5 сек.": 17.05,
+            "Защита": 74,
+            "Магическая защита": 30,
+            "Сила атаки": 104,
+            "Дистанция атаки": 550,
+            "Шанс крита": '0%',
+            "Скорость бега": 305
+        },
+        items: [
+            Items.sorcerersShoes, 
+            Items.rylaisCrystalScepter, 
+            Items.willOfTheAncients,
+            Items.rabadonsDeathcap, 
+            Items.morellosEvilTome, 
+            Items.voidStaff
+        ],
+        spells: [Spells.ignite, Spells.flash],
+        skills: [
+            Skills.orbOfDeception, 
+            Skills.charm, 
+            Skills.foxFire,
+            Skills.orbOfDeception, 
+            Skills.orbOfDeception, 
+            Skills.spiritRush, 
+            Skills.orbOfDeception, 
+            Skills.foxFire, 
+            Skills.orbOfDeception, 
+            Skills.foxFire, 
+            Skills.spiritRush, 
+            Skills.foxFire, 
+            Skills.foxFire, 
+            Skills.charm, 
+            Skills.charm, 
+            Skills.spiritRush, 
+            Skills.charm, 
+            Skills.charm
+        ],
+        offensive: [1, 0, 3, 0, 0, 4, 0, 0, 0, 1, 3, 0, 0, 4, 0, 4, 1],
+        defensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        utility: [1, 0, 3, 0, 1, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        runes: [
+            Runes.greaterMarkOfInsight, 
+            Runes.greaterSealOfClarity, 
+            Runes.greaterGlyphOfForce
+        ]    
     },
     "akali": {
         "HP": 1975,

@@ -1,6 +1,7 @@
 /* Глобальные функции инициализации */
 
 // Инициализация статов и итемов
+/*
 function initMain(char, image, item1, item2, item3, item4, item5, item6) {
 
     // Номер итема в localstorage
@@ -159,7 +160,6 @@ function initOffensive(summonersWrath, bruteForce, mentalForce, butcher, alacrit
                         </table> \
                     </div>';
     return offensive;
-
 }
 
 function initDefense(summonersResolve, resistance, hardiness, touchSkin, durability, vigor, indomitable, veteranScars, evasion, bladedArmor, siegeCommand, initiator, enlightenment, honorGuard, mercenary, juggernaut) {
@@ -332,8 +332,8 @@ function initRunes(one, two, three, four) {
     return runes;
 }
 
+
 // Инициализация подсказок
-/*
 function initTooltip() {
     // Подсказки для итемов
     initTooltipItems();
@@ -351,29 +351,28 @@ function initTooltip() {
         }
     });
 }
-*/
+
 
 // Короткая запись функций для работы с localstorage
-/*
-    function lSet(n, m) {
-        return localStorage.setItem(n, m);
-    }
+function lSet(n, m) {
+    return localStorage.setItem(n, m);
+}
 
-    function lGet(n) {
-        return localStorage.getItem(n);
-    }
+function lGet(n) {
+    return localStorage.getItem(n);
+}
 
-    function lDel(n) {
-        return localStorage.removeItem(n);
-    }
+function lDel(n) {
+    return localStorage.removeItem(n);
+}
 
-    // Очищаем localstorage
-    function resetBuilds() {
-        try {
-            localStorage.clear();
-            window.location.reload();
-        } catch (e) {
-            alert("Не удалось очистить локальное хранилище:" + e);
-        }
+// Очищаем localstorage
+function resetBuilds() {
+    try {
+        localStorage.clear();
+        window.location.reload();
+    } catch (e) {
+        alert("Не удалось очистить локальное хранилище:" + e);
     }
+}
 */

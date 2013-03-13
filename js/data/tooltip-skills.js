@@ -1,6 +1,6 @@
 /* Подсказки для скиллов */
 
-function initTooltipAhri() {
+Tooltips.Ahri = function() {
     $("img[src='img/skills/ahri-orb.png']").easyTooltip({
             content: '<h4>Orb of Deception</h4> \
             <p>Ари швыряет шар, нанося 40/65/90/115/140 + (0,33 * AP) магического урона. По пути назад шар наносит 40/65/90/115/140 + (0,33 * AP) чистого урона.</p>\
@@ -27,7 +27,7 @@ function initTooltipAhri() {
     });
 }
 
-function initTooltipAkali() {
+Tooltips.Akali = function() {
     $("img[src='img/skills/akali-ma.png']").easyTooltip({
             content: '<h4>Mark of the Assassin</h4> \
             <p>Наносит цели 50/75/100/125/150 + (0,4 * AP) урона магией и помечает ее на 6 сек. Физическая атака по отмеченной цели снимает метку, нанося дополнительно 50/75/100/125/150 + (0,4 * AP) урона магией и восстанавливая 20/25/30/35/40 энергии.</p>\
@@ -54,7 +54,7 @@ function initTooltipAkali() {
     });
 }
 
-function initTooltipAlistar() {
+Tooltips.Alistar = function() {
     $("img[src='img/skills/pulverize.png']").easyTooltip({
             content: '<h4>Pulverize</h4> \
             <p>Мощный удар кулаками по земле, наносящий 60/105/150/195/240 + (0,5 * AP) магического урона всем ближайшим врагам и подбрасывающий их в воздух на 1 сек. По приземлении враги оглушаются на 0,5 сек.</p>\
@@ -81,7 +81,7 @@ function initTooltipAlistar() {
     });
 }
 
-function initTooltipAmumu() {
+Tooltips.Amumu = function() {
     $("img[src='img/skills/amumu-ba.png']").easyTooltip({
             content: '<h4>Bandage Toss</h4> \
             <p>Бросок липкого бинта в указанном направлении. При попадании наносит 80/140/200/260/320 + (1 * AP) урона магией, оглушает цель на 1 сек.и притягивает бросившего к ней.</p>\
@@ -108,7 +108,7 @@ function initTooltipAmumu() {
     });
 }
 
-function initTooltipAnivia() {
+Tooltips.Anivia = function() {
     $("img[src='img/skills/anivia-f.png']").easyTooltip({
             content: '<h4>Flash Frost</h4> \
             <p>Массивная глыба льда летит в указанном направлении, нанося 60/90/120/150/180 + (0,5 * AP) магического урона и примораживая цели, снижая их скорость передвижения на 20%. \
@@ -137,7 +137,7 @@ function initTooltipAnivia() {
     });
 }
 
-function initTooltipAnnie() {
+Tooltips.Annie = function() {
     $("img[src='img/skills/annie-di.png']").easyTooltip({
             content: '<h4>Disintegrate</h4> \
             <p>Annie швыряет заряженный маной огненный шар, нанося 90/130/170/210/250 + (0,75 * AP) магического урона. Стоимость использования способности в мане возвращается, если она наносит смертельный удар.</p>\
@@ -165,7 +165,7 @@ function initTooltipAnnie() {
     });
 }
 
-function initTooltipAshe() {
+Tooltips.Ashe = function() {
     $("img[src='img/skills/ashe-vol.png']").easyTooltip({
             content: '<h4>Volley</h4> \
             <p>Эш выпускает веером 7 стрел, наносящих 40/50/60/70/80 + (1 * AD) физического урона. Каждая из девяти стрел замедляет врага, в зависимости от умения Frost Shot.</p>\
@@ -193,7 +193,7 @@ function initTooltipAshe() {
     });
 }
 
-function initTooltipBlitzkrank() {
+Tooltips.Blitzkrank = function() {
     $("img[src='img/skills/blitzcre.png']").easyTooltip({
             content: '<h4>Rocket Grab</h4> \
             <p>Blitzcrank выстреливает своей правой рукой. Если она встречает на своем пути врага, то она оглушает его, наносит 60/120/180/240/300 + (0,8 * AP) магического урона и притягивает врага обратно.</p>\
@@ -221,7 +221,7 @@ function initTooltipBlitzkrank() {
     });
 }
 
-function initTooltipBrand() {
+Tooltips.Brand = function() {
     $("img[src='img/skills/brand-pi.png']").easyTooltip({
             content: '<h4>Pillar of Flame</h4> \
             <p>После небольшой задержки на указанную область нисходит столб пламени, наносящий всем врагам в ней 80/125/170/215/260 + (0,6 * AP) магического урона. \
@@ -251,7 +251,7 @@ function initTooltipBrand() {
     });
 }
 
-function initTooltipCaytlin() {
+Tooltips.Caytlin = function() {
     $("img[src='img/skills/caytlin4.png']").easyTooltip({
         content: '<h4>Yordle Snap Trap</h4> \
         <p>Устанавливает в указанном месте ловушку, которая не дает наступившему на нее герою пермещаться в теение 1,5 сек. и наносит ему 80/130/180/230/280 + (0,6 * AP) магического урона, а также делает видимым для всех союзников на 9 сек. Допускается иметь до трех разложенных ловушек, каждая существует в течение 4 мин.</p> \
@@ -278,7 +278,7 @@ function initTooltipCaytlin() {
     });
 }
 
-function initTooltipCassiopeia() {
+Tooltips.Cassiopeia = function() {
     $("img[src='img/skills/cassioph.png']").easyTooltip({
         content: '<h4>Noxious Blast</h4> \
         <p>После небольшой задержки указанная область заражается ядом, который наносит всем оказавшимся в ней врагам 75/115/155/195/235 + (0,9 * AP) магического урона в течение 3 сек., а также повышает скорость передвижения отравителя на 15/17,5/20/22,5/25% на 3 сек. при попадании по вражескому герою.</p> \
@@ -305,7 +305,7 @@ function initTooltipCassiopeia() {
     });
 }
 
-function initTooltipChogath() {
+Tooltips.Chogath = function() {
     $("img[src='img/skills/chogath3.png']").easyTooltip({
         content: '<h4>Rupture</h4> \
         <p>Раскалывает поверхность земли в указанном месте. После короткой задержки враги подлетают в воздух на 1 секунду, получают 80/135/190/245/305 + (1 * AP) магического урона, и их скорость передвижения снижается на 60% в течение 3 секунд.</p> \
@@ -333,7 +333,7 @@ function initTooltipChogath() {
     });
 }
 
-function initTooltipCorki() {
+Tooltips.Corki = function() {
     $("img[src='img/skills/corki-ph.png']").easyTooltip({
         content: '<h4>Phosphorus Bomb</h4> \
         <p>Наносит 80/130/180/230/280 + (0,5 * AP) магического урона в указанной области. Кроме того, взрыв уменьшает врагам шанс попасть атакой на 35% и открывает видимость области в течение 5 секунд (не действует на невидимок).</p> \
@@ -362,7 +362,7 @@ function initTooltipCorki() {
     });
 }
 
-function initTooltipDarius() {
+Tooltips.Darius = function() {
     $("img[src='img/skills/darius-apprehend.png']").easyTooltip({
         content: '<h4>Infected Cleaver</h4> \
         <p>Пассивно: Дает 5/10/15/20/25% пробивания брони.Активно: Притягивает всех врагов перед Dariusом.</p> \
@@ -389,7 +389,7 @@ function initTooltipDarius() {
     });
 }
 
-function initTooltipDraven() {
+Tooltips.Draven = function() {
     $("img[src='img/skills/draven-blood-rush.png']").easyTooltip({
         content: '<h4>Blood Rush</h4> \
         <p>На 1.5/1.5/1.5/1.5/1.5 секунды Draven получает 40/45/50/55/60% к Скорости Передвижения и на 3/3/3/3/3 секунды 20/25/30/35/40% к Скорости Атаки. Скорость Передвижения быстро снижается до нормальной.Ловля Вертящегося Топора перезаряжает Прилив Крови.</p> \
@@ -416,7 +416,7 @@ function initTooltipDraven() {
     });
 }
 
-function initTooltipMundo() {
+Tooltips.Mundo = function() {
     $("img[src='img/skills/dr-mundr.png']").easyTooltip({
         content: '<h4>Infected Cleaver</h4> \
         <p>Метание рабочего тесака. Наносит урон в 15/18/21/23/25% здоровья цели с гарантированным уроном в 80/130/180/230/280,  замедляет цель на 40% на 2 сек. Возвращает половину стоимости при попадании в любую цель.</p> \
@@ -443,7 +443,7 @@ function initTooltipMundo() {
     });
 }
 
-function initTooltipEvelynn() {
+Tooltips.Evelynn = function() {
     $("img[src='img/skills/evelynn4.png']").easyTooltip({
         content: '<h4>Shadow Walk</h4> \
         <p>Evelynn исчезает, становясь невидимкой в течение 10/20/30/40/50 секунд. Следующая атака или наносящая урон способность оглушит цель на 1/1,25/1,5/1,75/2 секунды, завершая прогулку Evelynn по тени. Задержка перед исчезновением составляет 1,5 секунды (продлевается при получении урона). Evelynn может повторно активировать способность в состоянии невидимости, чтобы убрать этот эффект.</p> \
@@ -471,7 +471,7 @@ function initTooltipEvelynn() {
     });
 }
 
-function initTooltipEzreal() {
+Tooltips.Ezreal = function() {
     $("img[src='img/skills/ezreal-m.png']").easyTooltip({
         content: '<h4>Mystic Shot</h4> \
         <p>Выпускает в указанную точку заряд, наносящий первой цели на пути 35/55/75/95/115 + ((1 * AD) + (0,2 * AP)) физического урона и накладывающий на нее эффекты с предметов. При попадании в любую цель снижает время восстановления всех умений заклинателя на 1 сек.</p> \
@@ -498,7 +498,7 @@ function initTooltipEzreal() {
     });
 }
 
-function initTooltipFiddle() {
+Tooltips.Fiddle = function() {
     $("img[src='img/skills/fiddlesw.png']").easyTooltip({
         content: '<h4>Drain</h4> \
         <p>Иссушает здоровье врага и наносит 60/90/120/150/180 + (0,5 * AP) магического урона каждую секунду. Fiddlesticks излечивается в размере 60/65/70/75/80% от нанесенного урона. Длится вплоть до 5 секунд.</p> \
@@ -526,7 +526,7 @@ function initTooltipFiddle() {
     });
 }
 
-function initTooltipFiora() {
+Tooltips.Fiora = function() {
     $("img[src='img/skills/fiora-ri.png']").easyTooltip({
         content: '<h4>Riposte</h4> \
         <p>Пассивно: Урон Фиоры (АД) увеличивается на 15/20/25/30/35. \
@@ -553,7 +553,7 @@ function initTooltipFiora() {
     });
 }
 
-function initTooltipFizz() {
+Tooltips.Fizz = function() {
     $("img[src='img/skills/fizz-pla.png']").easyTooltip({
         content: '<h4>Playful / Trickster</h4> \
         <p>Физ подпрыгивает в воздух, грациозно приземляясь на древко своего трезубца, становясь неприцеливаемым. Из этого положения Физ может либо ударить по земле, либо прыгнуть снова до приземления.\
@@ -580,7 +580,7 @@ function initTooltipFizz() {
     });
 }
 
-function initTooltipGalio() {
+Tooltips.Galio = function() {
     $("img[src='img/skills/galio-re.png']").easyTooltip({
         content: '<h4>Resolute Smite</h4> \
         <p>Выпускаемый из глаз заряд, наносящий всем врагам в указанной области 80/135/190/245/300 + (0,8 * AP) магического урона и снижающий их скорость передвижения на 24/28/32/36/40% на 2,5 сек.</p> \
@@ -607,7 +607,7 @@ function initTooltipGalio() {
     });
 }
 
-function initTooltipGangplank() {
+Tooltips.Gangplank = function() {
     $("img[src='img/skills/gangplaq.png']").easyTooltip({
         content: '<h4>Parrrley</h4> \
         <p>Выстрел, наносящий цели 20/45/70/95/120 + (1 * AD) физического урона, способный наносить критические повреждения и накладывающий эффекты с предметов. Убийство цели этой способностью приносит дополнительно 4/5/6/7/8 монет.</p> \
@@ -635,7 +635,7 @@ function initTooltipGangplank() {
     });
 }
 
-function initTooltipGaren() {
+Tooltips.Garen = function() {
     $("img[src='img/skills/garen-ju.png']").easyTooltip({
         content: '<h4>Judgment </h4> \
         <p>Garen исполняет танец смерти своими мечами, нанося урон вокруг себя в течении 3 секунд, сокращает действие замедления на 50% и нанося 60/100/140/180/220 + (1,2 * AD) физического урона ближайшим противникам каждую секунду. Garen снимает с себя любые замедляющие эффекты в начале танца.</p> \
@@ -663,7 +663,7 @@ function initTooltipGaren() {
     });
 }
 
-function initTooltipGragas() {
+Tooltips.Gragas = function() {
     $("img[src='img/skills/gragas-b.png']").easyTooltip({
         content: '<h4>Barrel Roll</h4> \
         <p>Грагас катает свою бочку, которая взрывается при активации или через 5 секунд, нанося 85/135/185/235/285 + (0,9 * AP) магического урона и накладывает снижение скорости атаки на 20/25/30/35/40% в течении 3 сек.</p> \
@@ -690,7 +690,7 @@ function initTooltipGragas() {
     });
 }
 
-function initTooltipGraves() {
+Tooltips.Graves = function() {
     $("img[src='img/skills/graves-b.png']").easyTooltip({
         content: '<h4>Buckshot</h4> \
         <p>Грейвс выстреливает три пули конусом, каждая из которых наносит 60/105/150/195/240 (+0,8) физического урона всем врагам на своём пути \
@@ -720,7 +720,7 @@ function initTooltipGraves() {
     });
 }
 
-function initTooltipHeimerdinger() {
+Tooltips.Heimerdinger = function() {
     $("img[src='img/skills/heimerdk.png']").easyTooltip({
         content: '<h4>H-28G Evolution Turret</h4> \
         <p>Хэймердайнгер, ставит турель у которой 275 единиц здоровья и которая наносит 30/38/46/54/62 + (0,2 * AP) магического урона. Максимально: 1/1/2/2/2 турелей. Хэймердайнгер может создавать новые туррели каждые 25 сек. \
@@ -753,7 +753,7 @@ function initTooltipHeimerdinger() {
     });
 }
 
-function initTooltipHecarim() {
+Tooltips.Hecarim = function() {
     $("img[src='img/skills/hecarim-rampage.png']").easyTooltip({
         content: '<h4>Rampage</h4> \
         <p>Хекарим кромсает ближайших противников нанося физический урон равный 50 / 85 / 120 / 155 / 190 (+0.6 * AD). Этот скилл наносит 50% урона по миньонам.</p> \
@@ -782,7 +782,7 @@ function initTooltipHecarim() {
     });
 }
 
-function initTooltipIrelia() {
+Tooltips.Irelia = function() {
     $("img[src='img/skills/irelia-bladesurge.png']").easyTooltip({
         content: '<h4>Bladesurge</h4> \
         <p>Связка из рывка к цели и удара по ней, наносящего 20/50/80/110/140 + (1 * AD) физического урона. Если это умение убивает цель, оно восстанавливает 35 маны и обнуляет своё время восстановления.</p> \
@@ -811,7 +811,7 @@ function initTooltipIrelia() {
     });
 }
 
-function initTooltipJanna() {
+Tooltips.Janna = function() {
     $("img[src='img/skills/janna-ey.png']").easyTooltip({
         content: '<h4>Eye Of The Storm</h4> \
         <p>Жанна защищает цель щитом, который поглощает 80/120/160/200/240 + (0,9 * AP) урона и увеличивает урон цели на 14/23/32/41/50 на 5 сек. (Можно бафать турели).</p> \
@@ -839,7 +839,7 @@ function initTooltipJanna() {
     });
 }
 
-function initTooltipJarvan() {
+Tooltips.Jarvan = function() {
     $("img[src='img/skills/jarvan-iv-dragon-strike.png']").easyTooltip({
         content: '<h4>Dragon Strike</h4> \
         <p>Мощный выпад такой силы, что копье раскладывается и наносит 70/115/160/205/250 + (1,1 * доп. AD) физического урона врагам на линии от себя и снижает их броню на 10/14/18/22/26% на 3 сек. \
@@ -868,7 +868,7 @@ function initTooltipJarvan() {
     });
 }
 
-function initTooltipJax() {
+Tooltips.Jax = function() {
     $("img[src='img/skills/jax-leap-strike.png']").easyTooltip({
         content: '<h4>Leap Strike</h4> \
         <p>Прыжок к союзной или вражеской цели. При прыжке на вражескую цель наносит ей 35/60/85/110/135 + ((1 * AD) + (0,7 * AP)) магического урона.</p> \
@@ -897,7 +897,7 @@ function initTooltipJax() {
     });
 }
 
-function initTooltipKarma() {
+Tooltips.Karma = function() {
     $("img[src='img/skills/karma-he.png']").easyTooltip({
         content: '<h4>Heavenly Wave</h4> \
         <p>Наносит врагам в конусе перед собой 70/110/150/190/230/270 + (0,6 * AP) магического урона. \
@@ -921,7 +921,7 @@ function initTooltipKarma() {
     });
 }
 
-function initTooltipKarthus() {
+Tooltips.Karthus = function() {
     $("img[src='img/skills/karthus2.png']").easyTooltip({
         content: '<h4>Lay Waste</h4> \
         <p>Karthus производит замедленный взрыв в выбранной локации, нанося урон врагам находящимся поблизости. Замедленный взрыв создается на месте курсора мышки. После 0.5 секунд наносится 40/60/80/100/120 + (0,3 * AP) магического урона каждому ближайшему врагу, находящемуся в радиусе взрыва, если заклинание затронуло одного противника, то ему причиняется двойной урон.</p> \
@@ -949,7 +949,7 @@ function initTooltipKarthus() {
     });
 }
 
-function initTooltipKassadin() {
+Tooltips.Kassadin = function() {
     $("img[src='img/skills/kassadiq.png']").easyTooltip({
         content: '<h4>Null Sphere</h4> \
         <p>Выпускает сферу, наносящую 80/130/180/230/280 + (0,7 * AP) магического урона и вызывающую онемение на 1/1,4/1,8/2,2/2,6 сек.</p> \
@@ -977,7 +977,7 @@ function initTooltipKassadin() {
     });
 }
 
-function initTooltipKatarina() {
+Tooltips.Katarina = function() {
     $("img[src='img/skills/katarine.png']").easyTooltip({
         content: '<h4>Shunpo</h4> \
         <p>Мгновенное перемещение к цели. Если цель враждебна, то она получает 80/120/160/200/240 + (0,75 * AP) магического урона.</p> \
@@ -1007,7 +1007,7 @@ function initTooltipKatarina() {
     });
 }
 
-function initTooltipKayle() {
+Tooltips.Kayle = function() {
     $("img[src='img/skills/kayle-ri.png']").easyTooltip({
         content: '<h4>Righteous Fury</h4> \
         <p>Увеличивает дальность атаки на 400 на 10 сек. Пока это умение активно, физические атаки наносят дополнительно 20/30/40/50/60 + (0,2 * AP) магического урона основной цели, а враги вокруг нее получают 20/25/30/35/40% обычного урона и тот же магический бонус.</p> \
@@ -1034,7 +1034,7 @@ function initTooltipKayle() {
     });
 }
 
-function initTooltipKennen() {
+Tooltips.Kennen = function() {
     $("img[src='img/skills/kennen-t.png']").easyTooltip({
         content: '<h4>Thundering Shuriken</h4> \
         <p>Метание в указанную точку заряженного сюрикена, наносящего первой цели на пути 75/115/155/195/235 + (0,66 * AP) урона магией и накладывающего на неё Mark of the Storm.</p> \
@@ -1062,7 +1062,7 @@ function initTooltipKennen() {
     });
 }
 
-function initTooltipKogmaw() {
+Tooltips.Kogmaw = function() {
     $("img[src='img/skills/kogmaw-void-ooze.png']").easyTooltip({
         content: '<h4>Void Ooze</h4> \
         <p>Kog’Maw выпускает дорожку из слизи, которая наносит 60/110/160/210/260 + (0,7 + AP) единиц Магического урона противникам прошедшим через неё. \
@@ -1092,7 +1092,7 @@ function initTooltipKogmaw() {
     });
 }
 
-function initTooltipLeblanc() {
+Tooltips.Leblanc = function() {
     $("img[src='img/skills/leblanc4.png']").easyTooltip({
         content: '<h4>Sigil of Silence</h4> \
         <p>Поражает цель магической сферой, наносящей 70/110/150/190/230 + (0,6 * AP) магического урона и помечающей ее на 3,5 секунды. Если в этот промежуток времени цель получит урон от одного из умений заклинателя, метка сработает, нанеся 20/40/60/80/100 + (0,3 * AP) магического урона и вызвав онемение на 2 сек.</p> \
@@ -1119,7 +1119,7 @@ function initTooltipLeblanc() {
     });
 }
 
-function initTooltipLeesin() {
+Tooltips.Leesin = function() {
     $("img[src='img/skills/lee-sin4.png']").easyTooltip({
         content: '<h4>Tempest / Cripple </h4> \
         <p>Tempest: Удар по земле, наносящий 60/95/130/165/200 + (1 * доп. AD) магического урона врагам вокруг себя и помечающий их на 4 сек., при этом все невидимые цели раскрываются. При попадании даже по одной цели можно использовать Cripple в течение 3 сек.\
@@ -1149,7 +1149,7 @@ function initTooltipLeesin() {
     });
 }
 
-function initTooltipLeona() {
+Tooltips.Leona = function() {
     $("img[src='img/skills/leona-shield-of-daybreak.png']").easyTooltip({
         content: '<h4>Shield of Daybreak </h4> \
         <p>Следующая автоатака Лионы наносит дополнительно (40 / 70 / 100 / 130 / 160) (+(0.3 к каждой нанесенной магической атаки) магического урона, и станя противника на 1.25 секунды.</p> \
@@ -1176,7 +1176,7 @@ function initTooltipLeona() {
     });
 }
 
-function initTooltipLulu() {
+Tooltips.Lulu = function() {
     $("img[src='img/skills/lulu-gli.png']").easyTooltip({
         content: '<h4>Glitterlance</h4> \
         <p>Pix и Lulu стреляют по одному энерго-шару, который значительно замедляет всех врагов, которых заденет. Урон наносится лишь от одного из них.</p> \
@@ -1203,7 +1203,7 @@ function initTooltipLulu() {
     });
 }
 
-function initTooltipLux() {
+Tooltips.Lux = function() {
     $("img[src='img/skills/lux-lucent-singularity.png']").easyTooltip({
         content: '<h4>Lucent Singularity</h4> \
         <p>Создаёт зону, замедляющую врагов на 20/24/28/32/36% (область существует 5 секунд). Может быть взорвана для нанесения магического урона врагам в области в размере 60/105/150/195/240 + (0,6 * AP).</p> \
@@ -1230,7 +1230,7 @@ function initTooltipLux() {
     });
 }
 
-function initTooltipMalphite() {
+Tooltips.Malphite = function() {
     $("img[src='img/skills/malphiti.png']").easyTooltip({
         content: '<h4>Seismic Shard</h4> \
         <p>Поражает цель магически призванным подземным снарядом, наносящим 70/120/170/220/270 + (0,6 * AP) магического урона и похищающим 14/17/20/23/26% скорости передвижения цели на 4 сек.</p> \
@@ -1258,7 +1258,7 @@ function initTooltipMalphite() {
     });
 }
 
-function initTooltipMalzahar() {
+Tooltips.Malzahar = function() {
     $("img[src='img/skills/malzahar.png']").easyTooltip({
         content: '<h4>Call of the Void</h4> \
         <p>Открывает два портала в Бездну, между которыми после небольшой задержки проходит волна силы, наносящая всем целям 80/135/190/245/300 + (0,8 * AP) магического уронаи вызывающая онемение на 1,4/1,8/2,2/2,6/3 сек.</p> \
@@ -1287,7 +1287,7 @@ function initTooltipMalzahar() {
     });
 }
 
-function initTooltipMaokai() {
+Tooltips.Maokai = function() {
     $("img[src='img/skills/maokai-t.png']").easyTooltip({
         content: '<h4>Sapling Toss</h4> \
         <p>Бросок в указанную точку саженца, наносящего по приземлении 40/75/110/145/180 + (0,4 * AP) урона магией вокруг себя. Саженец укореняется и живет 35 сек., наблюдая за окрестностями, но снимается с места и преследует слишком близко подошедшего врага, взрываясь при контакте и нанося вокруг себя 80/130/180/230/280 + (0,6 * AP) урона магией.</p> \
@@ -1314,7 +1314,7 @@ function initTooltipMaokai() {
     });
 }
 
-function initTooltipMasteryi() {
+Tooltips.Masteryi = function() {
     $("img[src='img/skills/master-y.png']").easyTooltip({
         content: '<h4>Alpha Strike</h4> \
         <p>Молниеносное перемещение между врагами с ударом по каждому. Наносит 100/150/200/250/300 + (1 * AP) магического урона четырём или менее целям, с шансом в 20/30/40/50/60% наносит дополнительно 400 магического урона вражеским миньонам.</p> \
@@ -1342,7 +1342,7 @@ function initTooltipMasteryi() {
     });
 }
 
-function initTooltipMissfortune() {
+Tooltips.Missfortune = function() {
     $("img[src='img/skills/miss-fot.png']").easyTooltip({
         content: '<h4>Double Up</h4> \
         <p>Выстрел, наносящий цели 25/60/95/130/165 + (0,75 * AD) физического урона и отскакивающий в другую цель позади первой, нанося 115% полученного ей урона. Накладывает эффекты с предметов.</p> \
@@ -1370,7 +1370,7 @@ function initTooltipMissfortune() {
     });
 }
 
-function initTooltipMordekaizer() {
+Tooltips.Mordekaizer = function() {
     $("img[src='img/skills/mordekan.png']").easyTooltip({
         content: '<h4>Siphon of Destruction</h4> \
         <p>Мордекайзер наносит 65/105/145/185/225 + (0,6 * AP) магического урона врагам в выбранной области. \
@@ -1401,7 +1401,7 @@ function initTooltipMordekaizer() {
     });
 }
 
-function initTooltipMorgana() {
+Tooltips.Morgana = function() {
     $("img[src='img/skills/morgana1.png']").easyTooltip({
         content: '<h4>Dark Binding</h4> \
         <p>Выпускает молнию темной энергии в сторону цели, приковывая первого повавшегося противника бойца к земле на 2/2,25/2,5/2,75/3 секунды и нанося 80/135/190/245/300 + (0,9 * AP) магического урона.</p> \
@@ -1429,7 +1429,7 @@ function initTooltipMorgana() {
     });
 }
 
-function initTooltipNasus() {
+Tooltips.Nasus = function() {
     $("img[src='img/skills/nasus-si.png']").easyTooltip({
         content: '<h4>Siphoning Strike </h4> \
         <p>Следующая после произнесения физическая атака нанесет дополнительно 30/50/70/90/110 + ((1 * AD) физического урона, Убийство этим умением увеличит урон всех его последующих применений на 3, но не более 600.</p> \
@@ -1456,7 +1456,7 @@ function initTooltipNasus() {
     });
 }
 
-function initTooltipNautilus() {
+Tooltips.Nautilus = function() {
     $("img[src='img/skills/nautilux.png']").easyTooltip({
         content: '<h4>Titan’s Wrath</h4> \
         <p>Наутилус помещает на себя щит, который поглощает дополнительный урон основанный на его максимальном Здоровье. Пока щит активен, атаки Наутилуса наносят постепенный урон юнитам вокруг него.</p> \
@@ -1483,7 +1483,7 @@ function initTooltipNautilus() {
     });
 }
 
-function initTooltipNidalee() {
+Tooltips.Nidalee = function() {
     $("img[src='img/skills/nidalee-bushwhack-pounce.png']").easyTooltip({
         content: '<h4>Bushwhack / Pounce</h4> \
         <p>Человек: Nidalee ставит ловушку, которая наносит 80/125/170/215/260 + (0.4 * AP) урона за 2 секунды, обнаруживая врага и уменьшая магическую защиту на 20/25/30/35/40% на 12 секунд. Ловушки существуют 4 минуты. \
@@ -1514,7 +1514,7 @@ function initTooltipNidalee() {
     });
 }
 
-function initTooltipNocturne() {
+Tooltips.Nocturne = function() {
     $("img[src='img/skills/nocturne.png']").easyTooltip({
         content: '<h4>Duskbringer</h4> \
         <p>Выпускает в указанную точку призрачную ладонь, наносящую всем врагам на пути 60/105/150/195/240 + (0,75 * доп. AD) физического урона и оставляющая после себя Dusk Trail <Сумеречный след>, сгустки тьмы, существующие 5 сек. \
@@ -1543,7 +1543,7 @@ function initTooltipNocturne() {
     });
 }
 
-function initTooltipNunu() {
+Tooltips.Nunu = function() {
     $("img[src='img/skills/nunu-ice-blast.png']").easyTooltip({
         content: '<h4>Ice Blast</h4> \
         <p>Nunu бросает ледяной шар во вражеского бойца, нанося 85/130/175/225/275 + (1 * AP) магического урона и снижая скорость передвижения на 40/45/50/55/60% и скорость атаки на 25%, длится 4 секунды.</p> \
@@ -1571,7 +1571,7 @@ function initTooltipNunu() {
     });
 }
 
-function initTooltipOlaf() {
+Tooltips.Olaf = function() {
     $("img[src='img/skills/olaf-und.png']").easyTooltip({
         content: '<h4>Undertow</h4> \
         <p>Бросок топора в указанную точку, наносящий 50/90/130/170/210 + (0,5 * AD) физического урона всем врагам на пути и снижающий их скорость передвижения на 24/28/32/36/40% на 2,5 сек. Если топор подобрать, то время восстановления сокращается на 6 сек.</p> \
@@ -1599,7 +1599,7 @@ function initTooltipOlaf() {
     });
 }
 
-function initTooltipOrianna() {
+Tooltips.Orianna = function() {
     $("img[src='img/skills/orianna1.png']").easyTooltip({
         content: '<h4>Command: Attack</h4> \
         <p>Приказ шару устремиться в указанную точку, при этом все враги на его пути получат 60/100/140/180/220 + (0,6 * AP) магического урона. Урон от умения снижается на 10% за каждую цель, однако умение не может нанести меньше 40% урона. После перемещения шар остается в указанной точке.</p> \
@@ -1627,7 +1627,7 @@ function initTooltipOrianna() {
     });
 }
 
-function initTooltipPantheon() {
+Tooltips.Pantheon = function() {
     $("img[src='img/skills/pantheos.png']").easyTooltip({
         content: '<h4>Spear Shot</h4> \
         <p>Пантеон кидает копьё, нанося 16/28/40/52/64 + (AD * 1/1,15/1,3/1,45/1,6) физического урона (100/115/130/145/160% от его общего физического урона).</p> \
@@ -1655,7 +1655,7 @@ function initTooltipPantheon() {
     });
 }
 
-function initTooltipPoppy() {
+Tooltips.Poppy = function() {
     $("img[src='img/skills/poppy-he.png']").easyTooltip({
         content: '<h4>Heroic Charge</h4> \
         <p>Поппи налетает на врага и отталкивает его. Наносит 50/75/100/125/150 + (AP * 0,4) магического урона. Если враг столкнулся со огорождением он получит 75/125/175/225/275 + (AP * 0,4) магического урона и будет оглушён на 1,5 секунды.</p> \
@@ -1684,7 +1684,7 @@ function initTooltipPoppy() {
     });
 }
 
-function initTooltipRammus() {
+Tooltips.Rammus = function() {
     $("img[src='img/skills/rammus-p.png']").easyTooltip({
         content: '<h4>Powerball</h4> \
         <p>Rammus ускоряется, катясь шаром на врагов. При столкновении наносит 100/150/200/250/300 + (AP + 1) магического урона ближайшим врагам при ударе и замедляя их на 20/25/30/35/40% в течение 3 секунд.</p> \
@@ -1712,7 +1712,7 @@ function initTooltipRammus() {
     });
 }
 
-function initTooltipRenekton() {
+Tooltips.Renekton = function() {
     $("img[src='img/skills/renekton.png']").easyTooltip({
         content: '<h4>Cull the Meek</h4> \
         <p>Круговой удар, наносящий врагам вокруг себя 60/90/120/150/180 + (0,8 * доп. AD) физического урона и восстанавливающий нанесшему здоровье в размере 5% от нанесенного урона (20% от урона по вражеским героям), но не более 50/75/100/125/150 здоровья за удар. Каждая попавшая под удар цель увеличивает запас ярости на 5, но не более 25 за удар. При 50 ярости или выше урон увеличивается на 50%, а доля лечения — на 100%, максимальное лечение не может превышать 150/225/300/375/450.</p> \
@@ -1739,7 +1739,7 @@ function initTooltipRenekton() {
     });
 }
 
-function initTooltipRiven() {
+Tooltips.Riven = function() {
     $("img[src='img/skills/riven-br.png']").easyTooltip({
         content: '<h4>Broken Wings</h4> \
         <p>Ривен шагает вперёд в серии мощных, хлёстких ударов меча. Эта способность может быть повторно задействована до 3 раз в краткий период.\
@@ -1769,7 +1769,7 @@ function initTooltipRiven() {
     });
 }
 
-function initTooltipRumble() {
+Tooltips.Rumble = function() {
     $("img[src='img/skills/rumble-f.png']").easyTooltip({
         content: '<h4>Flamespitter</h4> \
         <p>Наносит всем врагам в конусе перед собой 30/60/90/120/150 + (0,45 * AP) урона магией в секунду в течение 3 с, при этом во время применения умения можно двигаться и применять другие умения, а неигровым персонажам наносится только половина урона. В »Опасной зоне» урон умения увеличивается на 30%.</p> \
@@ -1796,7 +1796,7 @@ function initTooltipRumble() {
     });
 }
 
-function initTooltipRyze() {
+Tooltips.Ryze = function() {
     $("img[src='img/skills/ryze-run.png']").easyTooltip({
         content: '<h4>Rune Prison</h4> \
         <p>Наносит цели 60/95/130/165/200 + (0,6 * AP) +(0.05 * максимальный запас маны) урона магией и лишает ее возможности перемещаться на 1/1,25/1,5/1,75/2 с.</p> \
@@ -1825,7 +1825,7 @@ function initTooltipRyze() {
     });
 }
 
-function initTooltipSejuani() {
+Tooltips.Sejuani = function() {
     $("img[src='img/skills/sejuani3.png']").easyTooltip({
         content: '<h4>Northern Winds</h4> \
         <p>На 5 секунд Сэджуани вызывает вокруг себя Ледяную бурю, каждую секунду наносящую окружающим врагам  12/20/28/36/44 (+0,1) (+0 [1/1.25/1.5/1.75/2% максимального здоровья) магического урона. Против противников с эффектами Мороза или Мерзлоты урон увеличивается на 50%.</p> \
@@ -1852,7 +1852,7 @@ function initTooltipSejuani() {
     });
 }
 
-function initTooltipShaco() {
+Tooltips.Shaco = function() {
     $("img[src='img/skills/shaco-ja.png']").easyTooltip({
         content: '<h4>Jack In The Box</h4> \
         <p>Шако создает Джека из коробочки. После 2 секунд Джек уйдет в невидимость. Если враг пройдёт рядом, Джек напугает врага на 0.5/0.75/1/1.25/1.5 секунд и начнет атаковать его.Атаки наносят 35/60/80/100/125 (+0.35) урона. Джек стоит 90 секунд, или 5 секунд с начала атаки.</p> \
@@ -1881,7 +1881,7 @@ function initTooltipShaco() {
     });
 }
 
-function initTooltipShen() {
+Tooltips.Shen = function() {
     $("img[src='img/skills/shen-vor.png']").easyTooltip({
         content: '<h4>Vorpal Blade</h4> \
         <p>Бросок меча, наносящий 50/90/130/170/210 + (0,65 * AP) урона магией и нарушающий течение ее жизненных энергий. Герои, наносящие физические удары по цели, восстанавливают себе здоровье в объеме 10/20/30/40/50 + (0,02 * AP) в течение 3 сек. Повторные атаки по помеченной умением цели обновляют эффект лечения.</p> \
@@ -1908,7 +1908,7 @@ function initTooltipShen() {
     });
 }
 
-function initTooltipShyvana() {
+Tooltips.Shyvana = function() {
     $("img[src='img/skills/shyvana-.png']").easyTooltip({
         content: '<h4>Burnout</h4> \
         <p>Шивана наносит 25/40/55/70/85 + (0,2 * AD) магического урона в сек. ближайшим противникам и передвигается на 30/35/40/45/50% быстрее в течение 3 секунд. Бонус к скорости передвижения Шиваны со временем уменьшается.\
@@ -1939,7 +1939,7 @@ function initTooltipShyvana() {
     });
 }
 
-function initTooltipSinged() {
+Tooltips.Singed = function() {
     $("img[src='img/skills/singed-f.png']").easyTooltip({
         content: '<h4>Fling</h4> \
         <p>Singed бросается на врага, толкает его плечом, нанося 100 / 150 / 200 / 250 / 300 (+1 за АП) магического урона и откидывая врага за себя.</p> \
@@ -1966,7 +1966,7 @@ function initTooltipSinged() {
     });
 }
 
-function initTooltipSion() {
+Tooltips.Sion = function() {
     $("img[src='img/skills/sion-cry.png']").easyTooltip({
         content: '<h4>Cryptic Gaze</h4> \
         <p>Наносит  70/125/180/240/300 + (0,9 AP) магического урона и оглушает цель на 1,5 сек.</p> \
@@ -1993,7 +1993,7 @@ function initTooltipSion() {
     });
 }
 
-function initTooltipSivir() {
+Tooltips.Sivir = function() {
     $("img[src='img/skills/sivir-bo.png']").easyTooltip({
         content: '<h4>Spiral Blade</h4> \
         <p>Сивир швыряет бумеранг, нанося 60/ 115 / 170 / 225 / 280 (+0.75 за АП) магического урона каждой вражеской единице, сквозь которую пролетит бумернаг. </p> \
@@ -2021,7 +2021,7 @@ function initTooltipSivir() {
     });
 }
 
-function initTooltipSkarner() {
+Tooltips.Skarner = function() {
     $("img[src='img/skills/skarner-.png']").easyTooltip({
         content: '<h4>Crystal Slash</h4> \
         <p>Скарнер наносит 20/35/50/65/80 (+0.3*AD) физического урона всем ближайшим противникам и заряжает себя Кристальной Энергией на 5 секунд если задел цель. Пока Скарнер заряжен Кристаллический Порез наносит 0 (+0.4*AP) дополнительного магического урона и замедляет на 25/30/35/40/45% в течение 2 секунд.</p> \
@@ -2048,7 +2048,7 @@ function initTooltipSkarner() {
     });
 }
 
-function initTooltipSona() {
+Tooltips.Sona = function() {
     $("img[src='img/skills/sona-ari.png']").easyTooltip({
         content: '<h4>Aria of Perseverance</h4> \
         <p>Увеличивает броню и магическую защиту ближайших союзников на 8/11/14/17/20. При активации излечивает играющего и наиболее сильно раненного союзного героя на 35/70/105/140/175 + (0,35 * AP). Дает пассивному умению эффект Power Chord — Diminuendo, снижающий весь наносимый целью урон на 20% на 4 сек.</p> \
@@ -2075,7 +2075,7 @@ function initTooltipSona() {
     });
 }
 
-function initTooltipSoraka() {
+Tooltips.Soraka = function() {
     $("img[src='img/skills/soraka-a.png']").easyTooltip({
         content: '<h4>Astral Blessing</h4> \
         <p>Восстанавливает 7 / 11 / 15 / 19 / 23 (+0 за ап) очков жизни в секунду и дает дополнительные 30 брони на 12 секунд.</p> \
@@ -2102,7 +2102,7 @@ function initTooltipSoraka() {
     });
 }
 
-function initTooltipSwain() {
+Tooltips.Swain = function() {
     $("img[src='img/skills/swain-to.png']").easyTooltip({
         content: '<h4>Torment </h4> \
         <p>Насылает на цель невыносимые страдания. Наносит 75/115/155/195/235 + (0,8 * AP) магического урона за 4 сек. Во время действия весь прочий урон, наносимый заклинателем, увеличивается на 8/11/14/17/20%.</p> \
@@ -2129,7 +2129,7 @@ function initTooltipSwain() {
     });
 }
 
-function initTooltipTalon() {
+Tooltips.Talon = function() {
     $("img[src='img/skills/talon-ra.png']").easyTooltip({
         content: '<h4>Rake</h4> \
         <p>Талон посылает волну кинжалов, которые к нему возвращаются, нанося (30 / 55 / 80 / 105 / 130) (+(0.6 с каждой атакой) физического урона и раня, когда кинжалы проходят через противников. Дополнительно враги замедляются (20 / 25 / 30 / 35 / 40)% на 2 секунды.</p> \
@@ -2156,7 +2156,7 @@ function initTooltipTalon() {
     });
 }
 
-function initTooltipTaric() {
+Tooltips.Taric = function() {
     $("img[src='img/skills/taric-da.png']").easyTooltip({
         content: '<h4>Dazzle</h4> \
         <p>Тарик нацеливает сферу призматического света во врага, нанося 0 — 80 / 160 / 240 / 320 / 400 (+1 за АП) магического урона (с увеличением дистанции урон рассеивается), и оглушая на 1 — 2 секунды (с увеличением дистанции продолжительность стана увеличивается).</p> \
@@ -2183,7 +2183,7 @@ function initTooltipTaric() {
     });
 }
 
-function initTooltipTeemo() {
+Tooltips.Teemo = function() {
     $("img[src='img/skills/teemo-bl.png']").easyTooltip({
         content: '<h4>Blinding Dart</h4> \
         <p>Наносит 80 / 125 / 170 / 215 / 260 (+0.8 за АП) магического урона врагу и заставляет его промахиваться в течении 1.5/2.0/2.5/3.0/3.5 секунд</p> \
@@ -2211,7 +2211,7 @@ function initTooltipTeemo() {
     });
 }
 
-function initTooltipTristana() {
+Tooltips.Tristana = function() {
     $("img[src='img/skills/tristand.png']").easyTooltip({
         content: '<h4>Explosive Shot</h4> \
         <p>Пассивный: Когда умение готово к использованию, убитые враги взрываются, нанося 50 / 75 / 100 / 125 / 150 магического урона соседним врагам. \
@@ -2241,7 +2241,7 @@ function initTooltipTristana() {
     });
 }
 
-function initTooltipTrundle() {
+Tooltips.Trundle = function() {
     $("img[src='img/skills/trundle-rabid-bite.png']").easyTooltip({
         content: '<h4>Rabid Bite </h4> \
         <p>Следующая после активации физическая атака будет заменена укусом, наносящим 30+ (0,8 * AD) / 45+ (0,9 * AD) / 60+ (1 * AD) / 75+ (1,1 * AD) / 90+ (1,2 * AD) физического урона, а также увеличивающим физический урон укусившего на 20/25/30/35/40 и понижающим физический урон цели на 10/12,5/15/17,5/20.</p> \
@@ -2268,7 +2268,7 @@ function initTooltipTrundle() {
     });
 }
 
-function initTooltipTryndamere() {
+Tooltips.Tryndamere = function() {
     $("img[src='img/skills/tryndami.png']").easyTooltip({
         content: '<h4>Spinning Slash</h4> \
         <p>Рывок с вращением меча вокруг себя. Наносит 60/90/120/150/180  + (1 * AP) + (1 * доп. AD) физического урона вокруг себя на всем протяжении. Время восстановления снижается на 2 сек. после нанесения критического удара.</p> \
@@ -2296,7 +2296,7 @@ function initTooltipTryndamere() {
     });
 }
 
-function initTooltipTwisted() {
+Tooltips.Twisted = function() {
     $("img[src='img/skills/twisted2.png']").easyTooltip({
         content: '<h4>Pick A Card</h4> \
         <p>Twisted Fate Перетасовывает колоду, увеличивая урон от следующей атаки.\
@@ -2326,7 +2326,7 @@ function initTooltipTwisted() {
     });
 }
 
-function initTooltipTwitch() {
+Tooltips.Twitch = function() {
     $("img[src='img/skills/twitch-a.png']").easyTooltip({
         content: '<h4>Ambush</h4> \
         <p>Через 1.25 секунд Твитч становится невидимым на 20 / 30 / 40 / 50 / 60 секунд. Если Твитч нападает на врага из режима невидимости, то скорость его атаки увеличивается на 20 / 30 / 40 / 50 / 60 % на срок до 10 секунд, в зависимости от того, как долго он был невидим.</p> \
@@ -2353,7 +2353,7 @@ function initTooltipTwitch() {
     });
 }
 
-function initTooltipUdyr() {
+Tooltips.Udyr = function() {
     $("img[src='img/skills/udyr-tig.png']").easyTooltip({
         content: '<h4>Tiger Stance</h4> \
         <p>Стойка, повышающая скорость атаки на 20/25/30/35/40%. При входе в стойку следующая физическая атака нанесет дополнительно 30/80/130/180/230 + (1,5 * AD) урона магией в течение 2 сек, в дополнение к этому скорость атаки будет увеличена на 15/20/25/30/35% на 5 сек.</p> \
@@ -2380,7 +2380,7 @@ function initTooltipUdyr() {
     });
 }
 
-function initTooltipUrgot() {
+Tooltips.Urgot = function() {
     $("img[src='img/skills/urgot-no.png']").easyTooltip({
         content: '<h4>Noxian Corrosive Charge</h4> \
         <p>Выстреливает в указанную область гранату с ноксианским химзарядом, наносящим целям 75/130/185/240/295 + (0,6 * доп. AD) урона в течение 5 сек., снижающим их броню на 12/14/16/18/20% на время действия и позволяющим ракетам самонаводиться.</p> \
@@ -2407,7 +2407,7 @@ function initTooltipUrgot() {
     });
 }
 
-function initTooltipVarus() {
+Tooltips.Varus = function() {
     $("img[src='img/skills/varus-blighted-quiver.png']").easyTooltip({
         content: '<h4>Blighted Quiver</h4> \
         <p>Пассивно: Автоатаки Varusа наносят 10/14/18/22/26 (+25% AP) дополнительного магического урона и на 6/6/6/6/6 секунд накладывают заряд Чумы (складываются 3/3/3/3/3 раза). Остальные способности Varusа активируют Чуму, нанося магический урон равный 2/2.75/3.5/4.25/5% (+...%) от максимального здоровья цели за заряд (Макс: 360 полного урона против Монстров).</p> \
@@ -2434,7 +2434,7 @@ function initTooltipVarus() {
     });
 }
 
-function initTooltipVayne() {
+Tooltips.Vayne = function() {
     $("img[src='img/skills/vayne-tumble.png']").easyTooltip({
         content: '<h4>Tumble</h4> \
         <p>Кувырок, позволяющий быстро сменить позицию и увеличивающий урон следующей физической атаки на 40/45/50/55/60%.</p> \
@@ -2461,7 +2461,7 @@ function initTooltipVayne() {
     });
 }
 
-function initTooltipViktor() {
+Tooltips.Viktor = function() {
     $("img[src='img/skills/viktor-d.png']").easyTooltip({
         content: '<h4>Death Ray</h4> \
         <p>Виктор использует свою роботизированную руку, чтобы выстрелить лучом смерти, нанося 70/115/160/205/250 + (0,7 * AP) магического урона всем врагам, находящимся на его пути.</p> \
@@ -2490,7 +2490,7 @@ function initTooltipViktor() {
     });
 }
 
-function initTooltipVeigar() {
+Tooltips.Veigar = function() {
     $("img[src='img/skills/veigar-b.png']").easyTooltip({
         content: '<h4>Baleful Strike </h4> \
         <p>Пассивно: Дает 1/2/3/4/5 AP за убийство героя любым способом.\
@@ -2518,7 +2518,7 @@ function initTooltipVeigar() {
     });
 }
 
-function initTooltipVladimir() {
+Tooltips.Vladimir = function() {
     $("img[src='img/skills/vladimiw.png']").easyTooltip({
         content: '<h4>Transfusion</h4> \
         <p>Извлечение жизненной силы цели. Наносит магический урон в 90/125/160/195/230 + (0,6*AP) и восстанавливает здоровье в объеме 15/24/35/45/55 + (0,25 * AP).</p> \
@@ -2545,7 +2545,7 @@ function initTooltipVladimir() {
     });
 }
 
-function initTooltipVolibear() {
+Tooltips.Volibear = function() {
     $("img[src='img/skills/volibeat.png']").easyTooltip({
         content: '<h4>Frenzy</h4> \
         <p>(Пассивный) Волибир получает постоянный бонус к Скорости Атаки после совершения авто-атаки. Этот бонус складывается до 3-х раз и длится 4 секунды.\
@@ -2576,7 +2576,7 @@ function initTooltipVolibear() {
     });
 }
 
-function initTooltipWarwick() {
+Tooltips.Warwick = function() {
     $("img[src='img/skills/warwick-hunters-call.png']").easyTooltip({
         content: '<h4>Hunters Call</h4> \
         <p>Уорик издает пронзительный вой, увеличивая скорость нападения всех дружественных чемпионов на 25%, а скорость Уоррика на 50% на 6 / 9 / 12 / 15 / 18 секунд.</p> \
@@ -2604,7 +2604,7 @@ function initTooltipWarwick() {
     });
 }
 
-function initTooltipWukong() {
+Tooltips.Wukong = function() {
     $("img[src='img/skills/wukong-n.png']").easyTooltip({
         content: '<h4>Nimbus strike</h4> \
         <p>Вуконг прыгает на выбранную цели и наносит 70 | 115 | 160 | 205 | 250 + (0.8*AD) физического урона. такой же урон Вуконг наносит и двум рядом стоящим целям. Также после нанесения урона увеличивается на 20% | 25% | 30% | 35% | 40% скорость атаки Вуконга на 3 секунды .</p> \
@@ -2631,7 +2631,7 @@ function initTooltipWukong() {
     });
 }
 
-function initTooltipXerath() {
+Tooltips.Xerath = function() {
     $("img[src='img/skills/xerath-b.png']").easyTooltip({
         content: '<h4>Arcanopulse</h4> \
         <p>Выстреливает на расстояние пучком энергии, нанося 75/115/155/195/235 (+0.6) магического урона всем пораженным врагам.</p> \
@@ -2660,7 +2660,7 @@ function initTooltipXerath() {
     });
 }
 
-function initTooltipXin() {
+Tooltips.Xin = function() {
     $("img[src='img/skills/xin-zhao-audacious-charge.png']").easyTooltip({
         content: '<h4>Audacious Charge</h4> \
         <p>Рывок к цели, наносящий ей 70/110/150/190/230 + (0,4 * AP) урона магией, а также замедляющий её и всех других врагов вокруг нее на 20/25/30/35/40% на 1,75 сек.</p> \
@@ -2687,7 +2687,7 @@ function initTooltipXin() {
     });
 }
 
-function initTooltipYorick() {
+Tooltips.Yorick = function() {
     $("img[src='img/skills/yorick-q.png']").easyTooltip({
         content: '<h4>Omen of Pestilence</h4> \
         <p>Призывает гниющего вурдалака, наносящим по появлении всем врагам вокруг себя 60/95/130/165/200 + (1 * AP) урона магией и снижающего скорость их перемещения на 20/25/30/35/40% на 1,5 сек. Пока он жив, скорость перемещения всех врагов вокруг него снижается на 10/12,5/15/17,5/20%.</p> \
@@ -2714,7 +2714,7 @@ function initTooltipYorick() {
     });
 }
 
-function initTooltipZiggs() {
+Tooltips.Ziggs = function() {
     $("img[src='img/skills/ziggs-bo.png']").easyTooltip({
         content: '<h4>Bouncing Bomb</h4> \
         <p>Зиггс забрасывает скачущую бомбу, наносящую 75 / 120 / 165 / 210 / 255 (+0.65 * AP) магического урона.</p> \
@@ -2741,7 +2741,7 @@ function initTooltipZiggs() {
     });
 }
 
-function initTooltipZilean() {
+Tooltips.Zilean = function() {
     $("img[src='img/skills/zilean-time-bomb.png']").easyTooltip({
         content: '<h4>Time Bomb</h4> \
         <p>Устанавливает бомбу замедленного действия на союзную или враждебную цель, которая взрывается через 4 с и наносит 90/145/200/260/320 + (0,9 * AP) магического урона всем врагам в зоне поражения.</p> \

@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="i-ys_rCCr7ub-eZJO84Q4JPbChPLbZ2zXb3lmEo3TEI" />
     <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
-    <link rel="stylesheet" href="css/my.css" />
+    <link rel="stylesheet" href="css/app.css" />
 
     <!-- Libs -->
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
     <script src="js/libs/bootstrap-modal.js"></script>
-    <script src="js/libs/underscore.js"></script>
     <script src="js/libs/easyTooltip.js"></script>
 
     <!-- Data -->
@@ -30,10 +30,12 @@
     <script src="js/data/tooltip-runes.js"></script>
 
     <!-- App Files -->
-    <script src="js/helpers.js"></script>
+    <script src="js/lol.js"></script>
+    <script src="js/routes.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/directives.js"></script>
     <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
 
     <link rel="shortcut icon" href="http://faviconist.com/icons/b12151012d5405269628194f261bdf5a/favicon.ico" /></head>
 <body>
@@ -59,7 +61,7 @@
     <div id="tabs">
         <div class="row menu">
             <div class="span11">
-                <!--Модальное окно при очистке localstorage-->
+
                 <div class="modal" id="myModal" ng-show="lol.visibleModal">
                     <div class="modal-header">
                        <h3>Очистка локального хранилища</h3>
@@ -69,7 +71,7 @@
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn cancel" data-dismiss="modal">Отмена</a>
-                        <a href="#" class="btn btn-primary" ng-click="Helpers.resetBuilds()">Сбросить</a>
+                        <a href="#" class="btn btn-primary" ng-click="localService.reset()">Сбросить</a>
                     </div>
                 </div>
 
@@ -79,111 +81,111 @@
 
                 <ul>
                     <li><a href="#block" ng-click="lol.AhriCtrl()">Ahri</a></li>
-                    <li><a href="#block" ng-click="initAkali();">Akali</a></li>
-                    <li><a href="#block" ng-click="initAlistar();">Alistar</a></li>
-                    <li><a href="#block" ng-click="initAmumu();">Amumu</a></li>
-                    <li><a href="#block" ng-click="initAnivia();">Anivia</a></li>
-                    <li><a href="#block" ng-click="initAnnie();">Annie</a></li>
-                    <li><a href="#block" ng-click="initAshe();">Ashe</a></li>
-                    <li><a href="#block" ng-click="initBlitzcrank();">Blitzcrank</a></li>
-                    <li><a href="#block" ng-click="initBrand();">Brand</a></li>
-                    <li><a href="#block" ng-click="initCaitlyn();">Caitlyn</a></li>
-                    <li><a href="#block" ng-click="initCassiopeia();">Cassiopeia</a></li>
-                    <li><a href="#block" ng-click="initChogath();">Cho'Gath</a></li>
-                    <li><a href="#block" ng-click="initCorki();">Corki</a></li>
-                    <li><a href="#block" ng-click="initDarius();">Darius</a></li>
-                    <li><a href="#block" ng-click="initDraven();">Draven</a></li>
-                    <li><a href="#block" ng-click="initMundo();">Dr. Mundo</a></li>
-                    <li><a href="#block" ng-click="initEvelynn();">Evelynn</a></li>
-                    <li><a href="#block" ng-click="initEzreal();">Ezreal</a></li>
-                    <li><a href="#block" ng-click="initFiddlesticks();">Fiddlesticks</a></li>
-                    <li><a href="#block" ng-click="initFiora();">Fiora</a></li>
-                    <li><a href="#block" ng-click="initFizz();">Fizz</a></li>
-                    <li><a href="#block" ng-click="initGalio();">Galio</a></li>
-                    <li><a href="#block" ng-click="initGangplank();">Gangplank</a></li>
-                    <li><a href="#block" ng-click="initGaren();">Garen</a></li>
-                    <li><a href="#block" ng-click="initGragas();">Gragas</a></li>
-                    <li><a href="#block" ng-click="initGraves();">Graves</a></li>
-                    <li><a href="#block" ng-click="initHecarim();">Hecarim</a></li>
-                    <li><a href="#block" ng-click="initHeimerdinger();">Heimerdinger</a></li>
-                    <li><a href="#block" ng-click="initIrelia();">Irelia</a></li>
-                    <li><a href="#block" ng-click="initJanna();">Janna</a></li>
-                    <li><a href="#block" ng-click="initJarvan();">Jarvan IV</a></li>
-                    <li><a href="#block" ng-click="initJax();">Jax</a></li>
-                    <li><a href="#block" ng-click="initKarma();">Karma</a></li>
-                    <li><a href="#block" ng-click="initKarthus();">Karthus</a></li>
-                    <li><a href="#block" ng-click="initKassadin();">Kassadin</a></li>
-                    <li><a href="#block" ng-click="initKatarina();">Katarina</a></li>
-                    <li><a href="#block" ng-click="initKayle();">Kayle</a></li>
-                    <li><a href="#block" ng-click="initKennen();">Kennen</a></li>
-                    <li><a href="#block" ng-click="initKogmaw();">Kog'Maw</a></li>
-                    <li><a href="#block" ng-click="initLeblanc();">LeBlanc</a></li>
-                    <li><a href="#block" ng-click="initLeesin();">Lee Sin</a></li>
-                    <li><a href="#block" ng-click="initLeona();">Leona</a></li>
-                    <li><a href="#block" ng-click="initLulu();">Lulu</a></li>
-                    <li><a href="#block" ng-click="initLux();">Lux</a></li>
-                    <li><a href="#block" ng-click="initMalphite();">Malphite</a></li>
-                    <li><a href="#block" ng-click="initMalzahar();">Malzahar</a></li>
-                    <li><a href="#block" ng-click="initMaokai();">Maokai</a></li>
-                    <li><a href="#block" ng-click="initMasteryi();">Master Yi</a></li>
-                    <li><a href="#block" ng-click="initMissfortune();">Miss Fortune</a></li>
-                    <li><a href="#block" ng-click="initMordekaiser();">Mordekaiser</a></li>
-                    <li><a href="#block" ng-click="initMorgana();">Morgana</a></li>
-                    <li><a href="#block" ng-click="initNasus();">Nasus</a></li>
-                    <li><a href="#block" ng-click="initNautilus();">Nautilus</a></li>
-                    <li><a href="#block" ng-click="initNidalee();">Nidalee</a></li>
-                    <li><a href="#block" ng-click="initNocturne();">Nocturne</a></li>
-                    <li><a href="#block" ng-click="initNunu();">Nunu</a></li>
-                    <li><a href="#block" ng-click="initOlaf();">Olaf</a></li>
-                    <li><a href="#block" ng-click="initOrianna();">Oriana</a></li>
-                    <li><a href="#block" ng-click="initPantheon();">Pantheon</a></li>
-                    <li><a href="#block" ng-click="initPoppy();">Poppy</a></li>
-                    <li><a href="#block" ng-click="initRammus();">Rammus</a></li>
-                    <li><a href="#block" ng-click="initRenekton();">Renekton</a></li>
-                    <li><a href="#block" ng-click="initRiven();">Riven</a></li>
-                    <li><a href="#block" ng-click="initRumble();">Rumble</a></li>
-                    <li><a href="#block" ng-click="initRyze();">Ryze</a></li>
-                    <li><a href="#block" ng-click="initSejuani();">Sejuani</a></li>
-                    <li><a href="#block" ng-click="initShaco();">Shaco</a></li>
-                    <li><a href="#block" ng-click="initShen();">Shen</a></li>
-                    <li><a href="#block" ng-click="initShyvana();">Shyvana</a></li>
-                    <li><a href="#block" ng-click="initSinged();">Singed</a></li>
-                    <li><a href="#block" ng-click="initSion();">Sion</a></li>
-                    <li><a href="#block" ng-click="initSivir();">Sivir</a></li>
-                    <li><a href="#block" ng-click="initSkarner();">Skarner</a></li>
-                    <li><a href="#block" ng-click="initSona();">Sona</a></li>
-                    <li><a href="#block" ng-click="initSoraka();">Soraka</a></li>
-                    <li><a href="#block" ng-click="initSwain();">Swain</a></li>
-                    <li><a href="#block" ng-click="initTalon();">Talon</a></li>
-                    <li><a href="#block" ng-click="initTaric();">Taric</a></li>
-                    <li><a href="#block" ng-click="initTeemo();">Teemo</a></li>
-                    <li><a href="#block" ng-click="initTristana();">Tristana</a></li>
-                    <li><a href="#block" ng-click="initTrundle();">Trundle</a></li>
-                    <li><a href="#block" ng-click="initTryndamere();">Tryndamere</a></li>
-                    <li><a href="#block" ng-click="initTwistedfate();">Twisted Fate</a></li>
-                    <li><a href="#block" ng-click="initTwitch();">Twitch</a></li>
-                    <li><a href="#block" ng-click="initUdyr();">Udyr</a></li>
-                    <li><a href="#block" ng-click="initUrgot();">Urgot</a></li>
-                    <li><a href="#block" ng-click="initVarus();">Varus</a></li>
-                    <li><a href="#block" ng-click="initVayne();">Vayne</a></li>
-                    <li><a href="#block" ng-click="initVeigar();">Veigar</a></li>
-                    <li><a href="#block" ng-click="initViktor();">Viktor</a></li>
-                    <li><a href="#block" ng-click="initVladimir();">Vladimir</a></li>
-                    <li><a href="#block" ng-click="initVolibear();">Volibear</a></li>
-                    <li><a href="#block" ng-click="initWarwick();">Warwick</a></li>
-                    <li><a href="#block" ng-click="initWukong();">Wukong</a></li>
-                    <li><a href="#block" ng-click="initXerath();">Xerath</a></li>
-                    <li><a href="#block" ng-click="initXin();">Xin Zhao</a></li>
-                    <li><a href="#block" ng-click="initYorick();">Yorick</a></li>
-                    <li><a href="#block" ng-click="initZiggs();">Ziggs</a></li>
-                    <li><a href="#block" ng-click="initZilean();">Zilean</a></li>
+                    <li><a href="#block" ng-click="">Akali</a></li>
+                    <li><a href="#block" ng-click="">Alistar</a></li>
+                    <li><a href="#block" ng-click="">Amumu</a></li>
+                    <li><a href="#block" ng-click="">Anivia</a></li>
+                    <li><a href="#block" ng-click="">Annie</a></li>
+                    <li><a href="#block" ng-click="">Ashe</a></li>
+                    <li><a href="#block" ng-click="">Blitzcrank</a></li>
+                    <li><a href="#block" ng-click="">Brand</a></li>
+                    <li><a href="#block" ng-click="">Caitlyn</a></li>
+                    <li><a href="#block" ng-click="">Cassiopeia</a></li>
+                    <li><a href="#block" ng-click="">Cho'Gath</a></li>
+                    <li><a href="#block" ng-click="">Corki</a></li>
+                    <li><a href="#block" ng-click="">Darius</a></li>
+                    <li><a href="#block" ng-click="">Draven</a></li>
+                    <li><a href="#block" ng-click="">Dr. Mundo</a></li>
+                    <li><a href="#block" ng-click="">Evelynn</a></li>
+                    <li><a href="#block" ng-click="">Ezreal</a></li>
+                    <li><a href="#block" ng-click="">Fiddlesticks</a></li>
+                    <li><a href="#block" ng-click="">Fiora</a></li>
+                    <li><a href="#block" ng-click="">Fizz</a></li>
+                    <li><a href="#block" ng-click="">Galio</a></li>
+                    <li><a href="#block" ng-click="">Gangplank</a></li>
+                    <li><a href="#block" ng-click="">Garen</a></li>
+                    <li><a href="#block" ng-click="">Gragas</a></li>
+                    <li><a href="#block" ng-click="">Graves</a></li>
+                    <li><a href="#block" ng-click="">Hecarim</a></li>
+                    <li><a href="#block" ng-click="">Heimerdinger</a></li>
+                    <li><a href="#block" ng-click="">Irelia</a></li>
+                    <li><a href="#block" ng-click="">Janna</a></li>
+                    <li><a href="#block" ng-click="">Jarvan IV</a></li>
+                    <li><a href="#block" ng-click="">Jax</a></li>
+                    <li><a href="#block" ng-click="">Karma</a></li>
+                    <li><a href="#block" ng-click="">Karthus</a></li>
+                    <li><a href="#block" ng-click="">Kassadin</a></li>
+                    <li><a href="#block" ng-click="">Katarina</a></li>
+                    <li><a href="#block" ng-click="">Kayle</a></li>
+                    <li><a href="#block" ng-click="">Kennen</a></li>
+                    <li><a href="#block" ng-click="">Kog'Maw</a></li>
+                    <li><a href="#block" ng-click="">LeBlanc</a></li>
+                    <li><a href="#block" ng-click="">Lee Sin</a></li>
+                    <li><a href="#block" ng-click="">Leona</a></li>
+                    <li><a href="#block" ng-click="">Lulu</a></li>
+                    <li><a href="#block" ng-click="">Lux</a></li>
+                    <li><a href="#block" ng-click="">Malphite</a></li>
+                    <li><a href="#block" ng-click="">Malzahar</a></li>
+                    <li><a href="#block" ng-click="">Maokai</a></li>
+                    <li><a href="#block" ng-click="">Master Yi</a></li>
+                    <li><a href="#block" ng-click="">Miss Fortune</a></li>
+                    <li><a href="#block" ng-click="">Mordekaiser</a></li>
+                    <li><a href="#block" ng-click="">Morgana</a></li>
+                    <li><a href="#block" ng-click="">Nasus</a></li>
+                    <li><a href="#block" ng-click="">Nautilus</a></li>
+                    <li><a href="#block" ng-click="">Nidalee</a></li>
+                    <li><a href="#block" ng-click="">Nocturne</a></li>
+                    <li><a href="#block" ng-click="">Nunu</a></li>
+                    <li><a href="#block" ng-click="">Olaf</a></li>
+                    <li><a href="#block" ng-click="">Oriana</a></li>
+                    <li><a href="#block" ng-click="">Pantheon</a></li>
+                    <li><a href="#block" ng-click="">Poppy</a></li>
+                    <li><a href="#block" ng-click="">Rammus</a></li>
+                    <li><a href="#block" ng-click="">Renekton</a></li>
+                    <li><a href="#block" ng-click="">Riven</a></li>
+                    <li><a href="#block" ng-click="">Rumble</a></li>
+                    <li><a href="#block" ng-click="">Ryze</a></li>
+                    <li><a href="#block" ng-click="">Sejuani</a></li>
+                    <li><a href="#block" ng-click="">Shaco</a></li>
+                    <li><a href="#block" ng-click="">Shen</a></li>
+                    <li><a href="#block" ng-click="">Shyvana</a></li>
+                    <li><a href="#block" ng-click="">Singed</a></li>
+                    <li><a href="#block" ng-click="">Sion</a></li>
+                    <li><a href="#block" ng-click="">Sivir</a></li>
+                    <li><a href="#block" ng-click="">Skarner</a></li>
+                    <li><a href="#block" ng-click="">Sona</a></li>
+                    <li><a href="#block" ng-click="">Soraka</a></li>
+                    <li><a href="#block" ng-click="">Swain</a></li>
+                    <li><a href="#block" ng-click="">Talon</a></li>
+                    <li><a href="#block" ng-click="">Taric</a></li>
+                    <li><a href="#block" ng-click="">Teemo</a></li>
+                    <li><a href="#block" ng-click="">Tristana</a></li>
+                    <li><a href="#block" ng-click="">Trundle</a></li>
+                    <li><a href="#block" ng-click="">Tryndamere</a></li>
+                    <li><a href="#block" ng-click="">Twisted Fate</a></li>
+                    <li><a href="#block" ng-click="">Twitch</a></li>
+                    <li><a href="#block" ng-click="">Udyr</a></li>
+                    <li><a href="#block" ng-click="">Urgot</a></li>
+                    <li><a href="#block" ng-click="">Varus</a></li>
+                    <li><a href="#block" ng-click="">Vayne</a></li>
+                    <li><a href="#block" ng-click="">Veigar</a></li>
+                    <li><a href="#block" ng-click="">Viktor</a></li>
+                    <li><a href="#block" ng-click="">Vladimir</a></li>
+                    <li><a href="#block" ng-click="">Volibear</a></li>
+                    <li><a href="#block" ng-click="">Warwick</a></li>
+                    <li><a href="#block" ng-click="">Wukong</a></li>
+                    <li><a href="#block" ng-click="">Xerath</a></li>
+                    <li><a href="#block" ng-click="">Xin Zhao</a></li>
+                    <li><a href="#block" ng-click="">Yorick</a></li>
+                    <li><a href="#block" ng-click="">Ziggs</a></li>
+                    <li><a href="#block" ng-click="">Zilean</a></li>
                 </ul>
             </div>
         </div>
-        <div class="row character">
+        <div class="row character" ng-controller="MainCtrl" ng-init="initTooltips()">
             <div class="span11">
-                <div id="block" ng-controller="AhriCtrl" ng-init="initTooltip(); initTooltipAhri()">
-                    <div class='row main' ng-init="initMain()">
+                <div id="block" ng-controller="AhriCtrl" ng-init="initCharacterTooltip()">
+                    <div class='row main'>
                         <div class='span3'>
                             <h4 class='center'>Статы на 18 уровне: </h4>
                             <p class='center'>(без учета бонусов)</p>
@@ -196,167 +198,315 @@
                         <div class='span6'>
                             <div class='items'>
                                 <p>Сборка: </p>
-                                <img ng-repeat="item in items" src='{{ item }}'/>
+                                <img ng-repeat="item in items | initItems" src='{{ item }}'/>
                             </div>
-                        <div class='inner-items ui-droppable'>
-                            <h3>Предметы:</h3>
-                            <span>X</span>
-                        </div>
-                        <div class='skills' ng-init="initSpells(); initSkills()">
-                            <p>Скиллы (перетаскивайте, для изменения порядка):
-                                <span class='spells'>
-                                    <img ng-repeat="spell in spells" src='{{ spell }}' />
-                                </span>
-                            </p>
-                            <div class='inner-spells'>
-                                <h2>Спеллы:</h2>
+                            <div class='inner-items ui-droppable'>
+                                <h3>Предметы:</h3>
                                 <span>X</span>
-                            </div>
-                            <div class='skills-inner'>
-                                <img ng-repeat='skill in skills' src='{{ skill }}' />
+                            </div>  
+                            <div class='skills'>
+                                <p>Скиллы (перетаскивайте, для изменения порядка):
+                                    <span class='spells'>
+                                        <img ng-repeat="spell in spells | initSpells" src='{{ spell }}' />
+                                    </span>
+                                </p>
+                                <div class='inner-spells'>
+                                    <h2>Спеллы:</h2>
+                                    <span>X</span>
+                                </div>
+                                <div class='skills-inner'>
+                                    <img ng-repeat="skill in skills | initSkills" src='{{ skill }}' />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class='clear'></div>
+                        <div class='clear'></div>
                     </div>
                     <div class="row masteries">
                         <div class="span4">
-                            <table class="offensive" ng-init="initOffensive()">
+                            <table class="offensive" ng-init="offensive | initOffensive">
                                 <tr>
                                     <th colspan="4">Offense: <strong class="amount"> {{ offensiveUp }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
-                                    <td><p><span class="arguments" id="1">{{ offensive[0] }}</span> / <span class="limit">1</span></p> {{ Masteries.summonersWrath }}</td>
-                                    <td><p><span class="arguments" id="2">{{ offensive[1] }}</span> / <span class="limit">3</span></p> {{ Masteries.bruteForce }}</td>
-                                    <td><p><span class="arguments" id="3">{{ offensive[2] }}</span> / <span class="limit">4</span></p> {{ Masteries.mentalForce }}</td>
-                                    <td><p><span class="arguments" id="4">{{ offensive[3] }}</span> / <span class="limit">2</span></p> {{ Masteries.butcher }}</td>
+                                    <td>
+                                        <p><span class="arguments" id="1">{{ offensive[0] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.summonersWrath }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="2">{{ offensive[1] }}</span> / <span class="limit">3</span></p> 
+                                        {{ $root.Masteries.bruteForce }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="3">{{ offensive[2] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.mentalForce }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="4">{{ offensive[3] }}</span> / <span class="limit">2</span></p> 
+                                        {{ $root.Masteries.butcher }}
+                                    </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
-                                    <td><p class="disabled"><span id="5" class="arguments"> {{ offensive[4] }}</span> / <span class="limit">4</span></p> {{ Masteries.alacrity }}</td>
-                                    <td><p class="disabled"><span id="6" class="arguments"> {{ offensive[5] }}</span> / <span class="limit">4</span></p> {{ Masteries.sorcery }}</td>
-                                    <td><p class="disabled"><span id="7" class="arguments"> {{ offensive[6] }}</span> / <span class="limit">1</span></p> {{ Masteries.demolitionist }}</td>
+                                    <td>
+                                        <p class="disabled"><span id="5" class="arguments"> {{ offensive[4] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.alacrity }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span id="6" class="arguments"> {{ offensive[5] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.sorcery }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span id="7" class="arguments"> {{ offensive[6] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.demolitionist }}
+                                    </td>
                                 </tr>
                                 <tr class="third-off">
-                                    <td><p class="disabled"><span class="arguments" id="8"> {{ offensive[7] }}</span> / <span class="limit">4</span></p> {{ Masteries.deadlines }}</td>
-                                    <td><p class="disabled" id="9"><span class="arguments" id="9"> {{ offensive[8] }}</span> / <span class="limit">1</span></p> {{ Masteries.weaponExpertise }}</td>
-                                    <td><p class="disabled" id="10"><span class="arguments" id="10"> {{ offensive[9] }}</span> / <span class="limit">1</span></p> {{ Masteries.arkaneKnowledge }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="11"> {{ offensive[10] }}</span> / <span class="limit">3</span></p> {{ Masteries.havoc }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="8"> {{ offensive[7] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.deadlines }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled" id="9"><span class="arguments" id="9"> {{ offensive[8] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.weaponExpertise }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled" id="10"><span class="arguments" id="10"> {{ offensive[9] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.arkaneKnowledge }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="11"> {{ offensive[10] }}</span> / <span class="limit">3</span></p> 
+                                        {{ $root.Masteries.havoc }}
+                                    </td>
                                 </tr>
                                 <tr class="four-off">
-                                    <td><p class="disabled" id="12"><span class="arguments" id="12"> {{ offensive[11] }}</span> / <span class="limit">1</span></p> {{ Masteries.lethality }}</td> 
-                                    <td><p class="disabled"><span class="arguments" id="13"> {{ offensive[12] }}</span> / <span class="limit">3</span></p> {{ Masteries.vampirism }}</td> 
-                                    <td><p class="disabled"><span class="arguments" id="14"> {{ offensive[13] }}</span> / <span class="limit">4</span></p> {{ Masteries.blast }}</td> 
+                                    <td>
+                                        <p class="disabled" id="12"><span class="arguments" id="12"> {{ offensive[11] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.lethality }}
+                                    </td> 
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="13"> {{ offensive[12] }}</span> / <span class="limit">3</span></p> 
+                                        {{ $root.Masteries.vampirism }}
+                                    </td> 
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="14"> {{ offensive[13] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.blast }}
+                                    </td> 
                                     <td></td>
                                 </tr>
                                 <tr class="five-off">
                                     <td></td> 
-                                    <td><p class="disabled"><span class="arguments" id="15"> {{ offensive[14] }}</span> / <span class="limit">3</span></p> {{ Masteries.sunder }}</td> 
-                                    <td><p class="disabled"><span class="arguments" id="16"> {{ offensive[15] }}</span> / <span class="limit">4</span></p> {{ Masteries.archmage }}</td> 
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="15"> {{ offensive[14] }}</span> / <span class="limit">3</span></p> 
+                                        {{ $root.Masteries.sunder }}
+                                    </td> 
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="16"> {{ offensive[15] }}</span> / <span class="limit">4</span></p> 
+                                        {{ $root.Masteries.archmage }}
+                                    </td> 
                                     <td></td> 
                                 </tr> 
                                 <tr class="six-off"> 
                                     <td></td> 
-                                    <td><p class="disabled"><span class="arguments" id="17"> {{ offensive[16] }}</span> / <span class="limit">1</span></p> {{ Masteries.executioner }}</td> 
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="17"> {{ offensive[16] }}</span> / <span class="limit">1</span></p> 
+                                        {{ $root.Masteries.executioner }}
+                                    </td> 
                                     <td></td> 
                                     <td></td> 
                                 </tr> 
                             </table> 
                         </div>
                         <div class="span4"> 
-                            <table class="defense" ng-init="initDefensive()">
+                            <table class="defense" ng-init="defensive | initDefensive">
                                 <tr>
-                                    <th colspan="4">Defense:  <strong class="amount">{{ defensiveUp }}</strong></th>
+                                    <th colspan="4">Defense: <strong class="amount">{{ defensiveUp }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
-                                    <td><p><span class="arguments" id="18">{{ defensive[0] }}</span> / <span class="limit">1</span></p>{{ Masteries.summonersResolve }}</td>
-                                    <td><p><span class="arguments" id="19">{{ defensive[1] }}</span> / <span class="limit">3</span></p>{{ Masteries.resistance }}</td>
-                                    <td><p><span class="arguments" id="20">{{ defensive[2] }}</span> / <span class="limit">3</span></p>{{ Masteries.hardiness }}</td>
-                                    <td><p><span class="arguments" id="21">{{ defensive[3] }}</span> / <span class="limit">2</span></p>{{ Masteries.toughSkin }}</td>
+                                    <td>
+                                        <p><span class="arguments" id="18">{{ defensive[0] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.summonersResolve }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="19">{{ defensive[1] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.resistance }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="20">{{ defensive[2] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.hardiness }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="21">{{ defensive[3] }}</span> / <span class="limit">2</span></p>
+                                        {{ $root.Masteries.toughSkin }}
+                                    </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="22">{{ defensive[4] }}</span> / <span class="limit">4</span></p>{{ Masteries.durability }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="23">{{ defensive[5] }}</span> / <span class="limit">3</span></p>{{ Masteries.vigor }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="22">{{ defensive[4] }}</span> / <span class="limit">4</span></p>
+                                        {{ $root.Masteries.durability }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="23">{{ defensive[5] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.vigor }}
+                                    </td>
                                     <td></td>
                                 </tr>
                                 <tr class="third-off">
-                                    <td><p class="disabled"><span class="arguments" id="24">{{ defensive[6] }}</span> / <span class="limit">2</span></p>{{ Masteries.indomitable }}</td>
-                                    <td><p class="disabled" id="25"><span class="arguments" id="25">{{ defensive[7] }}</span> / <span class="limit">1</span></p>{{ Masteries.veteranScars }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="26">{{ defensive[8] }}</span> / <span class="limit">3</span></p>{{ Masteries.evasion }}</td>
-                                    <td><p class="disabled" id="27"><span class="arguments" id="27">{{ defensive[9] }}</span> / <span class="limit">1</span></p>{{ Masteries.bladedArmor }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="24">{{ defensive[6] }}</span> / <span class="limit">2</span></p>
+                                        {{ $root.Masteries.indomitable }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled" id="25"><span class="arguments" id="25">{{ defensive[7] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.veteranScars }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="26">{{ defensive[8] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.evasion }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled" id="27"><span class="arguments" id="27">{{ defensive[9] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.bladedArmor }}
+                                    </td>
                                 </tr>
                                 <tr class="four-off">
-                                    <td><p class="disabled"><span class="arguments" id="28">{{ defensive[10] }}</span> / <span class="limit">1</span></p>{{ Masteries.siegeCommand }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="29">{{ defensive[11] }}</span> / <span class="limit">3</span></p>{{ Masteries.initiator }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="30">{{ defensive[12] }}</span> / <span class="limit">3</span></p>{{ Masteries.enlightenment }}</td>
-                                    <td></td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="28">{{ defensive[10] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.siegeCommand }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="29">{{ defensive[11] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.initiator }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="30">{{ defensive[12] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.enlightenment }}
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
                                 </tr>
                                 <tr class="five-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="31">{{ defensive[13] }}</span> / <span class="limit">3</span></p>{{ Masteries.honorGuard }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="32">{{ defensive[14] }}</span> / <span class="limit">3</span></p>{{ Masteries.mercenary }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="31">{{ defensive[13] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.honorGuard }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="32">{{ defensive[14] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.mercenary }}
+                                    </td>
                                     <td></td>
                                 </tr>
                                 <tr class="six-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="33">{{ defensive[15] }}</span> / <span class="limit">1</span></p>{{ Masteries.juggernaut }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="33">{{ defensive[15] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.juggernaut }}
+                                    </td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="span3">
-                            <table class="utility" ng-init="initUtility()">
+                            <table class="utility" ng-init="utility | initUtility">
                                 <tr>
                                     <th colspan="4">Utility:  <strong class="amount">{{ utilityUp }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
-                                    <td><p><span class="arguments" id="34">{{ utility[0] }}</span> / <span class="limit">1</span></p>{{ Masteries.summonersInsight }}</td>
-                                    <td><p><span class="arguments" id="35">{{ utility[1] }}</span> / <span class="limit">3</span></p>{{ Masteries.goodHands }}</td>
-                                    <td><p><span class="arguments" id="36">{{ utility[2] }}</span> / <span class="limit">3</span></p>{{ Masteries.expandedMind }}</td>
-                                    <td><p><span class="arguments" id="37">{{ utility[3] }}</span> / <span class="limit">1</span></p>{{ Masteries.improvedRecall }}</td>
+                                    <td>
+                                        <p><span class="arguments" id="34">{{ utility[0] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.summonersInsight }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="35">{{ utility[1] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.goodHands }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="36">{{ utility[2] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.expandedMind }}
+                                    </td>
+                                    <td>
+                                        <p><span class="arguments" id="37">{{ utility[3] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.improvedRecall }}
+                                    </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="38">{{ utility[4] }}</span> / <span class="limit">4</span></p>{{ Masteries.swiftness }}</td>
-                                    <td><p class="disabled" id="39"><span class="arguments" id="39">{{ utility[5] }}</span> / <span class="limit">3</span></p>{{ Masteries.meditation }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="40">{{ utility[6] }}</span> / <span class="limit">1</span></p>{{ Masteries.scout }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="38">{{ utility[4] }}</span> / <span class="limit">4</span></p>
+                                        {{ $root.Masteries.swiftness }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled" id="39"><span class="arguments" id="39">{{ utility[5] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.meditation }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="40">{{ utility[6] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.scout }}
+                                    </td>
                                 </tr>
                                 <tr class="third-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="41">{{ utility[7] }}</span> / <span class="limit">4</span></p>{{ Masteries.greed }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="42">{{ utility[8] }}</span> / <span class="limit">3</span></p>{{ Masteries.transmutation }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="43">{{ utility[9] }}</span> / <span class="limit">1</span></p>{{ Masteries.runicAffinity }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="41">{{ utility[7] }}</span> / <span class="limit">4</span></p>
+                                        {{ $root.Masteries.greed }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="42">{{ utility[8] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.transmutation }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="43">{{ utility[9] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.runicAffinity }}
+                                    </td>
                                 </tr>
                                 <tr class="four-off">
                                     <td></td>
-                                    <td><p class="disabled" id="44"><span class="arguments" id="44">{{ utility[10] }}</span> / <span class="limit">2</span></p>{{ Masteries.wealth }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="45">{{ utility[11] }}</span> / <span class="limit">4</span></p>{{ Masteries.awarenet }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="46">{{ utility[12] }}</span> / <span class="limit">1</span></p>{{ Masteries.sage }}</td>
+                                    <td>
+                                        <p class="disabled" id="44"><span class="arguments" id="44">{{ utility[10] }}</span> / <span class="limit">2</span></p>
+                                        {{ $root.Masteries.wealth }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="45">{{ utility[11] }}</span> / <span class="limit">4</span></p>
+                                        {{ $root.Masteries.awarenet }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="46">{{ utility[12] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.sage }}
+                                    </td>
                                 </tr>
                                 <tr class="five-off">
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="47">{{ utility[13] }}</span> / <span class="limit">3</span></p>{{ Masteries.strengthOfSpirit }}</td>
-                                    <td><p class="disabled"><span class="arguments" id="48">{{ utility[14] }}</span> / <span class="limit">3</span></p>{{ Masteries.intelligence }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="47">{{ utility[13] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.strengthOfSpirit }}
+                                    </td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="48">{{ utility[14] }}</span> / <span class="limit">3</span></p>
+                                        {{ $root.Masteries.intelligence }}
+                                    </td>
                                     <td></td>
                                 </tr>
                                 <tr class="six-off">
                                     <td></td>
                                     <td></td>
-                                    <td><p class="disabled"><span class="arguments" id="49">{{ utility[15] }}</span> / <span class="limit">1</span></p>{{ Masteries.mastermind }}</td>
+                                    <td>
+                                        <p class="disabled"><span class="arguments" id="49">{{ utility[15] }}</span> / <span class="limit">1</span></p>
+                                        {{ $root.Masteries.mastermind }}
+                                    </td>
                                     <td></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="span3 offset3">
-                            <button class="btn btn-success" ng-click="saveMasteries()">Сохранить мастерис</button>
+                            <button class="btn btn-success" ng-click="$root.saveMasteries()">Сохранить мастерис</button>
                         </div>
                         <div class="span3">
-                            <button class="reset-button btn btn-danger" ng-click="resetMaster(); initMasteries();">Сбросить мастерис</button>
+                            <button class="reset-button btn btn-danger" ng-click="$root.resetMaster(); $root.initMasteries();">Сбросить мастерис</button>
                         </div>
                     </div>
-                    <div class="row runes" ng-init="initRunes()">
+                    <div class="row runes" ng-init="runes | initRunes">
                         <div class="span6 offset3">
                             <h2>Руны:</h2>
                             <img src="{{ runes[0] }}" />x9
@@ -378,7 +528,8 @@
                 Все данные сохраняются в браузере автоматически, за исключением мастерис. Поддержка IE9+, Chrome, Opera, Firefox, Safari. <br>
                 Понравился сервис? Поделись им -
                 <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-                <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus"></div>
+                <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus">
+                </div>
             </div>
         </div>
     </div>

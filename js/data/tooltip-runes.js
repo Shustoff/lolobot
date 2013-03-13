@@ -1,5 +1,5 @@
 /* Подсказки для рун */
-function initTooltipRunes() {
+Tooltips.runes = function () {
     $("img[src='img/runes/greaterMOI.png']").easyTooltip({
             content: '<h4>Greater Mark of Insight</h4> \
             <p>+0.95 магического проникновения</p>'
@@ -152,7 +152,4 @@ function initTooltipRunes() {
             content: '<h4>Greater Quint of Malice</h4> \
             <p>+1.86% к шансу крита</p>'
     });
-
 }
-
-initTooltipRunes();

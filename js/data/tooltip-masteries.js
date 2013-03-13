@@ -1,5 +1,5 @@
 /* Подсказки для мастерис */
-function initTooltipMasteries() {
+Tooltips.masteries = function () {
     $("img[src='img/masteries/summonerswrath.png']").easyTooltip({
             content: '<h4>Summoner\'s Wrath</h4> \
             <p>Улучшает следующие заклинания: \
@@ -209,6 +209,4 @@ function initTooltipMasteries() {
             content: '<h4>Mastermind</h4> \
             <p>Снижает перезарядку заклинаний призывателя на 15%.</p>'
     });
-
 }
-initTooltipMasteries();

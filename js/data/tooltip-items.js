@@ -1,6 +1,7 @@
 /* Подсказки для итемов */
+var Tooltips = {};
 
-function initTooltipItems() {
+Tooltips.items = function () {
     $("img[src='img/items/sorcerers-shoes.gif']").easyTooltip({
         content: '<h4>Sorcerer\'s Shoes</h4><p>Увеличивает скорость передвижения на 70. Пассивно: +20 Магического проникновения</p> <strong>Цена:</strong> 1100'
     });
@@ -590,5 +591,3 @@ function initTooltipItems() {
         <strong>Цена:</strong> 250'
     });
 }
-
-initTooltipItems();

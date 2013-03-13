@@ -1,6 +1,5 @@
 /* Подсказки для спеллов */
-
-function initTooltipSpells() {
+Tooltips.spells = function() {
 
     $("img[src='img/spells/ignite.png']").easyTooltip({
             content: '<h4>Ignite</h4> \
@@ -72,5 +71,3 @@ function initTooltipSpells() {
         content: 'Сбросить все билды по умолчанию'
     });
 }
-
-initTooltipSpells();

@@ -123,10 +123,15 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
     padding-bottom: 15px;
 }
 
+.span3 ul li span {
+    float: right;
+}
+
 .main h4 {margin: 10px 0px 0px 0px !important; text-align: center;}
 .main .center {text-align: center; margin-bottom: 25px;}
 .main .span3 li {
     font-size: 14px;
+    clear: both;
 }
 
 /* Скиллы */
@@ -150,7 +155,8 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
     width: 64px !important;
     height: 64px !important;
     display: inline-block;
-    background: url(../img/empty.jpg) no-repeat center center !important;
+    padding: 0 !important;
+    background: url(../img/empty.jpg) no-repeat left top !important;
 }
 
 /* Мастерис */
@@ -184,7 +190,7 @@ p.disabled {
 }
 
 /* РУны */
-.runes {text-align: center;}
+.runes {text-align: center; margin-top: 30px;}
 .runes img {margin-left: 20px;}
 
 /*  Tooltip - Всплывающие подсказки */
@@ -215,7 +221,6 @@ audio {width: 230px; margin-top: 10px; outline: none;}
     background-color: #000;
     z-index: 40;
     height: auto;
-    display: none;
     box-shadow: 0px 0px 15px 3px #fff;
     cursor: move;
 }
@@ -244,7 +249,6 @@ audio {width: 230px; margin-top: 10px; outline: none;}
     background-color: #000;
     z-index: 50;
     height: auto;
-    display: none;
     box-shadow: 0px 0px 15px 3px #fff;
     cursor: move;
 }
@@ -293,6 +297,7 @@ audio {width: 230px; margin-top: 10px; outline: none;}
 
 /* Футер */
 .footer {
+    font-size: 12px;
     text-align: center;
     text-shadow: none;
     background-color: rgba(48, 39, 58, 0.5);

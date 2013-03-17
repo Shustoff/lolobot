@@ -1,5 +1,5 @@
 // Добавление предметов
-function initItemsAction() {
+/*function initItemsAction() {
 
     // Вывод всех предметов в плавающий блок
     _.each(Items, function(num){
@@ -47,9 +47,9 @@ function initItemsAction() {
 
     // Делаем плавающее окошко - перетаскиваемым
     $('.inner-items').draggable();
-}
+}*/
 
-// Добавление спеллов
+/*// Добавление спеллов
 function initSpellsAction() {
 
     //Вывод всех спеллов в плавающий блок
@@ -126,9 +126,9 @@ function initSpellsAction() {
 
     // Делаем плавающее окошко перетаскиваемым
     $('.inner-spells').draggable();
-}
+}*/
 
-// Добавление скиллов
+/*// Добавление скиллов
 function initSkillsAction() {
 
     // Добавляем скиллам возможность сортировки
@@ -152,7 +152,7 @@ function initSkillsAction() {
             });
         }
     }).disableSelection();
-}
+}*/
 
 // Сброс мастерис
 function resetMaster() {

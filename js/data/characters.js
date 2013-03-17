@@ -48,32 +48,113 @@ var Characters = {
         runes: [
             Runes.greaterMarkOfInsight, 
             Runes.greaterSealOfClarity, 
-            Runes.greaterGlyphOfForce
+            Runes.greaterGlyphOfForce, 
+            Runes.greaterQuintOfPotency
         ]    
     },
     "akali": {
-        "HP": 1975,
-        "HP в 5 сек.": 18.95,
-        "Мана": 0,
-        "Мана в 5 сек.": 0,
-        "Защита": 79.5,
-        "Магическая защита": 52.5,
-        "Сила атаки": 110.6,
-        "Дистанция атаки": 125,
-        "Шанс крита": '0%',
-        "Скорость бега": 325
+        stats: {
+            "HP": 1975,
+            "HP в 5 сек.": 18.95,
+            "Мана": 0,
+            "Мана в 5 сек.": 0,
+            "Защита": 79.5,
+            "Магическая защита": 52.5,
+            "Сила атаки": 110.6,
+            "Дистанция атаки": 125,
+            "Шанс крита": '0%',
+            "Скорость бега": 325
+        },
+        items: [
+            Items.mercurysTreads, 
+            Items.rylaisCrystalScepter, 
+            Items.lichBane, 
+            Items.rabadonsDeathcap, 
+            Items.hextechGunblade, 
+            Items.voidStaff
+        ],
+        spells: [Spells.ignite, Spells.flash],
+        skills: [
+            Skills.markOfTheAssassin, 
+            Skills.twilightShroud, 
+            Skills.markOfTheAssassin, 
+            Skills.crescentSlash, 
+            Skills.markOfTheAssassin, 
+            Skills.shadowDance, 
+            Skills.markOfTheAssassin, 
+            Skills.crescentSlash, 
+            Skills.markOfTheAssassin, 
+            Skills.crescentSlash, 
+            Skills.shadowDance, 
+            Skills.crescentSlash, 
+            Skills.crescentSlash, 
+            Skills.twilightShroud, 
+            Skills.twilightShroud, 
+            Skills.shadowDance, 
+            Skills.twilightShroud, 
+            Skills.twilightShroud
+        ],
+        offensive: [1, 3, 3, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 4, 1],
+        defensive: [0, 1, 3, 0, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        utility: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        runes: [
+            Runes.greaterMarkOfStrength, 
+            Runes.greaterSealOfVitality, 
+            Runes.greaterGlyphOfForce, 
+            Runes.greaterQuintOfPotency
+        ]    
     },
     "alistar": {
-        "HP": 2278,
-        "HP в 5 сек.": 22.55,
-        "Мана": 899,
-        "Мана в 5 сек.": 14.55,
-        "Защита": 77.5,
-        "Магическая защита": 51.25,
-        "Сила атаки": 120.19,
-        "Дистанция атаки": 125,
-        "Шанс крита": '0%',
-        "Скорость бега": 305
+        stats: {
+            "HP": 2278,
+            "HP в 5 сек.": 22.55,
+            "Мана": 899,
+            "Мана в 5 сек.": 14.55,
+            "Защита": 77.5,
+            "Магическая защита": 51.25,
+            "Сила атаки": 120.19,
+            "Дистанция атаки": 125,
+            "Шанс крита": '0%',
+            "Скорость бега": 305
+        },
+        items: [
+            Items.bootsOfMobility, 
+            Items.aegisOfTheLegion, 
+            Items.shurelyasReverie, 
+            Items.spiritVisage, 
+            Items.randuinsOmen, 
+            Items.trinityForce
+        ],
+        spells: [Spells.clairvoyance, Spells.flash],
+        skills: [
+            Skills.pulverize, 
+            Skills.headbutt, 
+            Skills.triumphantRoar, 
+            Skills.triumphantRoar, 
+            Skills.triumphantRoar, 
+            Skills.unbreakableWill, 
+            Skills.triumphantRoar, 
+            Skills.headbutt, 
+            Skills.triumphantRoar, 
+            Skills.headbutt, 
+            Skills.unbreakableWill, 
+            Skills.headbutt, 
+            Skills.headbutt, 
+            Skills.pulverize, 
+            Skills.pulverize, 
+            Skills.unbreakableWill, 
+            Skills.pulverize, 
+            Skills.pulverize
+        ],
+        offensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        defensive: [0, 1, 3, 0, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        utility: [1, 3, 3, 0, 4, 2, 0, 4, 0, 0, 0, 0, 0, 0, 3, 1],
+        runes: [
+            Runes.greaterMarkOfInsight, 
+            Runes.greaterSealOfClarity, 
+            Runes.greaterGlyphOfShielding, 
+            Runes.greaterQuintOfFortitude
+        ]    
     },
     "amumu": {
         "HP": 1984,

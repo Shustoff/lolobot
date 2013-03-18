@@ -4,6 +4,8 @@ LOL.controller('MainCtrl', ($scope, localService) ->
 
     $scope.visibleInnerItems = false
     $scope.visibleInnerSpells = false
+
+    $scope.isCanSave = false
     
     $scope.Masteries = Masteries
     $scope.AllItems = Items
@@ -76,20 +78,54 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             alert "Сохранить в локальное хранилище не удалось: " + e
         null
 
+    # Считаем прокачанные offensive
     $scope.offensiveUp = (offensive) ->
-        out = _.reduce offensive, (i, k) ->
+        _.reduce offensive, (i, k) ->
             i + k
-        out
-    
-    $scope.defensiveUp = (defensive) ->
-        out = _.reduce defensive, (i, k) ->
-            i + k
-        out
 
-    $scope.utilityUp = (utility) ->
-        out = _.reduce utility, (i, k) ->
+    # Считаем прокачанные defensive
+    $scope.defensiveUp = (defensive) ->
+        _.reduce defensive, (i, k) ->
             i + k
-        out
+
+    # Считаем прокачанные utility
+    $scope.utilityUp = (utility) ->
+         _.reduce utility, (i, k) ->
+            i + k
+
+    # Сброс мастерис
+    $scope.resetMasteries = (offensive, defensive, utility) ->
+        $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $("table p > span:first-child").each () ->
+            $('table p').addClass 'disabled'
+            $('table .first-off p').removeClass 'disabled'
+            $scope.isCanSave = true
+            $('.btn-success').text 'Сохранить мастерис'
+            null
+        null
+
+    # Сохранение мастерис
+    $scope.saveMasteries = () ->
+        $('.arguments').each () ->
+            item = $('.image img').attr 'id'
+            item += $(this).attr 'id'
+            try
+                localService.set item, $(this).text()
+            catch e
+                alert "Сохранить в локальное хранилище не удалось: " + e
+            $scope.isCanSave = false
+            $('.btn-success').text 'Сохранено успешно'
+            null
+        null
+
+    # Проверка прокачанных мастерис
+    $scope.checkMasteries = () ->
+            sum = $scope.offensiveUp + $scope.defensiveUp + $scope.utilityUp
+            if sum >= 30
+                $('table img').click false
+            null
 
     null
 )
@@ -101,9 +137,9 @@ LOL.controller('AhriCtrl', ($scope) ->
     $scope.items = Characters.ahri.items
     $scope.spells = Characters.ahri.spells
     $scope.skills = Characters.ahri.skills
-    $scope.offensive = Characters.ahri.offensive
-    $scope.defensive = Characters.ahri.defensive
-    $scope.utility = Characters.ahri.utility
+    $scope.$parent.offensive = Characters.ahri.offensive
+    $scope.$parent.defensive = Characters.ahri.defensive
+    $scope.$parent.utility = Characters.ahri.utility
     $scope.runes = Characters.ahri.runes
     $scope.initCharacterTooltip = -> Tooltips.Ahri()
     null

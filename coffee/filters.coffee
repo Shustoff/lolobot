@@ -43,47 +43,48 @@ LOL.filter('initSkills', (localService) ->
 LOL.filter('initOffensive', (localService) ->
     (offensive) ->
         numberMaster = 1
-        $scope.offensiveUp = 0
         for m in [0...17]
-            locOff = $( $scope.image ).attr 'id' + numberMaster
-            offensive[m] = $resource.localService.get locOff if $resource.localService.get(locOff)?
+            locOff = $('.image img').attr 'id' + numberMaster
+            offensive[m] = localService.get locOff if localService.get(locOff)?
             numberMaster++
-        for i in [0...offensive.length]
+        ###for i in [0...offensive.length]
             arg = parseInt offensive[i]
-            $scope.offensiveUp += arg
+            $scope.offensiveUp += arg###
+        offensive
 )
 
 LOL.filter('initDefensive', (localService) ->
     (defensive) ->
         numberMaster = 18
-        $scope.defensiveUp = 0
         for m in [0...16]
-            locOff = $( $scope.image ).attr('id') + numberMaster
-            defensive[m] = $resource.localService.get locOff if $resource.localService.get(locOff)?
+            locOff = $('.image img').attr('id') + numberMaster
+            defensive[m] = localService.get locOff if localService.get(locOff)?
             numberMaster++
-        for i in [0...defensive.length]
+        ###for i in [0...defensive.length]
             arg = parseInt defensive[i]
-            $scope.defensiveUp += arg
+            $scope.defensiveUp += arg###
+        defensive
 )
 
 LOL.filter('initUtility', (localService) ->
     (utility) ->
         numberMaster = 34
-        $scope.utilityUp = 0
         for m in [0...16]
-            locOff = $( $scope.image ).attr('id') + numberMaster
-            utility[m] = $resource.localService.get locOff if $resource.localService.get(locOff)?
+            locOff = $('.image img').attr('id') + numberMaster
+            utility[m] = localService.get locOff if localService.get(locOff)?
             numberMaster++
-        for i in [0...utility.length]
+        ###for i in [0...utility.length]
             arg = parseInt utility[i]
-            $scope.utilityUp += arg
+            $scope.utilityUp += arg###
+        utility
 )
 
 LOL.filter('initRunes', (localService) ->
     (runes) ->
         numberRune = 0
         for i in [0...4]
-            locRune = $( $scope.image ).attr('id') + 'Rune' + numberRune;
-            runes[i] = $resource.localService.get locRune if $resource.localService.get(locRune)?
+            locRune = $('.image img').attr('id') + 'Rune' + numberRune;
+            runes[i] = localService.get locRune if localService.get(locRune)?
             numberRune++;
+        runes
 )

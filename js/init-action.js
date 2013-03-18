@@ -1,5 +1,6 @@
+/*
 // Добавление предметов
-/*function initItemsAction() {
+function initItemsAction() {
 
     // Вывод всех предметов в плавающий блок
     _.each(Items, function(num){
@@ -152,8 +153,10 @@ function initSkillsAction() {
             });
         }
     }).disableSelection();
-}*/
+}
+*/
 
+/*
 // Сброс мастерис
 function resetMaster() {
     $("table p > span:first-child").each(function(){
@@ -167,7 +170,9 @@ function resetMaster() {
         $('.btn-success').removeClass('disabled').text('Сохранить мастерис');
     });
 }
+*/
 
+/*
 // Проверка количества прокачанных мастерис
 function initMasterAction() {
     var amount1 = parseInt($('table.offensive .amount').text());
@@ -193,6 +198,7 @@ function saveMasteries() {
         $('.btn-success').addClass('disabled').text('Сохранено успешно');
     });
 }
+*/
 
 // Добавление рун
 function initRunesAction() {

@@ -64,79 +64,75 @@ LOL.filter('initSkills', function(localService) {
 
 LOL.filter('initOffensive', function(localService) {
   return function(offensive) {
-    var arg, i, locOff, m, numberMaster, _i, _j, _ref, _results;
+    var locOff, m, numberMaster, _i;
     numberMaster = 1;
-    $scope.offensiveUp = 0;
     for (m = _i = 0; _i < 17; m = ++_i) {
-      locOff = $($scope.image).attr('id' + numberMaster);
-      if ($resource.localService.get(locOff) != null) {
-        offensive[m] = $resource.localService.get(locOff);
+      locOff = $('.image img').attr('id' + numberMaster);
+      if (localService.get(locOff) != null) {
+        offensive[m] = localService.get(locOff);
       }
       numberMaster++;
     }
-    _results = [];
-    for (i = _j = 0, _ref = offensive.length; 0 <= _ref ? _j < _ref : _j > _ref; i = 0 <= _ref ? ++_j : --_j) {
-      arg = parseInt(offensive[i]);
-      _results.push($scope.offensiveUp += arg);
-    }
-    return _results;
+    /*for i in [0...offensive.length]
+        arg = parseInt offensive[i]
+        $scope.offensiveUp += arg
+    */
+
+    return offensive;
   };
 });
 
 LOL.filter('initDefensive', function(localService) {
   return function(defensive) {
-    var arg, i, locOff, m, numberMaster, _i, _j, _ref, _results;
+    var locOff, m, numberMaster, _i;
     numberMaster = 18;
-    $scope.defensiveUp = 0;
     for (m = _i = 0; _i < 16; m = ++_i) {
-      locOff = $($scope.image).attr('id') + numberMaster;
-      if ($resource.localService.get(locOff) != null) {
-        defensive[m] = $resource.localService.get(locOff);
+      locOff = $('.image img').attr('id') + numberMaster;
+      if (localService.get(locOff) != null) {
+        defensive[m] = localService.get(locOff);
       }
       numberMaster++;
     }
-    _results = [];
-    for (i = _j = 0, _ref = defensive.length; 0 <= _ref ? _j < _ref : _j > _ref; i = 0 <= _ref ? ++_j : --_j) {
-      arg = parseInt(defensive[i]);
-      _results.push($scope.defensiveUp += arg);
-    }
-    return _results;
+    /*for i in [0...defensive.length]
+        arg = parseInt defensive[i]
+        $scope.defensiveUp += arg
+    */
+
+    return defensive;
   };
 });
 
 LOL.filter('initUtility', function(localService) {
   return function(utility) {
-    var arg, i, locOff, m, numberMaster, _i, _j, _ref, _results;
+    var locOff, m, numberMaster, _i;
     numberMaster = 34;
-    $scope.utilityUp = 0;
     for (m = _i = 0; _i < 16; m = ++_i) {
-      locOff = $($scope.image).attr('id') + numberMaster;
-      if ($resource.localService.get(locOff) != null) {
-        utility[m] = $resource.localService.get(locOff);
+      locOff = $('.image img').attr('id') + numberMaster;
+      if (localService.get(locOff) != null) {
+        utility[m] = localService.get(locOff);
       }
       numberMaster++;
     }
-    _results = [];
-    for (i = _j = 0, _ref = utility.length; 0 <= _ref ? _j < _ref : _j > _ref; i = 0 <= _ref ? ++_j : --_j) {
-      arg = parseInt(utility[i]);
-      _results.push($scope.utilityUp += arg);
-    }
-    return _results;
+    /*for i in [0...utility.length]
+        arg = parseInt utility[i]
+        $scope.utilityUp += arg
+    */
+
+    return utility;
   };
 });
 
 LOL.filter('initRunes', function(localService) {
   return function(runes) {
-    var i, locRune, numberRune, _i, _results;
+    var i, locRune, numberRune, _i;
     numberRune = 0;
-    _results = [];
     for (i = _i = 0; _i < 4; i = ++_i) {
-      locRune = $($scope.image).attr('id') + 'Rune' + numberRune;
-      if ($resource.localService.get(locRune) != null) {
-        runes[i] = $resource.localService.get(locRune);
+      locRune = $('.image img').attr('id') + 'Rune' + numberRune;
+      if (localService.get(locRune) != null) {
+        runes[i] = localService.get(locRune);
       }
-      _results.push(numberRune++);
+      numberRune++;
     }
-    return _results;
+    return runes;
   };
 });

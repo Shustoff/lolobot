@@ -4,6 +4,7 @@ LOL.controller('MainCtrl', function($scope, localService) {
   $scope.visibleModal = false;
   $scope.visibleInnerItems = false;
   $scope.visibleInnerSpells = false;
+  $scope.isCanSave = false;
   $scope.Masteries = Masteries;
   $scope.AllItems = Items;
   $scope.AllSpells = Spells;
@@ -74,25 +75,56 @@ LOL.controller('MainCtrl', function($scope, localService) {
     return null;
   };
   $scope.offensiveUp = function(offensive) {
-    var out;
-    out = _.reduce(offensive, function(i, k) {
+    return _.reduce(offensive, function(i, k) {
       return i + k;
     });
-    return out;
   };
   $scope.defensiveUp = function(defensive) {
-    var out;
-    out = _.reduce(defensive, function(i, k) {
+    return _.reduce(defensive, function(i, k) {
       return i + k;
     });
-    return out;
   };
   $scope.utilityUp = function(utility) {
-    var out;
-    out = _.reduce(utility, function(i, k) {
+    return _.reduce(utility, function(i, k) {
       return i + k;
     });
-    return out;
+  };
+  $scope.resetMasteries = function(offensive, defensive, utility) {
+    $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $("table p > span:first-child").each(function() {
+      $('table p').addClass('disabled');
+      $('table .first-off p').removeClass('disabled');
+      $scope.isCanSave = true;
+      $('.btn-success').text('Сохранить мастерис');
+      return null;
+    });
+    return null;
+  };
+  $scope.saveMasteries = function() {
+    $('.arguments').each(function() {
+      var item;
+      item = $('.image img').attr('id');
+      item += $(this).attr('id');
+      try {
+        localService.set(item, $(this).text());
+      } catch (e) {
+        alert("Сохранить в локальное хранилище не удалось: " + e);
+      }
+      $scope.isCanSave = false;
+      $('.btn-success').text('Сохранено успешно');
+      return null;
+    });
+    return null;
+  };
+  $scope.checkMasteries = function() {
+    var sum;
+    sum = $scope.offensiveUp + $scope.defensiveUp + $scope.utilityUp;
+    if (sum >= 30) {
+      $('table img').click(false);
+    }
+    return null;
   };
   return null;
 });
@@ -103,9 +135,9 @@ LOL.controller('AhriCtrl', function($scope) {
   $scope.items = Characters.ahri.items;
   $scope.spells = Characters.ahri.spells;
   $scope.skills = Characters.ahri.skills;
-  $scope.offensive = Characters.ahri.offensive;
-  $scope.defensive = Characters.ahri.defensive;
-  $scope.utility = Characters.ahri.utility;
+  $scope.$parent.offensive = Characters.ahri.offensive;
+  $scope.$parent.defensive = Characters.ahri.defensive;
+  $scope.$parent.utility = Characters.ahri.utility;
   $scope.runes = Characters.ahri.runes;
   $scope.initCharacterTooltip = function() {
     return Tooltips.Ahri();

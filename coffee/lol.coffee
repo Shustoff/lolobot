@@ -19,6 +19,8 @@ $ ->
 
     $('.inner-items').draggable()
     $('.inner-spells').draggable()
+    $('.inner-runes').draggable()
+
 
     # Инициализация скиллов
     $('.skills-inner')

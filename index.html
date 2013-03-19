@@ -222,74 +222,74 @@
                         </div>
                         <div class='clear'></div>
                     </div>
-                    <div class="row masteries">
+                    <div class="row masteries" ng-init="checkMasteries()">
                         <div class="span4">
-                            <table class="offensive" ng-init="off = (offensive | filter:initOffensive)">
+                            <table class="offensive" ng-init="offensive | initOffensive">
                                 <tr>
                                     <th colspan="4">Offense: <strong class="amount">{{ offensiveUp(offensive) }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
                                     <td>
-                                        <p><span class="arguments" id="1">{{ off[0] }}</span> / <span class="limit">1</span></p> 
+                                        <p><span class="arguments" id="1">{{ offensive[0] | filter:limit:1 }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.summonersWrath }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="2">{{ off[1] }}</span> / <span class="limit">3</span></p> 
+                                        <p><span class="arguments" id="2">{{ offensive[1] | filter:limit:3 }}</span> / <span class="limit">3</span></p> 
                                         <img ng-src="{{ Masteries.bruteForce }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="3">{{ off[2] }}</span> / <span class="limit">4</span></p> 
+                                        <p><span class="arguments" id="3">{{ offensive[2] | filter:limit:4 }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.mentalForce }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="4">{{ off[3] }}</span> / <span class="limit">2</span></p> 
+                                        <p><span class="arguments" id="4">{{ offensive[3] | filter:limit:2 }}</span> / <span class="limit">2</span></p> 
                                         <img ng-src="{{ Masteries.butcher }}">
                                     </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span id="5" class="arguments"> {{ off[4] }}</span> / <span class="limit">4</span></p> 
+                                        <p class="disabled"><span id="5" class="arguments"> {{ offensive[4] }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.alacrity }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span id="6" class="arguments"> {{ off[5] }}</span> / <span class="limit">4</span></p> 
+                                        <p class="disabled"><span id="6" class="arguments"> {{ offensive[5] }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.sorcery }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span id="7" class="arguments"> {{ off[6] }}</span> / <span class="limit">1</span></p> 
+                                        <p class="disabled"><span id="7" class="arguments"> {{ offensive[6] }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.demolitionist }}">
                                     </td>
                                 </tr>
                                 <tr class="third-off">
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="8"> {{ off[7] }}</span> / <span class="limit">4</span></p> 
+                                        <p class="disabled"><span class="arguments" id="8"> {{ offensive[7] }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.deadlines }}">
                                     </td>
                                     <td>
-                                        <p class="disabled" id="9"><span class="arguments" id="9"> {{ off[8] }}</span> / <span class="limit">1</span></p> 
+                                        <p class="disabled" id="9"><span class="arguments" id="9"> {{ offensive[8] }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.weaponExpertise }}">
                                     </td>
                                     <td>
-                                        <p class="disabled" id="10"><span class="arguments" id="10"> {{ off[9] }}</span> / <span class="limit">1</span></p> 
+                                        <p class="disabled" id="10"><span class="arguments" id="10"> {{ offensive[9] }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.arkaneKnowledge }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="11"> {{ off[10] }}</span> / <span class="limit">3</span></p> 
+                                        <p class="disabled"><span class="arguments" id="11"> {{ offensive[10] }}</span> / <span class="limit">3</span></p> 
                                         <img ng-src="{{ Masteries.havoc }}">
                                     </td>
                                 </tr>
                                 <tr class="four-off">
                                     <td>
-                                        <p class="disabled" id="12"><span class="arguments" id="12"> {{ off[11] }}</span> / <span class="limit">1</span></p> 
+                                        <p class="disabled" id="12"><span class="arguments" id="12"> {{ offensive[11] }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.lethality }}">
                                     </td> 
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="13"> {{ off[12] }}</span> / <span class="limit">3</span></p> 
+                                        <p class="disabled"><span class="arguments" id="13"> {{ offensive[12] }}</span> / <span class="limit">3</span></p> 
                                         <img ng-src="{{ Masteries.vampirism }}">
                                     </td> 
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="14"> {{ off[13] }}</span> / <span class="limit">4</span></p> 
+                                        <p class="disabled"><span class="arguments" id="14"> {{ offensive[13] }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.blast }}">
                                     </td> 
                                     <td></td>
@@ -297,11 +297,11 @@
                                 <tr class="five-off">
                                     <td></td> 
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="15"> {{ off[14] }}</span> / <span class="limit">3</span></p> 
+                                        <p class="disabled"><span class="arguments" id="15"> {{ offensive[14] }}</span> / <span class="limit">3</span></p> 
                                         <img ng-src="{{ Masteries.sunder }}">
                                     </td> 
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="16"> {{ off[15] }}</span> / <span class="limit">4</span></p> 
+                                        <p class="disabled"><span class="arguments" id="16"> {{ offensive[15] }}</span> / <span class="limit">4</span></p> 
                                         <img ng-src="{{ Masteries.archmage }}">
                                     </td> 
                                     <td></td> 
@@ -309,7 +309,7 @@
                                 <tr class="six-off"> 
                                     <td></td> 
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="17"> {{ off[16] }}</span> / <span class="limit">1</span></p> 
+                                        <p class="disabled"><span class="arguments" id="17"> {{ offensive[16] }}</span> / <span class="limit">1</span></p> 
                                         <img ng-src="{{ Masteries.executioner }}">
                                     </td> 
                                     <td></td> 
@@ -318,69 +318,69 @@
                             </table> 
                         </div>
                         <div class="span4"> 
-                            <table class="defense" ng-init="def = (defensive | filter:initDefensive)">
+                            <table class="defense" ng-init="defensive | initDefensive">
                                 <tr>
                                     <th colspan="4">Defense: <strong class="amount">{{ defensiveUp(defensive) }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
                                     <td>
-                                        <p><span class="arguments" id="18">{{ def[0] }}</span> / <span class="limit">1</span></p>
+                                        <p><span class="arguments" id="18">{{ defensive[0] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.summonersResolve }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="19">{{ def[1] }}</span> / <span class="limit">3</span></p>
+                                        <p><span class="arguments" id="19">{{ defensive[1] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.resistance }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="20">{{ def[2] }}</span> / <span class="limit">3</span></p>
+                                        <p><span class="arguments" id="20">{{ defensive[2] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.hardiness }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="21">{{ def[3] }}</span> / <span class="limit">2</span></p>
+                                        <p><span class="arguments" id="21">{{ defensive[3] }}</span> / <span class="limit">2</span></p>
                                         <img ng-src="{{ Masteries.toughSkin }}">
                                     </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="22">{{ def[4] }}</span> / <span class="limit">4</span></p>
+                                        <p class="disabled"><span class="arguments" id="22">{{ defensive[4] }}</span> / <span class="limit">4</span></p>
                                         <img ng-src="{{ Masteries.durability }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="23">{{ def[5] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="23">{{ defensive[5] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.vigor }}">
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr class="third-off">
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="24">{{ def[6] }}</span> / <span class="limit">2</span></p>
+                                        <p class="disabled"><span class="arguments" id="24">{{ defensive[6] }}</span> / <span class="limit">2</span></p>
                                         <img ng-src="{{ Masteries.indomitable }}">
                                     </td>
                                     <td>
-                                        <p class="disabled" id="25"><span class="arguments" id="25">{{ def[7] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled" id="25"><span class="arguments" id="25">{{ defensive[7] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.veteranScars }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="26">{{ def[8] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="26">{{ defensive[8] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.evasion }}">
                                     </td>
                                     <td>
-                                        <p class="disabled" id="27"><span class="arguments" id="27">{{ def[9] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled" id="27"><span class="arguments" id="27">{{ defensive[9] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.bladedArmor }}">
                                     </td>
                                 </tr>
                                 <tr class="four-off">
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="28">{{ def[10] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="28">{{ defensive[10] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.siegeCommand }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="29">{{ def[11] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="29">{{ defensive[11] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.initiator }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="30">{{ def[12] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="30">{{ defensive[12] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.enlightenment }}">
                                     </td>
                                     <td>
@@ -390,11 +390,11 @@
                                 <tr class="five-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="31">{{ def[13] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="31">{{ defensive[13] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.honorGuard }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="32">{{ def[14] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="32">{{ defensive[14] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.mercenary }}">
                                     </td>
                                     <td></td>
@@ -402,7 +402,7 @@
                                 <tr class="six-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="33">{{ def[15] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="33">{{ defensive[15] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.juggernaut }}">
                                     </td>
                                     <td></td>
@@ -411,81 +411,81 @@
                             </table>
                         </div>
                         <div class="span3">
-                            <table class="utility" ng-init="util = (utility | filter:initUtility)">
+                            <table class="utility" ng-init="utility | initUtility">
                                 <tr>
                                     <th colspan="4">Utility:  <strong class="amount">{{ utilityUp(utility) }}</strong></th>
                                 </tr>
                                 <tr class="first-off">
                                     <td>
-                                        <p><span class="arguments" id="34">{{ util[0] }}</span> / <span class="limit">1</span></p>
+                                        <p><span class="arguments" id="34">{{ utility[0] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.summonersInsight }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="35">{{ util[1] }}</span> / <span class="limit">3</span></p>
+                                        <p><span class="arguments" id="35">{{ utility[1] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.goodHands }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="36">{{ util[2] }}</span> / <span class="limit">3</span></p>
+                                        <p><span class="arguments" id="36">{{ utility[2] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.expandedMind }}">
                                     </td>
                                     <td>
-                                        <p><span class="arguments" id="37">{{ util[3] }}</span> / <span class="limit">1</span></p>
+                                        <p><span class="arguments" id="37">{{ utility[3] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.improvedRecall }}">
                                     </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="38">{{ util[4] }}</span> / <span class="limit">4</span></p>
+                                        <p class="disabled"><span class="arguments" id="38">{{ utility[4] }}</span> / <span class="limit">4</span></p>
                                         <img ng-src="{{ Masteries.swiftness }}">
                                     </td>
                                     <td>
-                                        <p class="disabled" id="39"><span class="arguments" id="39">{{ util[5] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled" id="39"><span class="arguments" id="39">{{ utility[5] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.meditation }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="40">{{ util[6] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="40">{{ utility[6] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.scout }}">
                                     </td>
                                 </tr>
                                 <tr class="third-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="41">{{ util[7] }}</span> / <span class="limit">4</span></p>
+                                        <p class="disabled"><span class="arguments" id="41">{{ utility[7] }}</span> / <span class="limit">4</span></p>
                                         <img ng-src="{{ Masteries.greed }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="42">{{ util[8] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="42">{{ utility[8] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.transmutation }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="43">{{ util[9] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="43">{{ utility[9] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.runicAffinity }}">
                                     </td>
                                 </tr>
                                 <tr class="four-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled" id="44"><span class="arguments" id="44">{{ util[10] }}</span> / <span class="limit">2</span></p>
+                                        <p class="disabled" id="44"><span class="arguments" id="44">{{ utility[10] }}</span> / <span class="limit">2</span></p>
                                         <img ng-src="{{ Masteries.wealth }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="45">{{ util[11] }}</span> / <span class="limit">4</span></p>
+                                        <p class="disabled"><span class="arguments" id="45">{{ utility[11] }}</span> / <span class="limit">4</span></p>
                                         <img ng-src="{{ Masteries.awarenet }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="46">{{ util[12] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="46">{{ utility[12] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.sage }}">
                                     </td>
                                 </tr>
                                 <tr class="five-off">
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="47">{{ util[13] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="47">{{ utility[13] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.strengthOfSpirit }}">
                                     </td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="48">{{ util[14] }}</span> / <span class="limit">3</span></p>
+                                        <p class="disabled"><span class="arguments" id="48">{{ utility[14] }}</span> / <span class="limit">3</span></p>
                                         <img ng-src="{{ Masteries.intelligence }}">
                                     </td>
                                     <td></td>
@@ -494,7 +494,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <p class="disabled"><span class="arguments" id="49">{{ util[15] }}</span> / <span class="limit">1</span></p>
+                                        <p class="disabled"><span class="arguments" id="49">{{ utility[15] }}</span> / <span class="limit">1</span></p>
                                         <img ng-src="{{ Masteries.mastermind }}">
                                     </td>
                                     <td></td>
@@ -502,13 +502,13 @@
                             </table>
                         </div>
                         <div class="span3 offset3">
-                            <button class="btn btn-success" ng-click="$root.saveMasteries()">Сохранить мастерис</button>
+                            <button class="btn btn-success" ng-disabled="!isCanSave" ng-click="saveMasteries()">Сохранить мастерис</button>
                         </div>
                         <div class="span3">
-                            <button class="reset-button btn btn-danger" ng-click="$root.resetMaster(); $root.initMasteries();">Сбросить мастерис</button>
+                            <button class="reset-button btn btn-danger" ng-click="resetMasteries()">Сбросить мастерис</button>
                         </div>
                     </div>
-                    <div class="row runes" ng-init="rune = (runes | filter:initRunes)">
+                    <div class="row runes" ng-init="rune = (runes | initRunes)">
                         <div class="span6 offset3">
                             <h2>Руны:</h2>
                             <div>

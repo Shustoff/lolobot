@@ -19,6 +19,7 @@ $(function() {
   });
   $('.inner-items').draggable();
   $('.inner-spells').draggable();
+  $('.inner-runes').draggable();
   $('.skills-inner').sortable({
     placeholder: 'placehold',
     revert: 'true',

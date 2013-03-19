@@ -4,9 +4,7 @@ LOL.controller('MainCtrl', ($scope, localService) ->
 
     $scope.visibleInnerItems = false
     $scope.visibleInnerSpells = false
-
     $scope.isCanSave = false
-    $scope.isNew = true
     
     $scope.Masteries = Masteries
     $scope.AllItems = Items
@@ -22,11 +20,6 @@ LOL.controller('MainCtrl', ($scope, localService) ->
         Tooltips.runes()
         Tooltips.spells()
         Tooltips.masteries()
-        $("table p").each () ->
-            value = /0/
-            unless $(this).text().search value 
-                $(this).addClass 'disabled'
-            null
         null
 
     # Показываем блок с итемами
@@ -95,19 +88,18 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             i + k
 
     # Сброс мастерис
-    $scope.resetMasteries = (offensive, defensive, utility) ->
+    $scope.resetMasteries = () ->
         $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        $scope.upAllMasteries = 0
-        $scope.isNew = false
-        $("table p > span:first-child").each () ->
-            $('table p').addClass 'disabled'
-            $('table .first-off p').removeClass 'disabled'
-            $scope.isCanSave = true
-            $('.btn-success').text 'Сохранить мастерис'
-            null
+        $scope.masteriesCount = 0
+        $scope.isCanSave = true
         null
+
+    # Считаем общее количество прокачанных мастерис
+    $scope.doMasteriesCount = () ->
+        $scope.masteriesCount = $scope.offensiveCount($scope.offensive) + $scope.defensiveCount($scope.defensive) + $scope.utilityCount($scope.utility)
+        $scope.masteriesCount
 
     # Сохранение мастерис
     $scope.saveMasteries = () ->
@@ -119,27 +111,13 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             catch e
                 alert "Сохранить в локальное хранилище не удалось: " + e
             $scope.isCanSave = false
-            $('.btn-success').text 'Сохранено успешно'
             null
-        null
-
-    # Проверка прокачанных мастерис
-    $scope.checkMasteries = () ->
-        $scope.upAllMasteries = $scope.offensiveCount($scope.offensive) + $scope.defensiveCount($scope.defensive) + $scope.utilityCount($scope.utility)
-        if $scope.upAllMasteries >= 30
-            $("table p").each () ->
-                value = /0/
-                unless $(this).text().search value
-                    $(this).addClass 'disabled'
-            $('table img').attr 'ng-click', 'false'
-
         null
 
     # Прокачиваем offensive
     $scope.offensiveUp = ($event, i, max) ->
-        target = $event.target
-        $scope.checkMasteries()
-        if $scope.offensive[i] < max and $scope.upAllMasteries < 30
+        $scope.doMasteriesCount()
+        if $scope.offensive[i] < max and $scope.masteriesCount <= 29
             $scope.offensive[i] += 1
         null
 

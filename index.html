@@ -184,7 +184,7 @@
         </div>
         <div class="row character">
             <div class="span11">
-                <div id="block" ng-controller="AhriCtrl" ng-init="initCharacterTooltip()">
+                <div id="block" ng-controller="AhriCtrl" ng-init="doMasteriesCount()">
                     <div class='row main'>
                         <div class='span3'>
                             <h4 class='center'>Статы на 18 уровне: </h4>
@@ -222,7 +222,7 @@
                         </div>
                         <div class='clear'></div>
                     </div>
-                    <div class="row masteries" ng-init="checkMasteries()">
+                    <div class="row masteries">
                         <div class="span4">
                             <table class="offensive" ng-init="offensive | initOffensive">
                                 <tr>
@@ -230,38 +230,46 @@
                                 </tr>
                                 <tr class="first-off">
                                     <td>
-                                        <p><span>{{ offensive[0] | maxTo:1 }}</span> / <span>1</span></p> 
+                                        <p ng-class="{disabled: (offensive[0] == 0 && masteriesCount >= 29)}">
+                                            <span>{{ offensive[0] | maxTo:1 }}</span> / <span>1</span>
+                                        </p> 
                                         <img ng-click="offensiveUp($event, 0, 1)" ng-src="{{ Masteries.summonersWrath }}">
                                     </td>
                                     <td>
-                                        <p><span>{{ offensive[1] | maxTo:3 }}</span> / <span>3</span></p> 
+                                        <p ng-class="{disabled: (offensive[1] == 0 && masteriesCount >= 29)}">
+                                            <span>{{ offensive[1] | maxTo:3 }}</span> / <span>3</span>
+                                        </p> 
                                         <img ng-click="offensiveUp($event, 1, 3)" ng-src="{{ Masteries.bruteForce }}">
                                     </td>
                                     <td>
-                                        <p><span>{{ offensive[2] | maxTo:4 }}</span> / <span>4</span></p> 
+                                        <p ng-class="{disabled: (offensive[2] == 0 && masteriesCount >= 29)}">
+                                            <span>{{ offensive[2] | maxTo:4 }}</span> / <span>4</span>
+                                        </p> 
                                         <img ng-click="offensiveUp($event, 2, 4)" ng-src="{{ Masteries.mentalForce }}">
                                     </td>
                                     <td>
-                                        <p><span>{{ offensive[3] | maxTo:2 }}</span> / <span>2</span></p> 
+                                        <p ng-class="{disabled: (offensive[3] == 0 && masteriesCount >= 29)}">
+                                            <span>{{ offensive[3] | maxTo:2 }}</span> / <span>2</span>
+                                        </p> 
                                         <img ng-click="offensiveUp($event, 3, 2)" ng-src="{{ Masteries.butcher }}">
                                     </td>
                                 </tr>
                                 <tr class="second-off">
                                     <td></td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 3 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 4 || (offensive[4] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[4] | maxTo:4 }}</span> / <span>4</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 4, 4)" ng-src="{{ Masteries.alacrity }}">
                                     </td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 3 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 4 || (offensive[5] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[5] | maxTo:4 }}</span> / <span>4</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 5, 4)" ng-src="{{ Masteries.sorcery }}">
                                     </td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 3 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 4 || (offensive[6] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[6] | maxTo:1 }}</span> / <span>1</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 6, 1)" ng-src="{{ Masteries.demolitionist }}">
@@ -269,25 +277,25 @@
                                 </tr>
                                 <tr class="third-off">
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 7 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 8 || (offensive[7] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[7] | maxTo:4 }}</span> / <span>4</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 7, 4)" ng-src="{{ Masteries.deadlines }}">
                                     </td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 7 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 8 || (offensive[8] == 0 && masteriesCount >= 29) || offensive[4] < 4}">
                                             <span> {{ offensive[8] | maxTo:1 }}</span> / <span>1</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 8, 1)" ng-src="{{ Masteries.weaponExpertise }}">
                                     </td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 7 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 8 || (offensive[9] == 0 && masteriesCount >= 29)  || offensive[5] < 4}">
                                             <span> {{ offensive[9] | maxTo:1 }}</span> / <span>1</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 9, 1)" ng-src="{{ Masteries.arkaneKnowledge }}">
                                     </td>
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 7 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 8 || (offensive[10] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[10] | maxTo:3 }}</span> / <span>3</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 10, 3)" ng-src="{{ Masteries.havoc }}">
@@ -295,19 +303,19 @@
                                 </tr>
                                 <tr class="four-off">
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 11 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 12 || (offensive[11] == 0 && masteriesCount >= 29) || offensive[7] < 4}">
                                             <span> {{ offensive[11] | maxTo:1 }}</span> / <span>1</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 11, 1)" ng-src="{{ Masteries.lethality }}">
                                     </td> 
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 11 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 12 || (offensive[12] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[12] | maxTo:3 }}</span> / <span>3</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 12, 3)" ng-src="{{ Masteries.vampirism }}">
                                     </td> 
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 11 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 12 || (offensive[13] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[13] | maxTo:4 }}</span> / <span>4</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 13, 4)" ng-src="{{ Masteries.blast }}">
@@ -317,13 +325,13 @@
                                 <tr class="five-off">
                                     <td></td> 
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 15 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 16 || (offensive[14] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[14] | maxTo:3 }}</span> / <span>3</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 14, 3)" ng-src="{{ Masteries.sunder }}">
                                     </td> 
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 15 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 16 || (offensive[15] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[15] | maxTo:4 }}</span> / <span>4</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 15, 4)" ng-src="{{ Masteries.archmage }}">
@@ -333,7 +341,7 @@
                                 <tr class="six-off"> 
                                     <td></td> 
                                     <td>
-                                        <p ng-class="{disabled: offensiveCount(offensive) <= 19 || isNew}">
+                                        <p ng-class="{disabled: offensiveCount(offensive) < 20 || (offensive[16] == 0 && masteriesCount >= 29)}">
                                             <span> {{ offensive[16] | maxTo:1 }}</span> / <span>1</span>
                                         </p> 
                                         <img ng-click="offensiveUp($event, 16, 1)" ng-src="{{ Masteries.executioner }}">

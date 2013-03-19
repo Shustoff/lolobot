@@ -42,11 +42,18 @@ $(function() {
       return null;
     }
   }).disableSelection();
-  $('.arguments').each(function() {
+  $('table p > span:first-child').each(function() {
     var text;
     text = parseInt($(this).text());
     if (text !== 0) {
       return $(this).parent('p').removeClass('disabled');
+    }
+  });
+  $("table p").each(function() {
+    var value;
+    value = /0/;
+    if (!$(this).text().search(value)) {
+      return $(this).addClass('disabled');
     }
   });
   return null;

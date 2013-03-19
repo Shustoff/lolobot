@@ -6,6 +6,7 @@ LOL.controller('MainCtrl', ($scope, localService) ->
     $scope.visibleInnerSpells = false
 
     $scope.isCanSave = false
+    $scope.isNew = true
     
     $scope.Masteries = Masteries
     $scope.AllItems = Items
@@ -79,17 +80,17 @@ LOL.controller('MainCtrl', ($scope, localService) ->
         null
 
     # Считаем прокачанные offensive
-    $scope.offensiveUp = (offensive) ->
+    $scope.offensiveCount = (offensive) ->
         _.reduce offensive, (i, k) ->
             i + k
 
     # Считаем прокачанные defensive
-    $scope.defensiveUp = (defensive) ->
+    $scope.defensiveCount = (defensive) ->
         _.reduce defensive, (i, k) ->
             i + k
 
     # Считаем прокачанные utility
-    $scope.utilityUp = (utility) ->
+    $scope.utilityCount = (utility) ->
          _.reduce utility, (i, k) ->
             i + k
 
@@ -98,6 +99,8 @@ LOL.controller('MainCtrl', ($scope, localService) ->
         $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.upAllMasteries = 0
+        $scope.isNew = false
         $("table p > span:first-child").each () ->
             $('table p').addClass 'disabled'
             $('table .first-off p').removeClass 'disabled'
@@ -122,10 +125,23 @@ LOL.controller('MainCtrl', ($scope, localService) ->
 
     # Проверка прокачанных мастерис
     $scope.checkMasteries = () ->
-            sum = $scope.offensiveUp + $scope.defensiveUp + $scope.utilityUp
-            if sum >= 30
-                $('table img').click false
-            null
+        $scope.upAllMasteries = $scope.offensiveCount($scope.offensive) + $scope.defensiveCount($scope.defensive) + $scope.utilityCount($scope.utility)
+        if $scope.upAllMasteries >= 30
+            $("table p").each () ->
+                value = /0/
+                unless $(this).text().search value
+                    $(this).addClass 'disabled'
+            $('table img').attr 'ng-click', 'false'
+
+        null
+
+    # Прокачиваем offensive
+    $scope.offensiveUp = ($event, i, max) ->
+        target = $event.target
+        $scope.checkMasteries()
+        if $scope.offensive[i] < max and $scope.upAllMasteries < 30
+            $scope.offensive[i] += 1
+        null
 
     null
 )

@@ -5,6 +5,7 @@ LOL.controller('MainCtrl', function($scope, localService) {
   $scope.visibleInnerItems = false;
   $scope.visibleInnerSpells = false;
   $scope.isCanSave = false;
+  $scope.isNew = true;
   $scope.Masteries = Masteries;
   $scope.AllItems = Items;
   $scope.AllSpells = Spells;
@@ -74,17 +75,17 @@ LOL.controller('MainCtrl', function($scope, localService) {
     }
     return null;
   };
-  $scope.offensiveUp = function(offensive) {
+  $scope.offensiveCount = function(offensive) {
     return _.reduce(offensive, function(i, k) {
       return i + k;
     });
   };
-  $scope.defensiveUp = function(defensive) {
+  $scope.defensiveCount = function(defensive) {
     return _.reduce(defensive, function(i, k) {
       return i + k;
     });
   };
-  $scope.utilityUp = function(utility) {
+  $scope.utilityCount = function(utility) {
     return _.reduce(utility, function(i, k) {
       return i + k;
     });
@@ -93,6 +94,8 @@ LOL.controller('MainCtrl', function($scope, localService) {
     $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $scope.upAllMasteries = 0;
+    $scope.isNew = false;
     $("table p > span:first-child").each(function() {
       $('table p').addClass('disabled');
       $('table .first-off p').removeClass('disabled');
@@ -119,10 +122,25 @@ LOL.controller('MainCtrl', function($scope, localService) {
     return null;
   };
   $scope.checkMasteries = function() {
-    var sum;
-    sum = $scope.offensiveUp + $scope.defensiveUp + $scope.utilityUp;
-    if (sum >= 30) {
-      $('table img').click(false);
+    $scope.upAllMasteries = $scope.offensiveCount($scope.offensive) + $scope.defensiveCount($scope.defensive) + $scope.utilityCount($scope.utility);
+    if ($scope.upAllMasteries >= 30) {
+      $("table p").each(function() {
+        var value;
+        value = /0/;
+        if (!$(this).text().search(value)) {
+          return $(this).addClass('disabled');
+        }
+      });
+      $('table img').attr('ng-click', 'false');
+    }
+    return null;
+  };
+  $scope.offensiveUp = function($event, i, max) {
+    var target;
+    target = $event.target;
+    $scope.checkMasteries();
+    if ($scope.offensive[i] < max && $scope.upAllMasteries < 30) {
+      $scope.offensive[i] += 1;
     }
     return null;
   };

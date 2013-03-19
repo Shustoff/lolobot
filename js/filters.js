@@ -136,3 +136,12 @@ LOL.filter('initRunes', function(localService) {
     return runes;
   };
 });
+
+LOL.filter('maxTo', function() {
+  return function(input, num) {
+    if (input >= num) {
+      return num;
+    }
+    return input;
+  };
+});

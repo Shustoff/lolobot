@@ -43,9 +43,14 @@ $ ->
         )
         .disableSelection()
 
-    $('.arguments').each () ->
+    $('table p > span:first-child').each () ->
        text = parseInt $(this).text()
        if text isnt 0
            $(this).parent('p').removeClass('disabled');
+
+    $("table p").each () ->
+        value = /0/
+        unless $(this).text().search value
+            $(this).addClass 'disabled'
 
     null

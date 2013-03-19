@@ -88,3 +88,10 @@ LOL.filter('initRunes', (localService) ->
             numberRune++;
         runes
 )
+
+LOL.filter('maxTo', () ->
+    (input, num) ->
+        if input >= num
+            return num
+        input
+)

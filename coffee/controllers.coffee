@@ -75,17 +75,17 @@ LOL.controller('MainCtrl', ($scope, localService) ->
     # Считаем прокачанные offensive
     $scope.offensiveCount = (offensive) ->
         _.reduce offensive, (i, k) ->
-            i + k
+            (+i) + (+k)
 
     # Считаем прокачанные defensive
     $scope.defensiveCount = (defensive) ->
         _.reduce defensive, (i, k) ->
-            i + k
+            (+i) + (+k)
 
     # Считаем прокачанные utility
     $scope.utilityCount = (utility) ->
          _.reduce utility, (i, k) ->
-            i + k
+            (+i) + (+k)
 
     # Сброс мастерис
     $scope.resetMasteries = () ->
@@ -103,13 +103,12 @@ LOL.controller('MainCtrl', ($scope, localService) ->
 
     # Сохранение мастерис
     $scope.saveMasteries = () ->
-        $('.arguments').each () ->
-            item = $('.image img').attr 'id'
-            item += $(this).attr 'id'
+        $('table p > span:first-child').each () ->
+            item = $('.image img').attr('id') + $(this).attr 'id'
             try
                 localService.set item, $(this).text()
-            catch e
-                alert "Сохранить в локальное хранилище не удалось: " + e
+            catch error
+                alert "Сохранить в локальное хранилище не удалось: " + error
             $scope.isCanSave = false
             null
         null
@@ -117,8 +116,22 @@ LOL.controller('MainCtrl', ($scope, localService) ->
     # Прокачиваем offensive
     $scope.offensiveUp = ($event, i, max) ->
         $scope.doMasteriesCount()
-        if $scope.offensive[i] < max and $scope.masteriesCount <= 29
+        if $scope.offensive[i] < max and $scope.masteriesCount <= 29 and $scope.isCanSave
             $scope.offensive[i] += 1
+        null
+
+    # Прокачиваем defensive
+    $scope.defensiveUp = ($event, i, max) ->
+        $scope.doMasteriesCount()
+        if $scope.defensive[i] < max and $scope.masteriesCount <= 29 and $scope.isCanSave
+            $scope.defensive[i] += 1
+        null
+
+    # Прокачиваем utility
+    $scope.utilityUp = ($event, i, max) ->
+        $scope.doMasteriesCount()
+        if $scope.utility[i] < max and $scope.masteriesCount <= 29 and $scope.isCanSave
+            $scope.utility[i] += 1
         null
 
     null
@@ -127,7 +140,7 @@ LOL.controller('MainCtrl', ($scope, localService) ->
 # Контроллер Ahri
 LOL.controller('AhriCtrl', ($scope) ->
     $scope.stats = Characters.ahri.stats
-    $scope.image = Images.ahri
+    $scope.name = Characters.ahri.name
     $scope.items = Characters.ahri.items
     $scope.spells = Characters.ahri.spells
     $scope.skills = Characters.ahri.skills
@@ -138,4 +151,3 @@ LOL.controller('AhriCtrl', ($scope) ->
     $scope.initCharacterTooltip = -> Tooltips.Ahri()
     null
 )
-

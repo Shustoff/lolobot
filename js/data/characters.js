@@ -1,6 +1,7 @@
 // Персонажи и статы
 var Characters = {
     "ahri": {
+        name: 'ahri',
         stats: {
             "HP": 1820,
             "HP в 5 сек.": 16.3,

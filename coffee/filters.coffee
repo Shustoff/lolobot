@@ -41,31 +41,31 @@ LOL.filter('initSkills', (localService) ->
 )
 
 LOL.filter('initOffensive', (localService) ->
-    (offensive) ->
+    (offensive, name) ->
         numberMaster = 1
-        for m in [0...17]
-            locOff = $('.image img').attr 'id' + numberMaster
-            offensive[m] = localService.get locOff if localService.get(locOff)?
+        for i in [0...17]
+            locOff = name + numberMaster
+            offensive[i] = localService.get locOff if localService.get(locOff)?
             numberMaster++
         offensive
 )
 
 LOL.filter('initDefensive', (localService) ->
-    (defensive) ->
+    (defensive, name) ->
         numberMaster = 18
-        for m in [0...16]
-            locOff = $('.image img').attr('id') + numberMaster
-            defensive[m] = localService.get locOff if localService.get(locOff)?
+        for i in [0...16]
+            locOff = name + numberMaster
+            defensive[i] = localService.get locOff if localService.get(locOff)?
             numberMaster++
         defensive
 )
 
 LOL.filter('initUtility', (localService) ->
-    (utility) ->
+    (utility, name) ->
         numberMaster = 34
-        for m in [0...16]
-            locOff = $('.image img').attr('id') + numberMaster
-            utility[m] = localService.get locOff if localService.get(locOff)?
+        for i in [0...16]
+            locOff = name + numberMaster
+            utility[i] = localService.get locOff if localService.get(locOff)?
             numberMaster++
         utility
 )

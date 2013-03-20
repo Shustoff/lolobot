@@ -63,13 +63,13 @@ LOL.filter('initSkills', function(localService) {
 });
 
 LOL.filter('initOffensive', function(localService) {
-  return function(offensive) {
-    var locOff, m, numberMaster, _i;
+  return function(offensive, name) {
+    var i, locOff, numberMaster, _i;
     numberMaster = 1;
-    for (m = _i = 0; _i < 17; m = ++_i) {
-      locOff = $('.image img').attr('id' + numberMaster);
+    for (i = _i = 0; _i < 17; i = ++_i) {
+      locOff = name + numberMaster;
       if (localService.get(locOff) != null) {
-        offensive[m] = localService.get(locOff);
+        offensive[i] = localService.get(locOff);
       }
       numberMaster++;
     }
@@ -78,13 +78,13 @@ LOL.filter('initOffensive', function(localService) {
 });
 
 LOL.filter('initDefensive', function(localService) {
-  return function(defensive) {
-    var locOff, m, numberMaster, _i;
+  return function(defensive, name) {
+    var i, locOff, numberMaster, _i;
     numberMaster = 18;
-    for (m = _i = 0; _i < 16; m = ++_i) {
-      locOff = $('.image img').attr('id') + numberMaster;
+    for (i = _i = 0; _i < 16; i = ++_i) {
+      locOff = name + numberMaster;
       if (localService.get(locOff) != null) {
-        defensive[m] = localService.get(locOff);
+        defensive[i] = localService.get(locOff);
       }
       numberMaster++;
     }
@@ -93,13 +93,13 @@ LOL.filter('initDefensive', function(localService) {
 });
 
 LOL.filter('initUtility', function(localService) {
-  return function(utility) {
-    var locOff, m, numberMaster, _i;
+  return function(utility, name) {
+    var i, locOff, numberMaster, _i;
     numberMaster = 34;
-    for (m = _i = 0; _i < 16; m = ++_i) {
-      locOff = $('.image img').attr('id') + numberMaster;
+    for (i = _i = 0; _i < 16; i = ++_i) {
+      locOff = name + numberMaster;
       if (localService.get(locOff) != null) {
-        utility[m] = localService.get(locOff);
+        utility[i] = localService.get(locOff);
       }
       numberMaster++;
     }

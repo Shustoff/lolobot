@@ -68,17 +68,17 @@ LOL.controller('MainCtrl', function($scope, localService) {
   };
   $scope.offensiveCount = function(offensive) {
     return _.reduce(offensive, function(i, k) {
-      return i + k;
+      return (+i) + (+k);
     });
   };
   $scope.defensiveCount = function(defensive) {
     return _.reduce(defensive, function(i, k) {
-      return i + k;
+      return (+i) + (+k);
     });
   };
   $scope.utilityCount = function(utility) {
     return _.reduce(utility, function(i, k) {
-      return i + k;
+      return (+i) + (+k);
     });
   };
   $scope.resetMasteries = function() {
@@ -94,14 +94,13 @@ LOL.controller('MainCtrl', function($scope, localService) {
     return $scope.masteriesCount;
   };
   $scope.saveMasteries = function() {
-    $('.arguments').each(function() {
+    $('table p > span:first-child').each(function() {
       var item;
-      item = $('.image img').attr('id');
-      item += $(this).attr('id');
+      item = $('.image img').attr('id') + $(this).attr('id');
       try {
         localService.set(item, $(this).text());
-      } catch (e) {
-        alert("Сохранить в локальное хранилище не удалось: " + e);
+      } catch (error) {
+        alert("Сохранить в локальное хранилище не удалось: " + error);
       }
       $scope.isCanSave = false;
       return null;
@@ -110,8 +109,22 @@ LOL.controller('MainCtrl', function($scope, localService) {
   };
   $scope.offensiveUp = function($event, i, max) {
     $scope.doMasteriesCount();
-    if ($scope.offensive[i] < max && $scope.masteriesCount <= 29) {
+    if ($scope.offensive[i] < max && $scope.masteriesCount <= 29 && $scope.isCanSave) {
       $scope.offensive[i] += 1;
+    }
+    return null;
+  };
+  $scope.defensiveUp = function($event, i, max) {
+    $scope.doMasteriesCount();
+    if ($scope.defensive[i] < max && $scope.masteriesCount <= 29 && $scope.isCanSave) {
+      $scope.defensive[i] += 1;
+    }
+    return null;
+  };
+  $scope.utilityUp = function($event, i, max) {
+    $scope.doMasteriesCount();
+    if ($scope.utility[i] < max && $scope.masteriesCount <= 29 && $scope.isCanSave) {
+      $scope.utility[i] += 1;
     }
     return null;
   };
@@ -120,7 +133,7 @@ LOL.controller('MainCtrl', function($scope, localService) {
 
 LOL.controller('AhriCtrl', function($scope) {
   $scope.stats = Characters.ahri.stats;
-  $scope.image = Images.ahri;
+  $scope.name = Characters.ahri.name;
   $scope.items = Characters.ahri.items;
   $scope.spells = Characters.ahri.spells;
   $scope.skills = Characters.ahri.skills;

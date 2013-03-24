@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/app.css" />
 
     <!-- Libs -->
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-    <script src="http://underscorejs.org/underscore.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="js/libs/jquery.js"></script>
+    <script src="js/libs/jquery-ui.js"></script>
+    <script src="js/libs/underscore.js"></script>
+    <script src="js/libs/angular.js"></script>
     <script src="js/libs/bootstrap-modal.js"></script>
     <script src="js/libs/easyTooltip.js"></script>
 
@@ -29,23 +29,15 @@
     <script src="js/data/tooltip-spells.js"></script>
     <script src="js/data/tooltip-runes.js"></script>
 
-    <!-- App Files -->
-    <script src="js/routes.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/lol.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/controllers.js"></script>
-
     <link rel="shortcut icon" href="http://faviconist.com/icons/b12151012d5405269628194f261bdf5a/favicon.ico" /></head>
 <body>
 <div class="container">
     <div class="row top">
-        <div class="span4">
-            <h1>LoLoBoT</h1>
+        <div class="span3">
+            <h1>lolobot</h1>
             <small>создай свой билд!</small>
         </div>
-        <div class="span4">
+        <div class="span5">
             <h1 class="center">League of Legends</h1>
         </div>
         <div class="span3">
@@ -58,10 +50,9 @@
             </p>
         </div>
     </div>
-    <div id="tabs" ng-controller="MainCtrl">
+    <div id="tabs" ng-view>
         <div class="row menu">
             <div class="span11">
-
                 <div class="modal" id="myModal" ng-show="visibleModal">
                     <div class="modal-header">
                        <h3>Очистка локального хранилища</h3>
@@ -79,112 +70,18 @@
                     <a class="icon-trash" data-toggle="modal" href="#myModal"></a> Выберите персонажа:
                 </h5>
 
-                <ul>
-                    <li><a href="#block" ng-click="AhriCtrl()">Ahri</a></li>
-                    <li><a href="#block" ng-click="AkaliCtrl()">Akali</a></li>
-                    <li><a href="#block" ng-click="AlistarCtrl()">Alistar</a></li>
-                    <li><a href="#block" ng-click="">Amumu</a></li>
-                    <li><a href="#block" ng-click="">Anivia</a></li>
-                    <li><a href="#block" ng-click="">Annie</a></li>
-                    <li><a href="#block" ng-click="">Ashe</a></li>
-                    <li><a href="#block" ng-click="">Blitzcrank</a></li>
-                    <li><a href="#block" ng-click="">Brand</a></li>
-                    <li><a href="#block" ng-click="">Caitlyn</a></li>
-                    <li><a href="#block" ng-click="">Cassiopeia</a></li>
-                    <li><a href="#block" ng-click="">Cho'Gath</a></li>
-                    <li><a href="#block" ng-click="">Corki</a></li>
-                    <li><a href="#block" ng-click="">Darius</a></li>
-                    <li><a href="#block" ng-click="">Draven</a></li>
-                    <li><a href="#block" ng-click="">Dr. Mundo</a></li>
-                    <li><a href="#block" ng-click="">Evelynn</a></li>
-                    <li><a href="#block" ng-click="">Ezreal</a></li>
-                    <li><a href="#block" ng-click="">Fiddlesticks</a></li>
-                    <li><a href="#block" ng-click="">Fiora</a></li>
-                    <li><a href="#block" ng-click="">Fizz</a></li>
-                    <li><a href="#block" ng-click="">Galio</a></li>
-                    <li><a href="#block" ng-click="">Gangplank</a></li>
-                    <li><a href="#block" ng-click="">Garen</a></li>
-                    <li><a href="#block" ng-click="">Gragas</a></li>
-                    <li><a href="#block" ng-click="">Graves</a></li>
-                    <li><a href="#block" ng-click="">Hecarim</a></li>
-                    <li><a href="#block" ng-click="">Heimerdinger</a></li>
-                    <li><a href="#block" ng-click="">Irelia</a></li>
-                    <li><a href="#block" ng-click="">Janna</a></li>
-                    <li><a href="#block" ng-click="">Jarvan IV</a></li>
-                    <li><a href="#block" ng-click="">Jax</a></li>
-                    <li><a href="#block" ng-click="">Karma</a></li>
-                    <li><a href="#block" ng-click="">Karthus</a></li>
-                    <li><a href="#block" ng-click="">Kassadin</a></li>
-                    <li><a href="#block" ng-click="">Katarina</a></li>
-                    <li><a href="#block" ng-click="">Kayle</a></li>
-                    <li><a href="#block" ng-click="">Kennen</a></li>
-                    <li><a href="#block" ng-click="">Kog'Maw</a></li>
-                    <li><a href="#block" ng-click="">LeBlanc</a></li>
-                    <li><a href="#block" ng-click="">Lee Sin</a></li>
-                    <li><a href="#block" ng-click="">Leona</a></li>
-                    <li><a href="#block" ng-click="">Lulu</a></li>
-                    <li><a href="#block" ng-click="">Lux</a></li>
-                    <li><a href="#block" ng-click="">Malphite</a></li>
-                    <li><a href="#block" ng-click="">Malzahar</a></li>
-                    <li><a href="#block" ng-click="">Maokai</a></li>
-                    <li><a href="#block" ng-click="">Master Yi</a></li>
-                    <li><a href="#block" ng-click="">Miss Fortune</a></li>
-                    <li><a href="#block" ng-click="">Mordekaiser</a></li>
-                    <li><a href="#block" ng-click="">Morgana</a></li>
-                    <li><a href="#block" ng-click="">Nasus</a></li>
-                    <li><a href="#block" ng-click="">Nautilus</a></li>
-                    <li><a href="#block" ng-click="">Nidalee</a></li>
-                    <li><a href="#block" ng-click="">Nocturne</a></li>
-                    <li><a href="#block" ng-click="">Nunu</a></li>
-                    <li><a href="#block" ng-click="">Olaf</a></li>
-                    <li><a href="#block" ng-click="">Oriana</a></li>
-                    <li><a href="#block" ng-click="">Pantheon</a></li>
-                    <li><a href="#block" ng-click="">Poppy</a></li>
-                    <li><a href="#block" ng-click="">Rammus</a></li>
-                    <li><a href="#block" ng-click="">Renekton</a></li>
-                    <li><a href="#block" ng-click="">Riven</a></li>
-                    <li><a href="#block" ng-click="">Rumble</a></li>
-                    <li><a href="#block" ng-click="">Ryze</a></li>
-                    <li><a href="#block" ng-click="">Sejuani</a></li>
-                    <li><a href="#block" ng-click="">Shaco</a></li>
-                    <li><a href="#block" ng-click="">Shen</a></li>
-                    <li><a href="#block" ng-click="">Shyvana</a></li>
-                    <li><a href="#block" ng-click="">Singed</a></li>
-                    <li><a href="#block" ng-click="">Sion</a></li>
-                    <li><a href="#block" ng-click="">Sivir</a></li>
-                    <li><a href="#block" ng-click="">Skarner</a></li>
-                    <li><a href="#block" ng-click="">Sona</a></li>
-                    <li><a href="#block" ng-click="">Soraka</a></li>
-                    <li><a href="#block" ng-click="">Swain</a></li>
-                    <li><a href="#block" ng-click="">Talon</a></li>
-                    <li><a href="#block" ng-click="">Taric</a></li>
-                    <li><a href="#block" ng-click="">Teemo</a></li>
-                    <li><a href="#block" ng-click="">Tristana</a></li>
-                    <li><a href="#block" ng-click="">Trundle</a></li>
-                    <li><a href="#block" ng-click="">Tryndamere</a></li>
-                    <li><a href="#block" ng-click="">Twisted Fate</a></li>
-                    <li><a href="#block" ng-click="">Twitch</a></li>
-                    <li><a href="#block" ng-click="">Udyr</a></li>
-                    <li><a href="#block" ng-click="">Urgot</a></li>
-                    <li><a href="#block" ng-click="">Varus</a></li>
-                    <li><a href="#block" ng-click="">Vayne</a></li>
-                    <li><a href="#block" ng-click="">Veigar</a></li>
-                    <li><a href="#block" ng-click="">Viktor</a></li>
-                    <li><a href="#block" ng-click="">Vladimir</a></li>
-                    <li><a href="#block" ng-click="">Volibear</a></li>
-                    <li><a href="#block" ng-click="">Warwick</a></li>
-                    <li><a href="#block" ng-click="">Wukong</a></li>
-                    <li><a href="#block" ng-click="">Xerath</a></li>
-                    <li><a href="#block" ng-click="">Xin Zhao</a></li>
-                    <li><a href="#block" ng-click="">Yorick</a></li>
-                    <li><a href="#block" ng-click="">Ziggs</a></li>
-                    <li><a href="#block" ng-click="">Zilean</a></li>
+                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                    <li ng-repeat="(key, value) in Characters" class="ng-scope ui-state-default ui-corner-top">
+                        <a ng-href="#/{{ key }}" class="ng-binding ui-tabs-anchor" ng-class="markActiveClass(key)">
+                            {{ key }}
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="row character">
             <div class="span11">
-                <div id="block" ng-controller="AhriCtrl" ng-init="doMasteriesCount()">
+                <div id="block" ng-init="doMasteriesCount()">
                     <div class='row main'>
                         <div class='span3'>
                             <h4 class='center'>Статы на 18 уровне: </h4>
@@ -198,7 +95,7 @@
                             <div class='items'>
                                 <p>Сборка: </p>
                                 <div>
-                                    <img ng-click="showItemsBlock($event)" ng-repeat="item in items | initItems" ng-src='{{ item }}'/>
+                                    <img ng-click="showItemsBlock($event)" ng-repeat="item in items | initItems:name" ng-src='{{ item }}'/>
                                 </div>
                             </div>
                             <div ng-show="visibleInnerItems" class='inner-items ui-droppable'>
@@ -209,7 +106,7 @@
                             <div class='skills'>
                                 <p>Скиллы (перетаскивайте, для изменения порядка):
                                     <span class='spells'>
-                                        <img ng-click="showSpellsBlock($event)" ng-repeat="spell in spells | initSpells" ng-src='{{ spell }}' />
+                                        <img ng-click="showSpellsBlock($event)" ng-repeat="spell in spells | initSpells:name" ng-src='{{ spell }}' />
                                     </span>
                                 </p>
                                 <div ng-show="visibleInnerSpells" class='inner-spells ui-droppable'>
@@ -218,7 +115,7 @@
                                     <img ng-click="addSpellInBuild(spell, $event)" ng-repeat="spell in AllSpells | existsSpells" ng-src="{{ spell }}">
                                 </div>
                                 <div class='skills-inner'>
-                                    <img ng-repeat="skill in skills | initSkills" ng-src='{{ skill }}' />
+                                    <img ng-repeat="skill in skills | initSkills:name" ng-src='{{ skill }}' />
                                 </div>
                             </div>
                         </div>
@@ -608,20 +505,21 @@
                             <button class="reset-button btn btn-danger" ng-click="resetMasteries()">Сбросить мастерис</button>
                         </div>
                     </div>
-                    <div class="row runes" ng-init="runes | initRunes">
+                    <div class="row runes" ng-init="runes | initRunes: name">
                         <div class="span6 offset3">
                             <h2>Руны:</h2>
                             <div>
-                                <img ng-src="{{ runes[0] }}" />x9
-                                <img ng-src="{{ runes[1] }}" />x9
-                                <img ng-src="{{ runes[2] }}" />x9
-                                <img ng-src="{{ runes[3] }}" />x3
+                                <img class="mark" ng-click="showRunesBlock($event); $root.typeRune = 'mark'" ng-src="{{ runes[0] }}"/>x9
+                                <img class="seal" ng-click="showRunesBlock($event); $root.typeRune = 'seal'" ng-src="{{ runes[1] }}"/>x9
+                                <img class="glyph" ng-click="showRunesBlock($event); $root.typeRune = 'glyph'" ng-src="{{ runes[2] }}"/>x9
+                                <img class="quint" ng-click="showRunesBlock($event); $root.typeRune = 'quint'" ng-src="{{ runes[3] }}" />x3
                             </div>
                         </div>
                     </div>
-                    <div class='inner-runes ui-droppable'>
+                    <div ng-show="visibleInnerRunes" class='inner-runes ui-droppable'>
                         <h3>Руны:</h3>
-                        <span>X</span>
+                        <span ng-click="hideRunesBlock()">X</span>
+                        <img ng-click="addRuneInBuild(rune, $event)" ng-repeat="rune in AllRunes | existsRunes:typeRune" ng-src="{{ rune }}">
                     </div>
                 </div>
             </div>
@@ -638,5 +536,12 @@
         </div>
     </div>
 </div>
+
+<!-- App Files -->
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers.js"></script>
 </body>
 </html>

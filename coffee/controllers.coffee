@@ -1,39 +1,78 @@
 # Главный контроллер
-LOL.controller('MainCtrl', ($scope, localService) ->
+LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localService) ->
     $scope.visibleModal = false
 
     $scope.visibleInnerItems = false
     $scope.visibleInnerSpells = false
+    $scope.visibleInnerRunes = false
     $scope.isCanSave = false
     
+    $scope.Characters = Characters
     $scope.Masteries = Masteries
     $scope.AllItems = Items
     $scope.AllSpells = Spells
+    $scope.AllRunes = Runes
+
+    $scope.name = $routeParams.name || 'Ahri'
+    $scope.stats = Characters[$scope.name].stats
+    $scope.items = Characters[$scope.name].items
+    $scope.spells = Characters[$scope.name].spells
+    $scope.skills = Characters[$scope.name].skills
+    $scope.offensive = Characters[$scope.name].offensive
+    $scope.defensive = Characters[$scope.name].defensive
+    $scope.utility = Characters[$scope.name].utility
+    $scope.runes = Characters[$scope.name].runes
+
+    # Обновляем jQuery UI компоненты после рендера другого персонажа
+    $scope.$on '$routeChangeSuccess', (scope, next, current) ->
+        $('.inner-items').draggable()
+        $('.inner-spells').draggable()
+        $('.inner-runes').draggable()
+        $('.skills-inner')
+            .sortable(
+                placeholder: 'placehold'
+                revert: 'true'
+                items: 'img'
+                tolerance: 'pointer'
+                deactivate: (event, ui) ->
+                    saves = $(ui.item).siblings().andSelf()
+                    localService = angular.element('html').injector().get('localService')
+                    $(saves).each () ->
+                        item = $('.image img').attr('id') + 'Skill' + $(this).index()
+                        try
+                            localService.set(item, $(this).attr 'src' )
+                        catch error
+                            alert "Сохранить в локальное хранилище не удалось: " + error
+                        null
+                    null
+            )
+            .disableSelection()
+        console.log 'action'
+
+    # Помечаем активную ссылку
+    $scope.markActiveClass = (key) ->
+        'ui-tabs-active ui-state-active' if $routeParams.name == key
 
     # Сбрасываем все билды
     $scope.resetBuilds = ->
         localService.reset()
 
-    # Генерируем общие подсказки
-    $scope.initTooltips = ->
-        Tooltips.items()
-        Tooltips.runes()
-        Tooltips.spells()
-        Tooltips.masteries()
-        null
-
     # Показываем блок с итемами
     $scope.showItemsBlock = ($event) ->
         $scope.selectedItem = $event.target
         $scope.visibleInnerItems = !$scope.visibleInnerItems
-        Tooltips.items()
         null
 
     # Показываем блок со спеллами
     $scope.showSpellsBlock = ($event) ->
         $scope.selectedSpell = $event.target
         $scope.visibleInnerSpells = !$scope.visibleInnerSpells
-        Tooltips.spells()
+        null
+
+    # Показываем блок с рунами
+    $scope.showRunesBlock = ($event) ->
+        $scope.selectedRune = $event.target
+        $scope.visibleInnerRunes = !$scope.visibleInnerRunes
         null
 
     # Скрываем блок с итемами
@@ -44,6 +83,11 @@ LOL.controller('MainCtrl', ($scope, localService) ->
     # Скрываем блок со спеллами
     $scope.hideSpellsBlock = ->
         $scope.visibleInnerSpells = !$scope.visibleInnerSpells
+        null
+
+    # Скрываем блок с рунами
+    $scope.hideRunesBlock = ->
+        $scope.visibleInnerRunes = !$scope.visibleInnerRunes
         null
 
     # Добавляем итем в сборку
@@ -58,6 +102,9 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             $scope.hideItemsBlock()
         catch e
             alert "Сохранить в локальное хранилище не удалось: " + e
+        $timeout( () -> 
+            Tooltips.items() 
+        , 100)
         null
 
     # Добавляем спелл в сборку
@@ -70,6 +117,27 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             $scope.hideSpellsBlock()
         catch e
             alert "Сохранить в локальное хранилище не удалось: " + e
+        $timeout( () -> 
+            Tooltips.spells() 
+        , 100)
+        null
+
+    # Добавляем руны в сборку 
+    $scope.addRuneInBuild = (rune, $event) ->
+        target = $event.target
+        $($scope.selectedRune).attr 'ng-src', rune
+        rune = $('.image img').attr('id') + 'Rune' + $($scope.selectedRune).index()
+        try 
+            localService.set(rune, $(target).attr 'ng-src')
+            $scope.hideRunesBlock()
+        catch e
+            alert "Сохранить в локальное хранилище не удалось: " + e
+
+        cloner = $('.runes > div > div').clone()
+        $('.runes > div > div').remove();
+        clonedEl = $compile(cloner)($scope)
+        $('.runes > div').append clonedEl
+        
         null
 
     # Считаем прокачанные offensive
@@ -92,7 +160,7 @@ LOL.controller('MainCtrl', ($scope, localService) ->
         $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        $scope.masteriesCount = 0
+        $scope.doMasteriesCount()
         $scope.isCanSave = true
         null
 
@@ -134,20 +202,5 @@ LOL.controller('MainCtrl', ($scope, localService) ->
             $scope.utility[i] += 1
         null
 
-    null
-)
-
-# Контроллер Ahri
-LOL.controller('AhriCtrl', ($scope) ->
-    $scope.stats = Characters.ahri.stats
-    $scope.name = Characters.ahri.name
-    $scope.items = Characters.ahri.items
-    $scope.spells = Characters.ahri.spells
-    $scope.skills = Characters.ahri.skills
-    $scope.$parent.offensive = Characters.ahri.offensive
-    $scope.$parent.defensive = Characters.ahri.defensive
-    $scope.$parent.utility = Characters.ahri.utility
-    $scope.runes = Characters.ahri.runes
-    $scope.initCharacterTooltip = -> Tooltips.Ahri()
     null
 )

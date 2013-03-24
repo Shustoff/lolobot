@@ -1,7 +1,8 @@
+/*
 // Реализация логики мастерис
 function initMasteries() {
 
-/*    // Реализация логики для 1й таблицы Offensive
+    // Реализация логики для 1й таблицы Offensive
     $("table.offensive img").each(function(){
         $(this).click(function(){
 
@@ -158,6 +159,7 @@ function initMasteries() {
        if (text !== 0) {
            $(this).parent('p').removeClass('disabled');
        }
-    });*/
+    });
 
 }
+*/

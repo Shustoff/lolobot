@@ -1,13 +1,16 @@
 # Методы инициализации при загрузке приложения
 $ ->
+    # Создаем модальное окно
 	$('#myModal').modal 'hide'
 
+    # Создаем табы
 	$("#tabs").tabs()
 
 	$('.ui-tabs-nav a').bind 'click', () ->
 	    $('.character').effect 'slide', 800
 	    null
 
+    # Делаем всплывающие блоки перетаскиваемыми
     $('.inner-items').draggable()
     $('.inner-spells').draggable()
     $('.inner-runes').draggable()

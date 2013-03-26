@@ -200,7 +200,7 @@ function saveMasteries() {
 }
 */
 
-// Добавление рун
+/*// Добавление рун
 function initRunesAction() {
 
     // Добавляем все руны в плавающее окошко
@@ -260,4 +260,4 @@ function initRunesAction() {
 
     // Добавляем возможность перетаскивания всплывающего окошка
     $('.inner-runes').draggable();
-}
+}*/

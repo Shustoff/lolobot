@@ -1,3 +1,4 @@
+/*
 // Реализация логики мастерис
 function initMasteries() {
 
@@ -38,9 +39,9 @@ function initMasteries() {
             parseInt($('#8').text()) < 4 ? $('p#12').addClass('disabled') : $('p#12').removeClass('disabled');
 
         });
-    });
+    });*/
 
-    // Реализация логики для 2й таблицы Defense
+/*    // Реализация логики для 2й таблицы Defense
     $("table.defense img").each(function(){
         $(this).click(function() {
 
@@ -85,8 +86,8 @@ function initMasteries() {
 
         });
     });
-
-    // Реализация логики для 3й таблицы Utility
+*/
+/*    // Реализация логики для 3й таблицы Utility
     $("table.utility img").each(function(){
         $(this).click(function(){
 
@@ -130,8 +131,8 @@ function initMasteries() {
 
         });
     });
-
-    // Проверяем количество прокачанных мастерис. Если 30, то запрещаем прокачивать.
+*/
+/*    // Проверяем количество прокачанных мастерис. Если 30, то запрещаем прокачивать.
     $('table img').each(function(){
         $(this).click(function(){
             var amount1 = parseInt($('table.offensive .amount').text()),
@@ -161,3 +162,4 @@ function initMasteries() {
     });
 
 }
+*/

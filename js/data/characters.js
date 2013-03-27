@@ -107,7 +107,7 @@ var Characters = {
         ]    
     },
     "Alistar": {
-        name: 'aliastar',
+        name: 'alistar',
         stats: {
             "HP": 2278,
             "HP в 5 сек.": 22.55,

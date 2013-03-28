@@ -193,7 +193,7 @@ Tooltips.Ashe = function() {
     });
 }
 
-Tooltips.Blitzkrank = function() {
+Tooltips.Blitzcrank = function() {
     $("img[src='img/skills/blitzcre.png']").easyTooltip({
             content: '<h4>Rocket Grab</h4> \
             <p>Blitzcrank выстреливает своей правой рукой. Если она встречает на своем пути врага, то она оглушает его, наносит 60/120/180/240/300 + (0,8 * AP) магического урона и притягивает врага обратно.</p>\
@@ -251,7 +251,7 @@ Tooltips.Brand = function() {
     });
 }
 
-Tooltips.Caytlin = function() {
+Tooltips.Caitlyn = function() {
     $("img[src='img/skills/caytlin4.png']").easyTooltip({
         content: '<h4>Yordle Snap Trap</h4> \
         <p>Устанавливает в указанном месте ловушку, которая не дает наступившему на нее герою пермещаться в теение 1,5 сек. и наносит ему 80/130/180/230/280 + (0,6 * AP) магического урона, а также делает видимым для всех союзников на 9 сек. Допускается иметь до трех разложенных ловушек, каждая существует в течение 4 мин.</p> \
@@ -416,7 +416,7 @@ Tooltips.Draven = function() {
     });
 }
 
-Tooltips.Mundo = function() {
+Tooltips.Drmundo = function() {
     $("img[src='img/skills/dr-mundr.png']").easyTooltip({
         content: '<h4>Infected Cleaver</h4> \
         <p>Метание рабочего тесака. Наносит урон в 15/18/21/23/25% здоровья цели с гарантированным уроном в 80/130/180/230/280,  замедляет цель на 40% на 2 сек. Возвращает половину стоимости при попадании в любую цель.</p> \
@@ -498,7 +498,7 @@ Tooltips.Ezreal = function() {
     });
 }
 
-Tooltips.Fiddle = function() {
+Tooltips.Fiddlesticks = function() {
     $("img[src='img/skills/fiddlesw.png']").easyTooltip({
         content: '<h4>Drain</h4> \
         <p>Иссушает здоровье врага и наносит 60/90/120/150/180 + (0,5 * AP) магического урона каждую секунду. Fiddlesticks излечивается в размере 60/65/70/75/80% от нанесенного урона. Длится вплоть до 5 секунд.</p> \
@@ -1370,7 +1370,7 @@ Tooltips.Missfortune = function() {
     });
 }
 
-Tooltips.Mordekaizer = function() {
+Tooltips.Mordekaiser = function() {
     $("img[src='img/skills/mordekan.png']").easyTooltip({
         content: '<h4>Siphon of Destruction</h4> \
         <p>Мордекайзер наносит 65/105/145/185/225 + (0,6 * AP) магического урона врагам в выбранной области. \
@@ -1456,7 +1456,7 @@ Tooltips.Nasus = function() {
     });
 }
 
-Tooltips.Nautilus = function() {
+Tooltips.Nautilius = function() {
     $("img[src='img/skills/nautilux.png']").easyTooltip({
         content: '<h4>Titan’s Wrath</h4> \
         <p>Наутилус помещает на себя щит, который поглощает дополнительный урон основанный на его максимальном Здоровье. Пока щит активен, атаки Наутилуса наносят постепенный урон юнитам вокруг него.</p> \
@@ -2296,7 +2296,7 @@ Tooltips.Tryndamere = function() {
     });
 }
 
-Tooltips.Twisted = function() {
+Tooltips.Twistedfate = function() {
     $("img[src='img/skills/twisted2.png']").easyTooltip({
         content: '<h4>Pick A Card</h4> \
         <p>Twisted Fate Перетасовывает колоду, увеличивая урон от следующей атаки.\

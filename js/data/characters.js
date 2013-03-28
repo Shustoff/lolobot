@@ -249,7 +249,7 @@ var Characters = {
             Skills.glacialStorm, 
             Skills.crystallize, 
             Skills.crystallize
-        ]
+        ],
         offensive: [1, 0, 4, 0, 0, 4, 0, 0, 0, 1, 2, 0, 0, 4, 0, 4, 1],
         defensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         utility: [1, 0, 3, 0, 1, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -269,7 +269,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 310
         },
-        items: [Items.doransRing, Items.rodOfAges, Items.rylaisCrystalScepter, Items.rabadonsDeathcap, Items.voidStaff, Items.zhonyasHourglass]
+        items: [Items.doransRing, Items.rodOfAges, Items.rylaisCrystalScepter, Items.rabadonsDeathcap, Items.voidStaff, Items.zhonyasHourglass],
         spells: [Spells.ignite, Spells.flash],
         skills: [
             Skills.disintegrate, 
@@ -290,7 +290,7 @@ var Characters = {
             Skills.tibbers, 
             Skills.moltenShield, 
             Skills.moltenShield
-        ]
+        ],
         offensive: [0, 0, 4, 0, 0, 4, 0, 0, 0, 1, 3, 0, 0, 4, 0, 4, 1],
         defensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         utility: [0, 1, 3, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -310,7 +310,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 300
         },
-        items: [Items.berserkersGreaves, Items.infinityEdge, Items.phantomDancer, Items.lastWhisper, Items.theBloodthirster, Items.guardianAngel]
+        items: [Items.berserkersGreaves, Items.infinityEdge, Items.phantomDancer, Items.lastWhisper, Items.theBloodthirster, Items.guardianAngel],
         spells: [Spells.heal, Spells.flash],
         skills: [
             Skills.volley, 
@@ -351,7 +351,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 300
         },
-        items: [Items.manamune, Items.mercurysTreads, Items.frozenHeart, Items.bansheesVeil, Items.trinityForce, Items.guardianAngel]
+        items: [Items.manamune, Items.mercurysTreads, Items.frozenHeart, Items.bansheesVeil, Items.trinityForce, Items.guardianAngel],
         spells: [Spells.flash, Spells.ghost],
         skills: [
             Skills.rocketGrab, 
@@ -392,7 +392,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 315
         },
-        items: [Items.doransRing, Items.rabadonsDeathcap, Items.voidStaff, Items.rylaisCrystalScepter, Items.zhonyasHourglass, Items.willOfTheAncients]
+        items: [Items.doransRing, Items.rabadonsDeathcap, Items.voidStaff, Items.rylaisCrystalScepter, Items.zhonyasHourglass, Items.willOfTheAncients],
         spells: [Spells.flash, Spells.ignite],
         skills: [
             Skills.pillarOfFlame, 
@@ -433,7 +433,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 300
         },
-        items: [Items.berserkersGreaves, Items.infinityEdge, Items.theBloodthirster, Items.phantomDancer, Items.bansheesVeil, Items.lastWhisper]
+        items: [Items.berserkersGreaves, Items.infinityEdge, Items.theBloodthirster, Items.phantomDancer, Items.bansheesVeil, Items.lastWhisper],
         spells: [Spells.flash, Spells.exhaust],
         skills: [
             Skills.yordleSnapTrap, 
@@ -1227,7 +1227,7 @@ var Characters = {
         offensive: [1, 0, 3, 0, 0, 4, 0, 0, 0, 1, 3, 0, 0, 4, 0, 4, 1],
         defensive: [0, 3, 1, 0, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
         utility: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        runes: [Runes.greaterMarkOfInsight, Runes.greaterGlyphOfFocus, Runes.greaterSealOfVitality, Runes.greaterQuintOfPotency
+        runes: [Runes.greaterMarkOfInsight, Runes.greaterGlyphOfFocus, Runes.greaterSealOfVitality, Runes.greaterQuintOfPotency]
     },
     "Kayle": {
         name: 'kayle',
@@ -1867,7 +1867,7 @@ var Characters = {
         utility: [1, 1, 3, 1, 4, 0, 0, 0, 3, 0, 0, 4, 0, 0, 3, 1],
         runes: [Runes.greaterMarkOfInsight, Runes.greaterSealOfReplenishment, Runes.greaterGlyphOfWarding, Runes.greaterQuintOfSwiftness]
     },
-    "Sejuanu": {
+    "Sejuani": {
         name: 'sejuani',
         stats: {
             "HP": 1908,
@@ -2474,7 +2474,7 @@ var Characters = {
             "Дистанция атаки": 125,
             "Шанс крита": '0%',
             "Скорость бега": 320
-        }
+        },
         items: [Items.malady, Items.bansheesVeil, Items.hextechGunblade, Items.theBlackCleaver, Items.guardianAngel, Items.sunfireCape],
         spells: [Spells.smite, Spells.flash],
         skills: [Skills.huntersCall, Skills.hungeringStrike, Skills.hungeringStrike, Skills.huntersCall, Skills.hungeringStrike, Skills.infiniteDuress, Skills.hungeringStrike, Skills.bloodScent, Skills.hungeringStrike, Skills.bloodScent, Skills.infiniteDuress, Skills.bloodScent, Skills.bloodScent, Skills.bloodScent, Skills.huntersCall, Skills.infiniteDuress, Skills.huntersCall, Skills.huntersCall],

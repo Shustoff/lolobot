@@ -47,7 +47,6 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
                     null
             )
             .disableSelection()
-        console.log 'action'
 
     # Помечаем активную ссылку
     $scope.markActiveClass = (key) ->

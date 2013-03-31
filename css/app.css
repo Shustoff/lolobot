@@ -159,6 +159,7 @@ h1 {margin-bottom: 0px; margin-left: -30px;}
 .skills p img {vertical-align: bottom;}
 .skills span {float: right; margin-top: -15px;}
 .skills-inner {
+    position: relative;
     padding-right: 10px;
     background: url(../img/skills-bg.png) no-repeat left top;
 }
@@ -290,8 +291,8 @@ audio {width: 230px; margin-top: 10px; outline: none;}
 /*Интерактивный блок рун*/
 .inner-runes {
     position: absolute;
-    margin-left: -20px;
-    margin-top: -210px;
+    margin-left: 20px;
+    margin-top: -180px;
     padding: 15px;
     border-radius: 10px;
     width: 345px;

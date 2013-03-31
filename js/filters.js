@@ -11,7 +11,6 @@ LOL.filter('initItems', function(localService) {
       }
       numberItem++;
     }
-    Tooltips.items();
     return items;
   };
 });
@@ -27,7 +26,6 @@ LOL.filter('initSpells', function(localService) {
       }
       numberSpell++;
     }
-    Tooltips.spells();
     return spells;
   };
 });
@@ -96,7 +94,6 @@ LOL.filter('initSkills', function(localService, $routeParams) {
       }
       numberSkill++;
     }
-    Tooltips[$routeParams.name || 'Ahri']();
     return skills;
   };
 });
@@ -112,9 +109,6 @@ LOL.filter('initOffensive', function(localService, $timeout) {
       }
       numberMaster++;
     }
-    $timeout(function() {
-      return Tooltips.masteries();
-    }, 100);
     return offensive;
   };
 });

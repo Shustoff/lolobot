@@ -21,7 +21,7 @@
 			xOffset: 30,
 			yOffset: 25,
 			tooltipId: "easyTooltip",
-			clickRemove: false,
+			clickRemove: true,
 			content: "",
 			useElement: ""
 		}; 

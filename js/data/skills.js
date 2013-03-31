@@ -472,6 +472,7 @@ var Skills = {
     "heightenedLearning": "img/skills/zilean-h.png",
     "rewind": "img/skills/zilean-r.png",
     "timeWrap": "img/skills/zilean-u.png",
+    "timeBomb": "img/skills/zilean-time-bomb.png",
     "rampage": "img/skills/hecarim-rampage.png",
     "devastatingCharge": "img/skills/hecarim-devastating-charge.png",
     "onslaughtOfShadows": "img/skills/hecarim-onslaught-of-shadows.png",

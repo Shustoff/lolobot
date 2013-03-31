@@ -6,7 +6,6 @@ LOL.filter('initItems', (localService) ->
             locItem = name + 'Item' + numberItem
             items[i] = localService.get locItem if localService.get(locItem)?
             numberItem++
-        Tooltips.items()
         items
 )
 
@@ -18,7 +17,6 @@ LOL.filter('initSpells', (localService) ->
             locSpell = name + 'Spell' + numberSpell
             spells[i] = localService.get locSpell if localService.get(locSpell)?
             numberSpell++
-        Tooltips.spells()
         spells
 )
 
@@ -59,7 +57,6 @@ LOL.filter('initSkills', (localService, $routeParams) ->
             locSkill = name + 'Skill' + numberSkill
             skills[i] = localService.get locSkill if localService.get(locSkill)?
             numberSkill++   
-        Tooltips[$routeParams.name || 'Ahri']()
         skills
 )
 
@@ -71,9 +68,6 @@ LOL.filter('initOffensive', (localService, $timeout) ->
             locOff = name + numberMaster
             offensive[i] = localService.get locOff if localService.get(locOff)?
             numberMaster++
-        $timeout( () ->
-            Tooltips.masteries()
-        , 100)
         offensive
 )
 

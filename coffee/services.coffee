@@ -1,4 +1,4 @@
-LOL.factory 'localService', () ->
+LOL.factory 'localService', ->
 	set: (n,m) ->
 		localStorage.setItem n,m
 
@@ -13,4 +13,4 @@ LOL.factory 'localService', () ->
 		    localStorage.clear();
 		    window.location.reload();
 	    catch error
-	        alert "Не удалось очистить локальное хранилище:" + error
+	        alert "Не удалось очистить локальное хранилище: #{error}"

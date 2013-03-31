@@ -21,10 +21,9 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
   $scope.utility = Characters[$scope.name].utility;
   $scope.runes = Characters[$scope.name].runes;
   $scope.$on('$routeChangeSuccess', function(scope, next, current) {
-    $('.inner-items').draggable();
-    $('.inner-spells').draggable();
-    $('.inner-runes').draggable();
-    return $('.skills-inner').sortable({
+    $('#block').hide();
+    $('.inner-items, .inner-spells, .inner-runes').draggable();
+    $('.skills-inner').sortable({
       placeholder: 'placehold',
       revert: 'true',
       items: 'img',
@@ -33,19 +32,24 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
         var saves;
         saves = $(ui.item).siblings().andSelf();
         localService = angular.element('html').injector().get('localService');
-        $(saves).each(function() {
+        return $(saves).each(function() {
           var item;
-          item = $('.image img').attr('id') + 'Skill' + $(this).index();
+          item = $scope.name + 'Skill' + $(this).index();
           try {
-            localService.set(item, $(this).attr('src'));
+            return localService.set(item, $(this).attr('src'));
           } catch (error) {
-            alert("Сохранить в локальное хранилище не удалось: " + error);
+            return alert("Сохранить в локальное хранилище не удалось: " + error);
           }
-          return null;
         });
-        return null;
       }
     }).disableSelection();
+    $('#block').fadeIn(1000);
+    return $timeout(function() {
+      Tooltips.items();
+      Tooltips.spells();
+      Tooltips[$scope.name]();
+      return Tooltips.masteries();
+    }, 100);
   });
   $scope.markActiveClass = function(key) {
     if ($routeParams.name === key) {
@@ -88,12 +92,12 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
     $('.inner-items > img').css('opacity', '1');
     $(target).css('opacity', '0.3');
     $($scope.selectedItem).attr('src', item);
-    item = $('.image img').attr('id') + 'Item' + $($scope.selectedItem).index();
+    item = $scope.name + 'Item' + $($scope.selectedItem).index();
     try {
       localService.set(item, $(target).attr('ng-src'));
       $scope.hideItemsBlock();
-    } catch (e) {
-      alert("Сохранить в локальное хранилище не удалось: " + e);
+    } catch (error) {
+      alert("Сохранить в локальное хранилище не удалось: " + error);
     }
     $timeout(function() {
       return Tooltips.items();
@@ -104,12 +108,12 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
     var target;
     target = $event.target;
     $($scope.selectedSpell).attr('src', spell);
-    spell = $('.image img').attr('id') + 'Spell' + $($scope.selectedSpell).index();
+    spell = $scope.name + 'Spell' + $($scope.selectedSpell).index();
     try {
       localService.set(spell, $(target).attr('ng-src'));
       $scope.hideSpellsBlock();
-    } catch (e) {
-      alert("Сохранить в локальное хранилище не удалось: " + e);
+    } catch (error) {
+      alert("Сохранить в локальное хранилище не удалось: " + error);
     }
     $timeout(function() {
       return Tooltips.spells();
@@ -120,12 +124,12 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
     var clonedEl, cloner, target;
     target = $event.target;
     $($scope.selectedRune).attr('ng-src', rune);
-    rune = $('.image img').attr('id') + 'Rune' + $($scope.selectedRune).index();
+    rune = $scope.name + 'Rune' + $($scope.selectedRune).index();
     try {
       localService.set(rune, $(target).attr('ng-src'));
       $scope.hideRunesBlock();
-    } catch (e) {
-      alert("Сохранить в локальное хранилище не удалось: " + e);
+    } catch (error) {
+      alert("Сохранить в локальное хранилище не удалось: " + error);
     }
     cloner = $('.runes > div > div').clone();
     $('.runes > div > div').remove();
@@ -163,7 +167,7 @@ LOL.controller('MainCtrl', function($timeout, $compile, $scope, $routeParams, lo
   $scope.saveMasteries = function() {
     $('table p > span:first-child').each(function() {
       var item;
-      item = $('.image img').attr('id') + $(this).attr('id');
+      item = $scope.name + $(this).attr('id');
       try {
         localService.set(item, $(this).text());
       } catch (error) {

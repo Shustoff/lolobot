@@ -16,7 +16,7 @@ LOL.factory('localService', function() {
         localStorage.clear();
         return window.location.reload();
       } catch (error) {
-        return alert("Не удалось очистить локальное хранилище:" + error);
+        return alert("Не удалось очистить локальное хранилище: " + error);
       }
     }
   };

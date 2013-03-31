@@ -8,7 +8,6 @@ LOL.run(function() {
 });
 
 LOL.config(function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(false);
   $routeProvider.when('/', {
     redirectTo: '/Ahri'
   });
@@ -16,5 +15,6 @@ LOL.config(function($routeProvider, $locationProvider) {
     controller: 'MainCtrl',
     template: $('#tabs').html()
   });
+  $locationProvider.html5Mode(false);
   return null;
 });

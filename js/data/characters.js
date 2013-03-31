@@ -1089,7 +1089,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 310
         },
-        items: [Items.aegisOfTheLegion, Items.shurelyasReverie, Items.locketOfTheIronSolari, Items.bansheesVeil, Items.frozenHeart],
+        items: [Items.aegisOfTheLegion, Items.shurelyasReverie, Items.locketOfTheIronSolari, Items.bansheesVeil, Items.frozenHeart, Items.rylaisCrystalScepter],
         spells: [Spells.flash, Spells.clairvoyance],
         skills: [Skills.eyeOfTheStorm, Skills.howlingGale, Skills.eyeOfTheStorm, Skills.zephyr, Skills.eyeOfTheStorm, Skills.monsoon, Skills.eyeOfTheStorm, Skills.zephyr, Skills.eyeOfTheStorm, Skills.zephyr, Skills.zephyr, Skills.zephyr, Skills.monsoon, Skills.howlingGale, Skills.howlingGale, Skills.monsoon, Skills.howlingGale, Skills.howlingGale],
         offensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1133,7 +1133,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 325
         },
-        items: [Items.guinsoosRageblade, Items.hextechGunblade, Items.rylaisCrystalScepter, Items.lichBane, Items.rabadonsDeathcap],
+        items: [Items.mercurysTreads, Items.guinsoosRageblade, Items.hextechGunblade, Items.rylaisCrystalScepter, Items.lichBane, Items.rabadonsDeathcap],
         spells: [Spells.flash, Spells.cleanse],
         skills: [Skills.empower, Skills.counterStrike, Skills.leapStrike, Skills.leapStrike, Skills.grandmasterMight, Skills.leapStrike, Skills.empower, Skills.leapStrike, Skills.empower, Skills.grandmasterMight, Skills.empower, Skills.counterStrike, Skills.empower, Skills.counterStrike, Skills.grandmasterMight, Skills.counterStrike, Skills.counterStrike],
         offensive: [0, 0, 4, 0, 4, 4, 0, 0, 1, 1, 3, 0, 3, 0, 0, 0, 1],
@@ -1353,7 +1353,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 310
         },
-        items: [Items.shurelyasReverie, Items.frozenHeart, Items.forceOfNature, Items.warmogsArmor, Items.aegisOfTheLegion],
+        items: [Items.mercurysTreads, Items.shurelyasReverie, Items.frozenHeart, Items.forceOfNature, Items.warmogsArmor, Items.aegisOfTheLegion],
         spells: [Spells.teleport, Spells.ghost],
         skills: [Skills.shieldOfDaybreak, Skills.zenithBlade, Skills.eclipse, Skills.eclipse, Skills.eclipse, Skills.solarFlare, Skills.eclipse, Skills.zenithBlade, Skills.eclipse, Skills.zenithBlade, Skills.solarFlare, Skills.zenithBlade, Skills.zenithBlade, Skills.shieldOfDaybreak, Skills.shieldOfDaybreak, Skills.solarFlare, Skills.shieldOfDaybreak, Skills.shieldOfDaybreak],
         offensive: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1573,7 +1573,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 325
         },
-        items: [Items.sunfireCape, Items.bansheesVeil, Items.trinityForce, Items.frozenHeart, Items.forceOfNature],
+        items: [Items.sorcerersShoes, Items.sunfireCape, Items.bansheesVeil, Items.trinityForce, Items.frozenHeart, Items.forceOfNature],
         spells: [Spells.ghost, Spells.exhaust],
         skills: [Skills.siphoningStrike, Skills.wither, Skills.siphoningStrike, Skills.spiritFire, Skills.siphoningStrike, Skills.furyOfTheSands, Skills.siphoningStrike, Skills.wither, Skills.siphoningStrike, Skills.wither, Skills.furyOfTheSands, Skills.wither, Skills.spiritFire, Skills.wither, Skills.spiritFire, Skills.furyOfTheSands, Skills.spiritFire, Skills.spiritFire],
         offensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1683,7 +1683,7 @@ var Characters = {
             "Шанс крита": '0%',
             "Скорость бега": 325
         },
-        items: [Items.warmogsArmor, Items.atmasImpaler, Items.forceOfNature, Items.trinityForce, Items.guardianAngel],
+        items: [Items.mercurysTreads, Items.warmogsArmor, Items.atmasImpaler, Items.forceOfNature, Items.trinityForce, Items.guardianAngel],
         spells: [Spells.flash, Spells.teleport],
         skills: [Skills.undertow, Skills.recklessSwing, Skills.recklessSwing, Skills.viciousStrikes, Skills.recklessSwing, Skills.ragnarok, Skills.recklessSwing, Skills.viciousStrikes, Skills.recklessSwing, Skills.viciousStrikes, Skills.ragnarok, Skills.viciousStrikes, Skills.viciousStrikes, Skills.undertow, Skills.undertow, Skills.ragnarok, Skills.undertow, Skills.undertow],
         offensive: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

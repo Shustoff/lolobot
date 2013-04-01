@@ -28,8 +28,15 @@
     <script src="js/data/tooltip-skills.js"></script>   
     <script src="js/data/tooltip-spells.js"></script>
     <script src="js/data/tooltip-runes.js"></script>
+
+    <!-- App Files -->
+    <script src="js/routes.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/controllers.js"></script>
 </head>
-<body>
+<body ng-cloak>
 <div class="container">
     <div class="row top">
         <div class="span3">
@@ -78,7 +85,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row character">
+        <div class="row character" ng-cloak>
             <div class="span11">
                 <div id="block" ng-init="doMasteriesCount()">
                     <div class='row main'>
@@ -535,12 +542,5 @@
         </div>
     </div>
 </div>
-
-<!-- App Files -->
-<script src="js/routes.js"></script>
-<script src="js/services.js"></script>
-<script src="js/filters.js"></script>
-<script src="js/directives.js"></script>
-<script src="js/controllers.js"></script>
 </body>
 </html>

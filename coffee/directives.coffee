@@ -90,7 +90,7 @@ LOL.directive 'runes', ($rootScope) ->
 		restrict: "E"
 		replace: true
 		link: (scope, element, attrs) ->
-            element.find('img').bind 'click', (e) ->
+            element.on 'click', 'img', (e) ->
                 $rootScope.typeRune = e.target.className
                 $rootScope.selectedRune = e.target
                 $rootScope.visibleInnerRunes = not $rootScope.visibleInnerRunes
@@ -104,8 +104,11 @@ LOL.directive 'innerRunes', ($timeout, $rootScope, $compile, localService) ->
 		replace: true
 		link: (scope, element, attrs) ->
             element.bind 'click', ->
-                $($rootScope.selectedRune).attr 'src', scope.rune
-                rune = scope.name + 'Rune' + $($rootScope.selectedRune).index()
+                clone = $($rootScope.selectedRune).clone()
+                $(clone).attr 'src', scope.rune
+                $(clone).insertAfter($rootScope.selectedRune)
+                $rootScope.selectedRune.remove()
+                rune = scope.name + 'Rune' + $(clone).index()
                 try 
                     localService.set rune, $(element).attr 'src'
                     scope.hideRunesBlock()

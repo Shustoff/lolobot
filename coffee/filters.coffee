@@ -37,10 +37,10 @@ LOL.filter('existsRunes', ($rootScope, $timeout, localService) ->
     (runes, typeRune) ->
         allRunes = {}
         switch typeRune
-            when 'mark' then reg = /MO/gi; src = $('.mark').attr 'ng-src'
-            when 'seal' then reg = /SO/gi; src = $('.seal').attr 'ng-src'
-            when 'glyph' then reg = /GO/gi; src = $('.glyph').attr 'ng-src'
-            when 'quint' then reg = /QO/gi; src = $('.quint').attr 'ng-src'
+            when 'mark' then reg = /MO/gi; src = $('.mark').attr 'src'
+            when 'seal' then reg = /SO/gi; src = $('.seal').attr 'src'
+            when 'glyph' then reg = /GO/gi; src = $('.glyph').attr 'src'
+            when 'quint' then reg = /QO/gi; src = $('.quint').attr 'src'
             else reg = /MO/gi
         for key, value of runes
             if (not reg.test value) or (value is src) then continue

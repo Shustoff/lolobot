@@ -13,6 +13,7 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
     $scope.AllItems = Items
     $scope.AllSpells = Spells
     $scope.AllRunes = Runes
+
     $scope.name = $routeParams.name || 'Ahri'
     $scope.stats = Characters[$scope.name].stats
     $scope.items = Characters[$scope.name].items
@@ -55,7 +56,6 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
             Tooltips[$scope.name]()
             Tooltips.masteries()
             Tooltips.runes()
-        , 100  
 
     # Помечаем активную ссылку
     $scope.markActiveClass = (key) ->
@@ -65,25 +65,22 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
     $scope.resetBuilds = ->
         localService.reset()
 
-    # Показываем блок с рунами
-    ###$scope.showRunesBlock = ($event) ->
-        $scope.selectedRune = $event.target
-        $scope.visibleInnerRunes = not $scope.visibleInnerRunes
-        null###
-
     # Скрываем блок с итемами
     $scope.hideItemsBlock = ->
         $scope.visibleInnerItems = not $scope.visibleInnerItems
+        $timeout -> Tooltips.items()
         null
 
     # Скрываем блок со спеллами
     $scope.hideSpellsBlock = ->
         $scope.visibleInnerSpells = not $scope.visibleInnerSpells
+        $timeout -> Tooltips.spells()
         null
 
     # Скрываем блок с рунами
     $scope.hideRunesBlock = ->
         $rootScope.visibleInnerRunes = not $rootScope.visibleInnerRunes
+        $timeout -> Tooltips.runes()
         null
 
 
@@ -126,9 +123,9 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
     # Сохранение мастерис
     $scope.saveMasteries = ->
         $('table p > span:first-child').each ->
-            item = $scope.name + $(this).attr 'id'
+            item = $scope.name + $(@).attr 'id'
             try
-                localService.set item, $(this).text()
+                localService.set item, $(@).text()
             catch error
                 alert "Сохранить в локальное хранилище не удалось: #{error}"
             $scope.isCanSave = false

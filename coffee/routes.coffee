@@ -1,5 +1,5 @@
 # Создаем модуль приложения
-LOL = angular.module('lol', [])
+LOL = angular.module('lol', []).value('$anchorScroll', angular.noop)
 
 # При запуске генерируем модальное окно бутстрапа
 LOL.run ->

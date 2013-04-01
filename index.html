@@ -14,7 +14,6 @@
     <script src="js/libs/angular.js"></script>
     <script src="js/libs/bootstrap-modal.js"></script>
     <script src="js/libs/easyTooltip.js"></script>
-
     <!-- Data -->
     <script src="js/data/skills.js"></script>
     <script src="js/data/masteries.js"></script>
@@ -36,8 +35,13 @@
     <script src="js/directives.js"></script>
     <script src="js/controllers.js"></script>
 </head>
+<<<<<<< HEAD
 <body ng-cloak>
 <div class="container">
+=======
+<body>
+<div class="container" ng-cloak>
+>>>>>>> ce639e4db6765226c5367a57bb277143bef99031
     <div class="row top">
         <div class="span3">
             <h1>LoLoBoT</h1>
@@ -98,35 +102,40 @@
                             <img ng-src='img/characters/{{ name }}.png' id='{{ name }}'/>
                         </div>
                         <div class='span6'>
+                            
                             <div class='items'>
                                 <p>Сборка: </p>
                                 <div>
-                                    <img ng-click="showItemsBlock($event)" ng-repeat="item in items | initItems:name" ng-src='{{ item }}'/>
+                                    <items ng-repeat='item in items | initItems:name' ng-src='{{ item }}'></items>
                                 </div>
                             </div>
+                            
                             <div ng-show="visibleInnerItems" class='inner-items ui-droppable'>
-                                <h3>Предметы:</h3>
-                                <span ng-click="hideItemsBlock()">X</span>
-                                <img ng-click="addItemInBuild(item, $event)" ng-repeat="item in AllItems" ng-src="{{ item }}">
-                            </div>  
+                                 <h3>Предметы:</h3>
+                                 <span ng-click="hideItemsBlock()">X</span>
+                                 <inner-items ng-repeat='item in AllItems' ng-src='{{ item }}'></inner-items>
+                             </div>  
+
                             <div class='skills'>
                                 <p>Скиллы (перетаскивайте, для изменения порядка):
                                     <span class='spells'>
-                                        <img ng-click="showSpellsBlock($event)" ng-repeat="spell in spells | initSpells:name" ng-src='{{ spell }}' />
+                                        <spells ng-repeat="spell in spells | initSpells:name" ng-src='{{ spell }}'></spells>
                                     </span>
                                 </p>
                                 <div ng-show="visibleInnerSpells" class='inner-spells ui-droppable'>
                                     <h2>Спеллы:</h2>
                                     <span ng-click="hideSpellsBlock()">X</span>
-                                    <img ng-click="addSpellInBuild(spell, $event)" ng-repeat="spell in AllSpells | existsSpells" ng-src="{{ spell }}">
+                                    <inner-spells ng-repeat="spell in AllSpells | existsSpells" ng-src="{{ spell }}"></inner-spells>
                                 </div>
                                 <div class='skills-inner'>
-                                    <img ng-repeat="skill in skills | initSkills:name" ng-src='{{ skill }}' />
+                                    <skills ng-repeat="skill in skills | initSkills:name" ng-src='{{ skill }}'></skills>
                                 </div>
                             </div>
+
                         </div>
                         <div class='clear'></div>
                     </div>
+
                     <div class="row masteries">
                         <div class="span4">
                             <table class="offensive" ng-init="offensive | initOffensive: name">
@@ -511,22 +520,20 @@
                             <button class="reset-button btn btn-danger" ng-click="resetMasteries()">Сбросить мастерис</button>
                         </div>
                     </div>
+
                     <div class="row runes" ng-init="runes | initRunes: name">
                         <div class="span6 offset3">
                             <h2>Руны:</h2>
-                            <div>
-                                <img class="mark" ng-click="showRunesBlock($event); $root.typeRune = 'mark'" ng-src="{{ runes[0] }}"/>x9
-                                <img class="seal" ng-click="showRunesBlock($event); $root.typeRune = 'seal'" ng-src="{{ runes[1] }}"/>x9
-                                <img class="glyph" ng-click="showRunesBlock($event); $root.typeRune = 'glyph'" ng-src="{{ runes[2] }}"/>x9
-                                <img class="quint" ng-click="showRunesBlock($event); $root.typeRune = 'quint'" ng-src="{{ runes[3] }}" />x3
-                            </div>
+                            <runes></runes>
                         </div>
                     </div>
-                    <div ng-show="visibleInnerRunes" class='inner-runes ui-droppable'>
+
+                    <div ng-show="$root.visibleInnerRunes" class='inner-runes ui-droppable'>
                         <h3>Руны:</h3>
                         <span ng-click="hideRunesBlock()">X</span>
-                        <img ng-click="addRuneInBuild(rune, $event)" ng-repeat="rune in AllRunes | existsRunes:typeRune" ng-src="{{ rune }}">
+                        <inner-runes ng-repeat="rune in AllRunes | existsRunes:$root.typeRune" ng-src="{{ rune }}"></inner-runes>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -542,5 +549,14 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+<!-- App Files -->
+<script src="js/routes.js"></script>
+<script src="js/services.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers.js"></script>
+>>>>>>> ce639e4db6765226c5367a57bb277143bef99031
 </body>
 </html>

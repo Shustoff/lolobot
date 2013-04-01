@@ -33,7 +33,7 @@ LOL.filter('existsSpells', (localService) ->
 )
 
 # Фильтруем выбранные руны
-LOL.filter('existsRunes', (localService) ->
+LOL.filter('existsRunes', ($rootScope, $timeout, localService) ->
     (runes, typeRune) ->
         allRunes = {}
         switch typeRune
@@ -45,7 +45,6 @@ LOL.filter('existsRunes', (localService) ->
         for key, value of runes
             if (not reg.test value) or (value is src) then continue
             allRunes[key] = value
-        Tooltips.runes()
         allRunes
 )
 

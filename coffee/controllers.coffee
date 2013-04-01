@@ -26,7 +26,7 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
 
     # Фиксируем проскроленную область чтобы страница не прыгала вверх
     $scope.$on '$routeChangeStart', () ->
-        $rootScope.offsetScroll = $($window).scrollTop()
+        $rootScope.offsetScroll = $(window).scrollTop()
 
     # Обновляем jQuery UI компоненты после рендера другого персонажа
     $scope.$on '$routeChangeSuccess', (scope, next, current) ->
@@ -82,23 +82,6 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
         $rootScope.visibleInnerRunes = not $rootScope.visibleInnerRunes
         $timeout -> Tooltips.runes()
         null
-
-
-    # Добавляем руны в сборку 
-    ###$scope.addRuneInBuild = (rune, $event) ->
-        target = $event.target
-        $($scope.selectedRune).attr 'ng-src', rune
-        rune = $scope.name + 'Rune' + $($scope.selectedRune).index()
-        try 
-            localService.set(rune, $(target).attr 'ng-src')
-            $scope.hideRunesBlock()
-        catch error
-            alert "Сохранить в локальное хранилище не удалось: #{error}"
-        cloner = $('.runes > div > div').clone()
-        $('.runes > div > div').remove();
-        clonedEl = $compile(cloner)($scope)
-        $('.runes > div').append clonedEl
-        null###
 
     # Считаем прокачанные offensive
     $scope.offensiveCount = (offensive) ->

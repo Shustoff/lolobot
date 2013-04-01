@@ -107,7 +107,7 @@ LOL.directive 'innerRunes', ($timeout, $rootScope, $compile, localService) ->
                 clone = $($rootScope.selectedRune).clone()
                 $(clone).attr 'src', scope.rune
                 $(clone).insertAfter($rootScope.selectedRune)
-                $rootScope.selectedRune.remove()
+                $($rootScope.selectedRune).remove()
                 rune = scope.name + 'Rune' + $(clone).index()
                 try 
                     localService.set rune, $(element).attr 'src'

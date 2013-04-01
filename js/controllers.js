@@ -21,7 +21,7 @@ LOL.controller('MainCtrl', function($rootScope, $window, $timeout, $compile, $sc
   $scope.utility = Characters[$scope.name].utility;
   $scope.runes = Characters[$scope.name].runes;
   $scope.$on('$routeChangeStart', function() {
-    return $rootScope.offsetScroll = $($window).scrollTop();
+    return $rootScope.offsetScroll = $(window).scrollTop();
   });
   $scope.$on('$routeChangeSuccess', function(scope, next, current) {
     $('#block').hide();
@@ -85,22 +85,6 @@ LOL.controller('MainCtrl', function($rootScope, $window, $timeout, $compile, $sc
     });
     return null;
   };
-  /*$scope.addRuneInBuild = (rune, $event) ->
-      target = $event.target
-      $($scope.selectedRune).attr 'ng-src', rune
-      rune = $scope.name + 'Rune' + $($scope.selectedRune).index()
-      try 
-          localService.set(rune, $(target).attr 'ng-src')
-          $scope.hideRunesBlock()
-      catch error
-          alert "Сохранить в локальное хранилище не удалось: #{error}"
-      cloner = $('.runes > div > div').clone()
-      $('.runes > div > div').remove();
-      clonedEl = $compile(cloner)($scope)
-      $('.runes > div').append clonedEl
-      null
-  */
-
   $scope.offensiveCount = function(offensive) {
     return _.reduce(offensive, function(i, k) {
       return (+i) + (+k);

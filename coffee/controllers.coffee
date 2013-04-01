@@ -1,5 +1,5 @@
 # Главный контроллер
-LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localService) ->
+LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $routeParams, localService) ->
     # Переменные статуса
     $scope.visibleModal = false
     $scope.visibleInnerItems = false
@@ -23,6 +23,10 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
     $scope.utility = Characters[$scope.name].utility
     $scope.runes = Characters[$scope.name].runes
 
+    # Фиксируем проскроленную область чтобы страница не прыгала вверх
+    $scope.$on '$routeChangeStart', () ->
+        $rootScope.offsetScroll = $($window).scrollTop()
+
     # Обновляем jQuery UI компоненты после рендера другого персонажа
     $scope.$on '$routeChangeSuccess', (scope, next, current) ->
         $('#block').hide()
@@ -44,11 +48,13 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
                             alert "Сохранить в локальное хранилище не удалось: #{error}" 
             .disableSelection()
         $('#block').fadeIn 1000
+        $window.scrollTo 0, $rootScope.offsetScroll
         $timeout ->
             Tooltips.items()
             Tooltips.spells()
             Tooltips[$scope.name]()
             Tooltips.masteries()
+            Tooltips.runes()
         , 100  
 
     # Помечаем активную ссылку
@@ -59,23 +65,11 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
     $scope.resetBuilds = ->
         localService.reset()
 
-    # Показываем блок с итемами
-    $scope.showItemsBlock = ($event) ->
-        $scope.selectedItem = $event.target
-        $scope.visibleInnerItems = not $scope.visibleInnerItems
-        null
-
-    # Показываем блок со спеллами
-    $scope.showSpellsBlock = ($event) ->
-        $scope.selectedSpell = $event.target
-        $scope.visibleInnerSpells = not $scope.visibleInnerSpells
-        null
-
     # Показываем блок с рунами
-    $scope.showRunesBlock = ($event) ->
+    ###$scope.showRunesBlock = ($event) ->
         $scope.selectedRune = $event.target
         $scope.visibleInnerRunes = not $scope.visibleInnerRunes
-        null
+        null###
 
     # Скрываем блок с итемами
     $scope.hideItemsBlock = ->
@@ -89,43 +83,12 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
 
     # Скрываем блок с рунами
     $scope.hideRunesBlock = ->
-        $scope.visibleInnerRunes = not $scope.visibleInnerRunes
+        $rootScope.visibleInnerRunes = not $rootScope.visibleInnerRunes
         null
 
-    # Добавляем итем в сборку
-    $scope.addItemInBuild = (item, $event) ->
-        target = $event.target
-        $('.inner-items > img').css 'opacity', '1'
-        $(target).css 'opacity', '0.3'
-        $($scope.selectedItem).attr('src', item)    
-        item = $scope.name + 'Item' + $($scope.selectedItem).index()
-        try
-            localService.set(item, $(target).attr 'ng-src')
-            $scope.hideItemsBlock()
-        catch error
-            alert "Сохранить в локальное хранилище не удалось: #{error}"
-        $timeout -> 
-            Tooltips.items()
-        , 100
-        null
-
-    # Добавляем спелл в сборку
-    $scope.addSpellInBuild = (spell, $event) ->
-        target = $event.target
-        $($scope.selectedSpell).attr 'src', spell    
-        spell = $scope.name + 'Spell' + $($scope.selectedSpell).index()
-        try
-            localService.set(spell, $(target).attr 'ng-src')
-            $scope.hideSpellsBlock()
-        catch error
-            alert "Сохранить в локальное хранилище не удалось: #{error}"
-        $timeout -> 
-            Tooltips.spells() 
-        , 100
-        null
 
     # Добавляем руны в сборку 
-    $scope.addRuneInBuild = (rune, $event) ->
+    ###$scope.addRuneInBuild = (rune, $event) ->
         target = $event.target
         $($scope.selectedRune).attr 'ng-src', rune
         rune = $scope.name + 'Rune' + $($scope.selectedRune).index()
@@ -138,7 +101,7 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
         $('.runes > div > div').remove();
         clonedEl = $compile(cloner)($scope)
         $('.runes > div').append clonedEl
-        null
+        null###
 
     # Считаем прокачанные offensive
     $scope.offensiveCount = (offensive) ->
@@ -155,15 +118,6 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
          _.reduce utility, (i, k) ->
             (+i) + (+k)
 
-    # Сброс мастерис
-    $scope.resetMasteries = ->
-        $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        $scope.doMasteriesCount()
-        $scope.isCanSave = true
-        null
-
     # Считаем общее количество прокачанных мастерис
     $scope.doMasteriesCount = ->
         $scope.masteriesCount = $scope.offensiveCount($scope.offensive) + $scope.defensiveCount($scope.defensive) + $scope.utilityCount($scope.utility)
@@ -179,6 +133,15 @@ LOL.controller('MainCtrl', ($timeout, $compile, $scope, $routeParams, localServi
                 alert "Сохранить в локальное хранилище не удалось: #{error}"
             $scope.isCanSave = false
             null
+        null
+
+    # Сброс мастерис
+    $scope.resetMasteries = ->
+        $scope.offensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.defensive = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.utility = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        $scope.doMasteriesCount()
+        $scope.isCanSave = true
         null
 
     # Прокачиваем offensive

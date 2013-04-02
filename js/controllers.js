@@ -24,7 +24,7 @@ LOL.controller('MainCtrl', function($rootScope, $window, $timeout, $compile, $sc
     return $rootScope.offsetScroll = $(window).scrollTop();
   });
   $scope.$on('$routeChangeSuccess', function(scope, next, current) {
-    $('#block').hide();
+    $('#block').hide().fadeIn(1000);
     $('.inner-items, .inner-spells, .inner-runes').draggable();
     $('.skills-inner').sortable({
       placeholder: 'placehold',
@@ -46,7 +46,6 @@ LOL.controller('MainCtrl', function($rootScope, $window, $timeout, $compile, $sc
         });
       }
     }).disableSelection();
-    $('#block').fadeIn(1000);
     $window.scrollTo(0, $rootScope.offsetScroll);
     return $timeout(function() {
       Tooltips.items();
@@ -105,11 +104,13 @@ LOL.controller('MainCtrl', function($rootScope, $window, $timeout, $compile, $sc
     return $scope.masteriesCount;
   };
   $scope.saveMasteries = function() {
-    $('table p > span:first-child').each(function() {
+    var masteries;
+    masteries = ($scope.offensive.concat($scope.defensive)).concat($scope.utility);
+    _.each(masteries, function(element, index) {
       var item;
-      item = $scope.name + $(this).attr('id');
+      item = $scope.name + (index + 1);
       try {
-        localService.set(item, $(this).text());
+        localService.set(item, element);
       } catch (error) {
         alert("Сохранить в локальное хранилище не удалось: " + error);
       }

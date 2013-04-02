@@ -25,12 +25,11 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
     $scope.runes = Characters[$scope.name].runes
 
     # Фиксируем проскроленную область чтобы страница не прыгала вверх
-    $scope.$on '$routeChangeStart', () ->
-        $rootScope.offsetScroll = $(window).scrollTop()
+    $scope.$on '$routeChangeStart', () -> $rootScope.offsetScroll = $(window).scrollTop()
 
     # Обновляем jQuery UI компоненты после рендера другого персонажа
     $scope.$on '$routeChangeSuccess', (scope, next, current) ->
-        $('#block').hide()
+        $('#block').hide().fadeIn 1000
         $('.inner-items, .inner-spells, .inner-runes').draggable()
         $('.skills-inner')
             .sortable
@@ -48,7 +47,6 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
                         catch error
                             alert "Сохранить в локальное хранилище не удалось: #{error}" 
             .disableSelection()
-        $('#block').fadeIn 1000
         $window.scrollTo 0, $rootScope.offsetScroll
         $timeout ->
             Tooltips.items()
@@ -105,10 +103,11 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
 
     # Сохранение мастерис
     $scope.saveMasteries = ->
-        $('table p > span:first-child').each ->
-            item = $scope.name + $(@).attr 'id'
+        masteries = ($scope.offensive.concat($scope.defensive)).concat($scope.utility)
+        _.each masteries, (element, index) ->
+            item = $scope.name + (index + 1)
             try
-                localService.set item, $(@).text()
+                localService.set item, element
             catch error
                 alert "Сохранить в локальное хранилище не удалось: #{error}"
             $scope.isCanSave = false

@@ -1,5 +1,5 @@
 # Главный контроллер
-LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $routeParams, localService) ->
+LOL.controller 'MainCtrl', ($scope, $rootScope, $window, $timeout, $compile, $routeParams, localService) ->
     # Переменные статуса
     $scope.visibleModal = false
     $scope.visibleInnerItems = false
@@ -145,4 +145,3 @@ LOL.controller('MainCtrl', ($rootScope, $window, $timeout, $compile, $scope, $ro
         null
 
     null
-)

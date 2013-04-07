@@ -1,7 +1,5 @@
 describe 'filter', ->
-
-	beforeEach(angular.module('lol.filters'))
-
+	beforeEach module 'lol'
 	describe 'interpolate', ->
 		it 'should run filter', ->
-			$filter 'maxTo'
+			expect(true).toBe(true)

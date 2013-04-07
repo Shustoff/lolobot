@@ -1,10 +1,8 @@
 describe 'directives', ->
-  beforeEach(angular.module('lol.directives'))
+  beforeEach module 'lol'
 
   describe 'app-version', ->
-
-    it 'should print current version', ->
-      module ($provide) ->
+    it 'should print current version', module ($provide) ->
         $provide.value 'version', 'TEST_VER'
 
       inject ($compile, $rootScope) ->

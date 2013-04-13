@@ -1,7 +1,6 @@
 # Главный контроллер
 LOL.controller 'MainCtrl', ($scope, $rootScope, $window, $timeout, $compile, $routeParams, localService) ->
     # Переменные статуса
-    $scope.visibleModal = false
     $scope.visibleInnerItems = false
     $scope.visibleInnerSpells = false
     $scope.visibleInnerRunes = false

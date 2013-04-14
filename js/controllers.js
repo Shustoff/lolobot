@@ -63,21 +63,21 @@ LOL.controller('MainCtrl', function($scope, $rootScope, $window, $timeout, $comp
     return localService.reset();
   };
   $scope.hideItemsBlock = function() {
-    $scope.visibleInnerItems = !$scope.visibleInnerItems;
+    $scope.visibleInnerItems = false;
     $timeout(function() {
       return Tooltips.items();
     });
     return null;
   };
   $scope.hideSpellsBlock = function() {
-    $scope.visibleInnerSpells = !$scope.visibleInnerSpells;
+    $scope.visibleInnerSpells = false;
     $timeout(function() {
       return Tooltips.spells();
     });
     return null;
   };
   $scope.hideRunesBlock = function() {
-    $rootScope.visibleInnerRunes = !$rootScope.visibleInnerRunes;
+    $rootScope.visibleInnerRunes = false;
     $timeout(function() {
       return Tooltips.runes();
     });

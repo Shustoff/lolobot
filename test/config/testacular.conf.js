@@ -4,6 +4,7 @@ files = [
   JASMINE,
   JASMINE_ADAPTER,
   'js/libs/jquery.js',
+  'js/libs/underscore.js',
   'js/libs/bootstrap-modal.js',
   'js/libs/angular.js',
   'test/libs/angular/angular-mocks.js',

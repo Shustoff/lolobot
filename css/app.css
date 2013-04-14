@@ -11,6 +11,10 @@ body {
     font-family: 'Helvetica Neue', Arial;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+     display: none !important;
+}
+
 .top {
     text-align: center;
     text-shadow: 1px 1px 3px #fff;
@@ -345,8 +349,4 @@ a.cancel {
 #myModal,
 .masterCount {
     display: none;
-}
-
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
 }

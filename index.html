@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- manifest="lol.appcache" -->
-<html ng-app="lol" >
+<html ng-app="lol">
 <head>
     <title>Создай свой билд League of legends!</title>
     <meta charset="utf-8">
@@ -51,8 +51,7 @@
 
                 <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
                     <li ng-repeat="(key, value) in Characters" class="ng-scope ui-state-default ui-corner-top">
-                        <a ng-href="#/{{ key }}" class="ng-binding ui-tabs-anchor" ng-class="markActiveClass(key)">
-                            {{ key }}
+                        <a ng-href="#/{{ key }}" class="ng-binding ui-tabs-anchor" ng-class="markActiveClass(key)" ng-bind="key">
                         </a>
                     </li>
                 </ul>
@@ -525,6 +524,7 @@
 <script src="js/libs/angular.js"></script>
 <script src="js/libs/bootstrap-modal.js"></script>
 <script src="js/libs/easyTooltip.js"></script>
+
 <!-- Data -->
 <script src="js/data/skills.js"></script>
 <script src="js/data/masteries.js"></script>

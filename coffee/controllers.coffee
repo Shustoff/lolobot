@@ -59,24 +59,23 @@ LOL.controller 'MainCtrl', ($scope, $rootScope, $window, $timeout, $compile, $ro
         'ui-tabs-active ui-state-active' if $routeParams.name is key
 
     # Сбрасываем все билды
-    $scope.resetBuilds = ->
-        localService.reset()
+    $scope.resetBuilds = -> localService.reset()
 
     # Скрываем блок с итемами
     $scope.hideItemsBlock = ->
-        $scope.visibleInnerItems = not $scope.visibleInnerItems
+        $scope.visibleInnerItems = false
         $timeout -> Tooltips.items()
         null
 
     # Скрываем блок со спеллами
     $scope.hideSpellsBlock = ->
-        $scope.visibleInnerSpells = not $scope.visibleInnerSpells
+        $scope.visibleInnerSpells = false
         $timeout -> Tooltips.spells()
         null
 
     # Скрываем блок с рунами
     $scope.hideRunesBlock = ->
-        $rootScope.visibleInnerRunes = not $rootScope.visibleInnerRunes
+        $rootScope.visibleInnerRunes = false
         $timeout -> Tooltips.runes()
         null
 

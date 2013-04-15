@@ -1,10 +1,25 @@
-describe 'directives', ->
-  beforeEach module 'lol'
+describe 'LOL testing directives', ->
 
-  describe 'app-version', ->
-    it 'should print current version', module ($provide) ->
-        $provide.value 'version', 'TEST_VER'
+	beforeEach module 'lol'
+	
+	describe 'Stats testing', ->
 
-      inject ($compile, $rootScope) ->
-        element = $compile('<span app-version></span>') $rootScope
-        expect(element.text()).toEqual 'TEST_VER'
+		scope = null
+		el = null
+
+		beforeEach inject ($rootScope, $compile, $controller) ->
+			el = angular.element "<stats></stats>"
+			scope = $rootScope
+			ctrl = $controller 'MainCtrl', $scope: scope
+			$compile(el)(scope)
+			scope.$digest()
+
+		it 'should be 10 stats for character', ->
+			lists = el.find 'li'
+			expect(lists.length).toBe 10
+
+		it 'stats should be an Object with params', ->
+			expect(scope.stats).toEqual jasmine.any Object
+
+	describe 'Items testing', ->
+		

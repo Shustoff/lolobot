@@ -166,9 +166,9 @@ LOL.filter('initRunes', function(localService) {
 });
 
 LOL.filter('maxTo', function() {
-  return function(input, num) {
-    if (input >= num) {
-      return num;
+  return function(input, max) {
+    if (input >= max) {
+      return max;
     } else {
       return input;
     }

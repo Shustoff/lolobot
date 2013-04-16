@@ -105,6 +105,6 @@ LOL.filter('initRunes', (localService) ->
 
 # Фильтр максимального значения
 LOL.filter('maxTo', () ->
-    (input, num) ->
-        if input >= num then num else input
+    (input, max) ->
+        if input >= max then max else input
 )

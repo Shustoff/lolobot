@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!-- manifest="lol.appcache" -->
-<html ng-app="lol">
+<html ng-app="lol" manifest="lol.appcache">
 <head>
     <title>Создай свой билд League of legends!</title>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="i-ys_rCCr7ub-eZJO84Q4JPbChPLbZ2zXb3lmEo3TEI" />
     <script>if (document.all && !document.querySelector || !document.getElementsByClassName) {window.location = 'ie.html';}</script>
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/app.min.css" />
     <link rel="shortcut icon" href="http://faviconist.com/icons/b12151012d5405269628194f261bdf5a/favicon.ico" />
 </head>
 <body ng-cloak>
@@ -517,32 +516,8 @@
         </div>
     </div>
 </div>
-<!-- Libs -->
-<script src="js/libs/jquery.js"></script>
-<script src="js/libs/jquery-ui.js"></script>
-<script src="js/libs/underscore.js"></script>
-<script src="js/libs/angular.js"></script>
-<script src="js/libs/bootstrap-modal.js"></script>
-<script src="js/libs/easyTooltip.js"></script>
+<script src="js/min/data.libs.min.js"></script>
+<script src="js/min/lol.min.js"></script>
 
-<!-- Data -->
-<script src="js/data/skills.js"></script>
-<script src="js/data/masteries.js"></script>
-<script src="js/data/runes.js"></script>
-<script src="js/data/spells.js"></script>
-<script src="js/data/items.js"></script>
-<script src="js/data/images.js"></script>
-<script src="js/data/characters.js"></script>
-<script src="js/data/tooltip-items.js"></script>
-<script src="js/data/tooltip-masteries.js"></script>
-<script src="js/data/tooltip-skills.js"></script>   
-<script src="js/data/tooltip-spells.js"></script>
-<script src="js/data/tooltip-runes.js"></script>
-<!-- App Files -->
-<script src="js/routes.js"></script>
-<script src="js/services.js"></script>
-<script src="js/filters.js"></script>
-<script src="js/directives.js"></script>
-<script src="js/controllers.js"></script>
 </body>
 </html>

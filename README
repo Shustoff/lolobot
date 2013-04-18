@@ -1,1 +1,3 @@
-Создай свой билд в League of Legends!
+Lolobot - Веб-приложение для создания своего билда в League of Legends.
+При создании использовались: Coffeescript, Angular JS, jQuery, jQuery UI, Underscore, Bootstrap, Grunt, Jasmine + Testacular, Application Cache.
+Поддержка браузерами: IE9+, Chrome, Firefox, Safari, Opera.
